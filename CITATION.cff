@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "Clear_Onyx Exact Kernel: Five-Paper Set and Computational Exposition"
+message: "Please cite the individual paper used and this repository release when relying on the executable witnesses."
+type: collection
+authors:
+  - family-names: Coppa
+    given-names: Anthony Vito
+version: "2026-08-06"
+date-released: 2026-08-06

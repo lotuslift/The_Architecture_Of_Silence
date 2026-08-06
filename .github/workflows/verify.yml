@@ -1,0 +1,27 @@
+name: Verify release
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify repository hashes
+        run: python scripts/verify_release.py
+
+      - name: Run mathematical regression checks
+        run: python scripts/run_all_checks.py

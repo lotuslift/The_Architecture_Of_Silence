@@ -1,0 +1,453 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.82in,headheight=15pt,footskip=28pt]{geometry}
+\usepackage{amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{lastpage}
+
+\definecolor{onyx}{HTML}{17191C}
+\definecolor{graphite}{HTML}{4B4F55}
+\definecolor{rulegray}{HTML}{B8BBC0}
+\definecolor{papergray}{HTML}{F3F3F1}
+\definecolor{gold}{HTML}{8B6B2D}
+\definecolor{deepblue}{HTML}{244B66}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=onyx,
+  urlcolor=deepblue,
+  pdftitle={Condition and Constraint: Boundary Discipline},
+  pdfauthor={Anthony Vito Coppa},
+  pdfsubject={Minimum admissibility, recognition under reuse, self-applying charts, and lawful transport},
+  pdfkeywords={admissibility, recognition, reuse, self-application, boundary discipline, lawful transport}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small A. V. Coppa}
+\fancyhead[R]{\small Condition \& Constraint}
+\fancyfoot[L]{\small A. V. Coppa -- 22 January 2026}
+\fancyfoot[R]{\small \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{onyx}}
+  {\thesection}{0.7em}{}
+  [\vspace{0.2em}\color{rulegray}\titlerule]
+\titleformat{\subsection}
+  {\large\bfseries\color{onyx}}
+  {\thesubsection}{0.65em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .4ex minus .2ex}{1.2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus .3ex minus .2ex}{0.8ex}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.22em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.22em,topsep=0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.52em}
+\renewcommand{\arraystretch}{1.15}
+
+\newtheoremstyle{constraintstyle}
+  {0.7em}{0.7em}{\itshape}{}%
+  {\bfseries\color{onyx}}{.}{0.5em}{}
+\theoremstyle{constraintstyle}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Can}{\mathsf{can}}
+\newcommand{\Adm}{\mathsf{Adm}}
+\newcommand{\Ext}{\mathsf{Ext}}
+\newcommand{\Rec}{\mathsf{Rec}}
+\newcommand{\Fail}{\mathsf{Fail}}
+\newcommand{\Cand}{\mathsf{Cand}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\PhiG}{\varphi}
+\newcommand{\PsiG}{\psi}
+
+\newtcolorbox{abstractbox}{
+  colback=papergray,
+  colframe=rulegray,
+  boxrule=0.5pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt
+}
+\newtcolorbox{boundarybox}{
+  colback=white,
+  colframe=gold,
+  boxrule=0.65pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt,
+  title={\bfseries Jurisdiction and stopping boundary},
+  coltitle=onyx,
+  fonttitle=\normalsize
+}
+\newtcolorbox{resultbox}{
+  colback=papergray,
+  colframe=onyx,
+  boxrule=0.7pt,
+  arc=1.2pt,
+  left=9pt,right=9pt,top=8pt,bottom=8pt
+}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{0.10\textheight}
+
+{\fontsize{30}{35}\selectfont\bfseries\color{onyx} Condition \& Constraint\par}
+\vspace{0.7em}
+{\fontsize{18}{23}\selectfont\bfseries Boundary Discipline\par}
+
+\vspace{2.1em}
+\color{gold}\rule{0.62\textwidth}{1.1pt}\color{black}
+\vspace{2.0em}
+
+\begin{abstractbox}
+\textbf{Abstract.}
+This paper gives a minimum boundary calculus for admissible determination.  A candidate is admitted only where it can be posed again without collapse; recognition under reuse is kept weaker than identity.  An inscriptional witness then separates two independent requirements: nontrivial extension must be possible, and recognizability must survive the extension.  Because a chart is itself an admissible inscription, the same requirements apply when the chart is re-posed.  The resulting two-condition case split identifies two failure profiles---closure without extension and extension without recognition---and one admissible profile, interior traversal, in which difference is transported without being erased and recognition persists without requiring idempotent closure.  A separately declared whole--remainder chart yields the familiar quadratic branches and their separation $\sqrt5$; this numerical witness is conditional and is not a premise of the admissibility calculus.  The final sections state the minimum jurisdiction record required to carry a determination lawfully into a later context.
+\end{abstractbox}
+
+\vfill
+{\large Anthony Vito Coppa\par}
+{\large Independent Research\par}
+{\large 22 January 2026\par}
+\vspace{0.6em}
+{\small Jurisdiction: admissibility, schematic reuse, recognition, self-application, and transport of formal claims.\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+
+\tableofcontents
+\clearpage
+
+\section{Purpose, method, and jurisdiction}
+
+This is not cumulative argument.  It is a constraint walk.  Each part eliminates what cannot survive re-posing; no claim is intended to stand independently of the constraints that follow it.  Part~I fixes the admissibility cut.  Part~II supplies one inscriptional witness.  Part~III applies the witness conditions to the chart itself.
+
+The paper asks no question about what exists, occurs, or is true.  It asks only what must be available before a determination can be posed, re-posed, and carried without changing its jurisdiction.
+
+\begin{boundarybox}
+This paper does not introduce a theory of truth, proof, ontology, modality, time, causation, value, or empirical meaning.  The predicate $\Can$ is a gate and has no internal operation.  Recognition is not identity.  Re-posing is not temporal iteration.  The symbols used in the witness sections acquire no authority outside the explicit contracts under which they are introduced.
+\end{boundarybox}
+
+\begin{theorem}[Main boundary theorem]\label{thm:main}
+Suppose a chart of admissible reuse is itself required to satisfy the minimum witness contract it charts.  Relative to the two independent requirements
+\[
+\Ext(C): \text{the chart admits nontrivial self-reuse},
+\qquad
+\Rec(C): \text{the chart remains recognizable through that reuse},
+\]
+there are four logical profiles.  The profile $(0,0)$ is not a candidate chart; $(0,1)$ fails nontriviality; $(1,0)$ fails recognition-survival; and $(1,1)$ is the sole admissible profile at this grain.  The surviving profile is called \emph{interior traversal}: difference is transported without being erased, while recognizability persists without requiring idempotent closure.
+\end{theorem}
+
+The theorem is proved in Section~\ref{sec:geometry}.  It identifies a profile, not a unique geometric object.  Further distinctions require further structure.
+
+\section{Part I: \texorpdfstring{$\Can$}{can} --- a boundary calculus of admissibility}\label{sec:can}
+
+\begin{definition}[The cut]
+Let $\Sigma$ be a class of candidate determinations with no internal structure assumed.  The admissibility predicate
+\[
+\Can:\Sigma\longrightarrow\{\text{continuation-admitting},\text{continuation-failing}\}
+\]
+has exactly two outcomes.  No third status and no gradation are introduced at this level.
+\end{definition}
+
+\begin{definition}[Determination and collapse]
+A \emph{determination} is a candidate $\sigma\in\Sigma$ for which $\Can(\sigma)$ holds.  Collapse is the failure of a candidate to be posed again.  Collapse is a meta-level boundary description; it is not an element of $\Sigma$.
+\end{definition}
+
+\begin{definition}[Re-posing witness]
+An optional relation
+\[
+R(\sigma,\tau)
+\]
+may witness that $\tau$ is an admissible re-posing of $\sigma$.  The relation $R$ is not temporal, not iterative, and not an operator on $\Sigma$.  It does not define $\Can$; it exhibits $\Can$ when a witness chart is in use.
+\end{definition}
+
+\begin{definition}[Recognition under reuse]
+Write
+\[
+\sigma\sim\tau
+\]
+when $\sigma$ remains recognizable through the admitted re-posing represented by $\tau$.  The relation $\sim$ is neither equality nor identity.  It records survivability under reuse and nothing stronger.
+\end{definition}
+
+\begin{proposition}[The gate has no downstream content]\label{prop:gate}
+Within Part~I, $\Can$ does not rank candidates, compare determinations, define negation, supply reference, or generate a dynamics.
+\end{proposition}
+
+\begin{proof}
+Each listed operation requires structure beyond the binary decision that a candidate can or cannot be posed again.  The cut records only that decision.  Therefore none of those operations is available from $\Can$ alone.
+\end{proof}
+
+\begin{definition}[Nontriviality]
+Admissibility may be empty.  If it is nonempty and anything is to be witnessed beyond vacuous reappearance, at least one admitted reuse must register a nontrivial extension.  This requirement is denoted \emph{NT}.  Its inscriptional form is deferred to Part~II, where a chart supplies a concrete read of transport.
+\end{definition}
+
+\begin{remark}
+NT does not require failure of recognition.  Nontrivial extension and recognition-survival are independent conditions.  Keeping them separate is essential to the case split in Part~III.
+\end{remark}
+
+\begin{proposition}[Stopping point of the cut]
+Part~I exhausts its function when it has fixed the cut, the optional re-posing witness, recognition under reuse, collapse, and NT.  Any arithmetic, geometry, sequencing, memory, interpretation, or physical use lies downstream.
+\end{proposition}
+
+\section{Part II: Algebra \texorpdfstring{$\Can$}{can} --- one inscriptional witness}\label{sec:algebra}
+
+\subsection{Witness contract}
+
+Assume only that a mark can be inscribed, re-inscribed, and read after re-inscription.  Let $x$ be an admitted mark and let
+\[
+x\oplus x
+\]
+denote the result of reusing $x$ in one further admissible act of inscription.  No associativity, commutativity, unit, totality, order, duration, or arithmetic meaning is assigned to $\oplus$.
+
+\begin{definition}[Derived no-transport read]
+The notation
+\[
+x\oplus x\equiv x
+\]
+means only that this particular reuse act registers no transport beyond its input.  The symbol $\equiv$ is not introduced as a general comparison primitive between independently obtained marks.
+\end{definition}
+
+\begin{definition}[Extension]
+The inscriptional form of NT is
+\[
+\Ext(x):\quad x\oplus x\not\equiv x.
+\]
+It records a minimal event: reuse changes what is written while remaining admissible.
+\end{definition}
+
+\begin{definition}[Recognition-survival]
+For an admitted extension, define
+\[
+\Rec(x):\quad x\sim(x\oplus x).
+\]
+This condition says that recognizability survives transport.  It does not identify the input and output.
+\end{definition}
+
+\begin{proposition}[Independence of the two requirements]\label{prop:independence}
+Neither $\Ext(x)$ nor $\Rec(x)$ implies the other from the witness contract alone.
+\end{proposition}
+
+\begin{proof}
+The predicate $\Ext$ concerns whether the reuse act transports anything.  The predicate $\Rec$ concerns whether the input remains recognizable through the admitted output.  These questions have distinct truth conditions.  No clause of the witness contract links them by implication.
+\end{proof}
+
+\begin{definition}[Witness triad]
+The inscriptional witness contains three roles:
+\begin{enumerate}
+  \item the no-transport limiting case $x\oplus x\equiv x$;
+  \item nontrivial extension $\Ext(x)$;
+  \item recognition-survival $\Rec(x)$.
+\end{enumerate}
+The triad is a local witness structure, not a global classification of admissible systems.
+\end{definition}
+
+\begin{proposition}[Minimum complete witness]
+A witness of nontrivial admissible reuse requires both $\Ext(x)$ and $\Rec(x)$.  The first prevents reuse from collapsing into the no-transport case; the second prevents extension from becoming indistinguishable from replacement.
+\end{proposition}
+
+\section{Part III: Geometry \texorpdfstring{$\Can$}{can} chart --- the obstruction under self-application}\label{sec:geometry}
+
+\subsection{The chart becomes a mark}
+
+A chart of admissible reuse is itself an inscription.  It therefore falls under the same witness contract as any other admitted mark.  Let $C$ denote such a chart, and define
+\[
+\Ext(C): C\oplus C\not\equiv C,
+\qquad
+\Rec(C): C\sim(C\oplus C).
+\]
+
+\begin{theorem}[Two-condition case split]\label{thm:cases}
+The four possible profiles of $(\Ext(C),\Rec(C))$ have the following status:
+\begin{center}
+\begin{tabular}{c c p{0.57\textwidth}}
+\toprule
+$\Ext(C)$ & $\Rec(C)$ & Status \\
+\midrule
+$0$ & $0$ & The chart fails both minimum conditions and never enters as a candidate. \\
+$0$ & $1$ & Closure-aligned: recognition is secured only by transporting nothing; NT fails. \\
+$1$ & $0$ & Remainder-aligned: transport occurs without a recognition witness; continuation fails. \\
+$1$ & $1$ & Interior traversal: nontrivial transport occurs and recognition survives it. \\
+\bottomrule
+\end{tabular}
+\end{center}
+Hence $(1,1)$ is the unique admissibility profile at this grain.
+\end{theorem}
+
+\begin{proof}
+The table is the exhaustive Boolean case split on two independent requirements.  A candidate chart must satisfy both by the complete witness proposition.  The first three rows violate at least one requirement; the last violates neither.  No uniqueness of geometric realization is asserted.
+\end{proof}
+
+\begin{definition}[Interior traversal]
+Interior traversal is the profile
+\[
+\Ext(C)\wedge\Rec(C).
+\]
+It means that difference is transported rather than erased, and recognition persists without requiring the transport to close idempotently.
+\end{definition}
+
+\begin{corollary}[Boundary theorem]
+Theorem~\ref{thm:main} follows from Theorem~\ref{thm:cases}.
+\end{corollary}
+
+\begin{remark}[Not an exhaustion of imagination]
+The theorem does not enumerate every possible geometry.  It exhausts the truth profiles of the two requirements already forced by the witness contract.  Additional structure may distinguish many interior traversals without altering their shared profile.
+\end{remark}
+
+\section{A conditional whole--remainder chart}\label{sec:root5}
+
+Nothing in Parts~I--III selects a number, metric, or geometric realization.  The following witness enters only after an additional contract is declared.
+
+\begin{definition}[Self-similar whole--remainder contract]
+Let $x\ne0$ be a chart coordinate satisfying the self-similar relation
+\[
+x=1+\frac1x.
+\]
+Equivalently,
+\[
+x^2-x-1=0.
+\]
+This equation is the added chart contract; it is not derived from $\Can$.
+\end{definition}
+
+\begin{proposition}[Quadratic branches and separation]\label{prop:root5}
+The two algebraic branches are
+\[
+\PhiG=\frac{1+\sqrt5}{2},
+\qquad
+\PsiG=\frac{1-\sqrt5}{2},
+\]
+and their oriented separation is
+\[
+\PhiG-\PsiG=\sqrt5.
+\]
+\end{proposition}
+
+\begin{proof}
+Apply the quadratic formula to $x^2-x-1=0$ and subtract the two roots.
+\end{proof}
+
+\begin{remark}[Exact scope]
+The proposition proves only that this declared self-similar chart has two branches separated by $\sqrt5$.  It does not prove that every interior traversal carries this coordinate, nor that $\sqrt5$ has an ontological, physical, or semantic office.
+\end{remark}
+
+\section{Jurisdiction, bookkeeping, and lawful transport}\label{sec:transport}
+
+The constraint walk governs not only an initial determination but also its later reuse.  Reusing a result in a new context requires enough bookkeeping to show that the operation has not changed jurisdiction.
+
+\begin{definition}[Minimum jurisdiction record]
+A jurisdiction record for a transported determination is a tuple
+\[
+\mathcal J=(\Sigma,D,\sigma,R,\tau,\eta_{\Can},\eta_{\mathrm{op}},\eta_{\sim},B),
+\]
+where:
+\begin{itemize}
+  \item $\Sigma$ is the candidate class and $D\subseteq\Sigma$ the admitted domain;
+  \item $\sigma\in D$ is the source determination;
+  \item $R(\sigma,\tau)$ records the admitted reuse producing $\tau$;
+  \item $\eta_{\Can}$ witnesses admissibility in the active domain;
+  \item $\eta_{\mathrm{op}}$ records the operation actually performed;
+  \item $\eta_{\sim}$ records the recognition judgment, when one is asserted;
+  \item $B$ records the stopping boundary beyond which the result is not transported.
+\end{itemize}
+The record is bookkeeping, not additional mathematical content.
+\end{definition}
+
+\begin{definition}[Lawful transport map]
+Let $\mathcal J$ and $\mathcal J'$ be jurisdiction records.  A map $F:D\to D'$ is lawful for the asserted use when it preserves the fields actually invoked:
+\[
+\Can(\sigma)\Rightarrow\Can'(F\sigma),
+\qquad
+R(\sigma,\tau)\Rightarrow R'(F\sigma,F\tau),
+\]
+and, where recognition is claimed,
+\[
+\sigma\sim\tau\Rightarrow F\sigma\sim' F\tau.
+\]
+No preservation beyond the declared fields is inferred.
+\end{definition}
+
+\begin{theorem}[No transport by matching marks alone]\label{thm:no-coercion}
+A shared name, symbol, numerical value, dimension, or visual form does not by itself supply a lawful transport map between two jurisdiction records.
+\end{theorem}
+
+\begin{proof}
+A lawful transport map must exhibit preservation of the invoked admissibility, operation, and recognition fields.  A matching mark supplies none of these witnesses by itself.  Therefore substitution is not licensed solely by the match.
+\end{proof}
+
+\begin{corollary}[Minimum reuse discipline]
+A result may be carried forward only with its admitted domain, hypotheses, operation, output type, recognition claim, and stopping boundary recoverable.  Omitting one of these fields may produce a new statement, but it does not reproduce the old one.
+\end{corollary}
+
+\section{Conclusion}
+
+The structure is minimal.  A determination enters only where re-posing does not collapse.  A nontrivial witness requires extension and recognition-survival as independent conditions.  A chart is subject to the same requirements it charts.  Closure without extension is vacuous; extension without recognition is illegible; interior traversal carries difference without erasure and recognition without identity.
+
+The conditional whole--remainder coordinate shows how a familiar exact invariant may inhabit this profile once its own chart contract is supplied.  The jurisdiction record then fixes what must accompany any later reuse of the result.
+
+\begin{resultbox}
+\centering
+\textbf{Condition admits a determination. Constraint fixes how it may be carried.}
+\end{resultbox}
+
+Rules constrain what may be done.  Everything further belongs not to structure, but to use.
+
+\appendix
+
+\section{Formal core}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+Item & Exact office \\
+\midrule
+$\Sigma$ & Candidate class; no internal structure assumed. \\
+$\Can(\sigma)$ & Binary admissibility cut. \\
+$R(\sigma,\tau)$ & Optional witness of admitted re-posing. \\
+$\sigma\sim\tau$ & Recognition under reuse; not equality or identity. \\
+NT & At least one admitted reuse registers nontrivial extension when the framework is nonempty. \\
+$\Ext(x)$ & The reuse act transports beyond its input. \\
+$\Rec(x)$ & Recognition survives the admitted extension. \\
+Interior traversal & $\Ext(C)\wedge\Rec(C)$ for a self-applied chart. \\
+$\mathcal J$ & Minimum bookkeeping record for later reuse. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section{Strict exclusions}
+
+The paper does not establish:
+\begin{itemize}
+  \item a general logic of inference, negation, truth, or proof;
+  \item an ontology of objects, observers, states, time, or causes;
+  \item a metric, topology, dynamics, or probability theory;
+  \item a guarantee that any candidate is admissible;
+  \item a universal classification of interior traversals;
+  \item an unconditional derivation of $\sqrt5$;
+  \item a physical, cognitive, linguistic, moral, or historical interpretation;
+  \item a right to substitute objects merely because their marks coincide.
+\end{itemize}
+
+The paper stops where its witnesses stop.
+
+\end{document}

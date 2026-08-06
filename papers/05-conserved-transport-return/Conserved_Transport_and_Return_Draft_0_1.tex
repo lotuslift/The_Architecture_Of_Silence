@@ -1,0 +1,799 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.82in,headheight=15pt,footskip=28pt]{geometry}
+\usepackage{amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{mathtools,bm}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{lastpage}
+
+\definecolor{onyx}{HTML}{17191C}
+\definecolor{graphite}{HTML}{4B4F55}
+\definecolor{rulegray}{HTML}{B8BBC0}
+\definecolor{papergray}{HTML}{F3F3F1}
+\definecolor{gold}{HTML}{8B6B2D}
+\definecolor{deepblue}{HTML}{244B66}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=onyx,
+  urlcolor=deepblue,
+  pdftitle={Conserved Transport and Return},
+  pdfauthor={Anthony Vito Coppa},
+  pdfsubject={State evolution, output return, Noether currents, reversible transport, and Lorentzian gauge transport},
+  pdfkeywords={dynamical systems, return maps, Noether theorem, angular momentum, reversible systems, holonomy, Maxwell field, proper time}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small A. V. Coppa}
+\fancyhead[R]{\small Conserved Transport and Return}
+\fancyfoot[L]{\small A. V. Coppa -- 5 August 2026}
+\fancyfoot[R]{\small \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{onyx}}
+  {\thesection}{0.7em}{}
+  [\vspace{0.2em}\color{rulegray}\titlerule]
+\titleformat{\subsection}
+  {\large\bfseries\color{onyx}}
+  {\thesubsection}{0.65em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .4ex minus .2ex}{1.2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus .3ex minus .2ex}{0.8ex}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.22em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.22em,topsep=0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.52em}
+\renewcommand{\arraystretch}{1.15}
+
+\newtheoremstyle{dynamicsstyle}
+  {0.7em}{0.7em}{\itshape}{}%
+  {\bfseries\color{onyx}}{.}{0.5em}{}
+\theoremstyle{dynamicsstyle}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Hol}{\operatorname{Hol}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Dom}{\operatorname{Dom}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\Lie}{\mathcal L}
+\newcommand{\Flow}{\varphi}
+\newcommand{\State}{\mathsf{State}}
+\newcommand{\Output}{\mathsf{Output}}
+\newcommand{\Trace}{\mathsf{Trace}}
+\newcommand{\Cert}{\mathsf{Cert}}
+\newcommand{\Return}{\mathsf{Return}}
+\newcommand{\Defect}{\mathsf{Def}}
+
+\newtcolorbox{abstractbox}{
+  colback=papergray,
+  colframe=rulegray,
+  boxrule=0.5pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt
+}
+\newtcolorbox{boundarybox}{
+  colback=white,
+  colframe=gold,
+  boxrule=0.65pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt,
+  title={\bfseries Scope and evidence boundary},
+  coltitle=onyx,
+  fonttitle=\normalsize
+}
+\newtcolorbox{resultbox}{
+  colback=papergray,
+  colframe=onyx,
+  boxrule=0.7pt,
+  arc=1.2pt,
+  left=9pt,right=9pt,top=8pt,bottom=8pt
+}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{0.09\textheight}
+
+{\fontsize{28}{33}\selectfont\bfseries\color{onyx} Conserved Transport and Return\par}
+\vspace{0.75em}
+{\fontsize{17}{22}\selectfont\bfseries State Evolution, Noether Currents, and Lorentzian Gauge Transport\par}
+
+\vspace{2.0em}
+\color{gold}\rule{0.62\textwidth}{1.1pt}\color{black}
+\vspace{1.9em}
+
+\begin{abstractbox}
+\textbf{Abstract.}
+A return of a measured output, a return of the full state, conservation along a trajectory, and closure of parallel transport are different dynamical statements.  This paper constructs them in one exact but non-coercive architecture.  For an evolution family $\Flow_t$ on a state space $X$ and an output map $h:X\to Y$, output return is defined by $h(\Flow_Tx)=h(x)$ and state return by $\Flow_Tx=x$; the first need not imply the second.  A bounded-curvature return datum records the trajectory, constraint region, output reader, and return witness.  A reversible flow with involution $K$ satisfies $K\Flow_tK=\Flow_{-t}$.  The variational layer proves Noether's theorem with an explicit boundary term and its forced balance law.  In a planar central-force system, axial symmetry yields conserved angular momentum, a circular orbit gives bounded curvature and full-state periodic return, and the projective output returns after only half the state period.  Separately, an explicit Lorentzian $SO(2)$ connection carries nonzero source-free Maxwell curvature, null propagation, arbitrarily selectable loop holonomy at fixed curvature, exact bundle gluing, and endpoint-sharing timelike paths of unequal proper time.  A final equivariance theorem proves persistence of relation-valued certificates under evolution and identifies the linear commutator $[A,J]$ as the exact global symmetry defect.  The result is a self-contained dynamical model in which output, state, path, current, curvature, holonomy, and duration remain independently readable.
+\end{abstractbox}
+
+\vfill
+{\large Anthony Vito Coppa\par}
+{\large Independent Research\par}
+{\large Draft 0.1 -- 5 August 2026\par}
+\vspace{0.6em}
+{\small Jurisdiction: dynamical systems, Lagrangian mechanics, reversible flows, Abelian connections, and Lorentzian geometry.\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+
+\tableofcontents
+\clearpage
+
+\section{Purpose, jurisdiction, and main statement}
+
+A state-space model separates internal state from declared output.  A trajectory may close in an output channel while continuing in the state space; a full state may return after a nonconstant excursion; a conserved current may remain fixed while the state moves; and a connection may have fixed local curvature while its global loop transport varies.  The purpose of this paper is to place those statements in one exact dynamical construction without treating them as synonyms.
+
+The common planar generator used below is
+\[
+\Omega=
+\begin{pmatrix}
+0&1\\[-1mm]
+-1&0
+\end{pmatrix},
+\qquad
+J_0:=-\Omega=
+\begin{pmatrix}
+0&-1\\[-1mm]
+1&0
+\end{pmatrix},
+\qquad
+J_0^2=-I_2.
+\]
+It acts first as the infinitesimal generator of planar rotations and later, in a separately declared fiber, as the Lie-algebra generator of $SO(2)$ parallel transport.
+
+\begin{boundarybox}
+The following distinctions are part of the result.
+\begin{itemize}
+  \item Output return is not state return, and state return does not imply a constant trajectory.
+  \item Bounded curvature, periodicity, conservation, and Lyapunov stability are different properties.  No Lyapunov-stability claim is made below.
+  \item Noether conservation holds under the displayed variational hypotheses.  External generalized forces produce an exact balance law rather than automatic conservation.
+  \item The same matrix generator may inhabit a state-action office and a gauge-fiber office.  That reuse does not identify the carriers.
+  \item Curvature, holonomy, proper time, output value, state, and conserved current have different codomains.
+  \item A nonzero commutator is a failure of global equivariance.  It is not, by itself, a theorem of instability, loss of controllability, or loss of observability.
+  \item The paper supplies no feedback law, adaptive law, or robustness margin.  Its claims concern exact open-system geometry and transport.
+\end{itemize}
+\end{boundarybox}
+
+\begin{theorem}[D.0 -- Exact conserved-transport realization]\label{thm:main}
+There exists an explicit tuple
+\[
+\mathfrak D=
+\bigl(
+X,\Flow_t,h,\mathfrak B,K,L,J_X,
+M,g_L,E,\mathcal A_a,F,P_a,\mathcal R
+\bigr)
+\]
+with the following simultaneously inhabited properties.
+\begin{enumerate}
+  \item $h(\Flow_{T/2}x)=h(x)$ while $\Flow_{T/2}x\ne x$ for a nonzero circular-orbit state.
+  \item $\Flow_Tx=x$ while the orbit trace $t\mapsto\Flow_tx$ is nonconstant and has bounded curvature.
+  \item The flow is reversible, and its discrete step together with time reversal satisfies the standard inverse-conjugacy relation.
+  \item The rotational Noether current is conserved in the unforced central-force system and satisfies an exact input-balance law under generalized forcing.
+  \item The Lorentzian connection has nonzero source-free Maxwell curvature transported along null lines.
+  \item Its local curvature is independent of a real parameter $a$, while the holonomy around the generator of $\pi_1(S^1)$ ranges over all of $SO(2)$ as $a$ varies.
+  \item Two timelike paths with common endpoints have unequal proper time, independently of $a$ and of the Maxwell profile.
+  \item Relation-valued return certificates persist under equivariant evolution; for a linear flow, global rotational equivariance is equivalent to a vanishing generator commutator.
+\end{enumerate}
+Every equality is stated in its own carrier.  No item is used as a substitute for another.
+\end{theorem}
+
+The proof is assembled in Section~\ref{sec:assembly}.  Sections~\ref{sec:return}--\ref{sec:persistence} construct the dynamical, variational, geometric, and equivariant layers independently.
+
+\section{State, output, and return}\label{sec:return}
+
+\begin{definition}[D.1 -- Evolution family]
+Let $X$ be a state space.  An evolution family is a collection of maps $\Flow_t:X\to X$ on an admitted time set such that
+\[
+\Flow_0=\id_X,
+\qquad
+\Flow_{t+s}=\Flow_t\circ\Flow_s
+\]
+whenever both sides are defined.  If every $\Flow_t$ is invertible and $t\in\R$, the family is a flow.
+\end{definition}
+
+\begin{definition}[D.2 -- Output return, state return, and orbit trace]\label{def:return}
+Let $h:X\to Y$ be a declared output map and let $x\in X$.
+For $T>0$:
+\begin{align*}
+\Output_T(x)&:\Longleftrightarrow h(\Flow_Tx)=h(x),\\
+\State_T(x)&:\Longleftrightarrow \Flow_Tx=x,\\
+\Trace_T(x)&:=\bigl(t\mapsto\Flow_tx\bigr)_{0\le t\le T}.
+\end{align*}
+The three objects occupy $Y$, $X$, and a path space, respectively.
+\end{definition}
+
+\begin{proposition}[D.3 -- Return hierarchy]\label{prop:return-hierarchy}
+For every $x$ and $T$,
+\[
+\State_T(x)\Longrightarrow\Output_T(x).
+\]
+The converse holds when $h$ is injective on the two-point set $\{x,\Flow_Tx\}$, and may fail otherwise.  Moreover, $\State_T(x)$ does not imply that $\Trace_T(x)$ is constant.
+\end{proposition}
+
+\begin{proof}
+Apply $h$ to $\Flow_Tx=x$.  Conversely, injectivity on the two endpoints turns $h(\Flow_Tx)=h(x)$ into $\Flow_Tx=x$.  A nonconstant periodic orbit supplies the final statement.
+\end{proof}
+
+\begin{definition}[D.4 -- Bounded-curvature return datum]\label{def:bounded-return}
+Let $(Q,g_R)$ be a Riemannian configuration manifold, let $C\subseteq Q$ be a declared constraint region, and let $q:[0,T]\to Q$ be a regular $C^2$ curve with image in $C$.  Define
+\[
+\kappa_q(t)=
+\frac{\bigl\|\pr_{\dot q(t)^\perp}\nabla_{\dot q}\dot q\bigr\|_{g_R}}
+     {\|\dot q(t)\|_{g_R}^2}.
+\]
+A bounded-curvature return datum is
+\[
+\mathfrak B=(Q,g_R,C,q,h_Q,\kappa_{\max},\eta_{\mathrm{return}})
+\]
+with
+\[
+0\le\kappa_q(t)\le\kappa_{\max}<\infty,
+\qquad
+\eta_{\mathrm{return}}:h_Q(q(T))=h_Q(q(0)).
+\]
+The datum certifies constrained motion and a declared return; it does not assert stability of nearby trajectories.
+\end{definition}
+
+\begin{definition}[D.5 -- Reversible transport]
+Let $\Flow_t$ be a flow on $X$ and let $K:X\to X$ be an involution.  The flow is reversible with respect to $K$ when
+\[
+K^2=\id_X,
+\qquad
+K\Flow_tK=\Flow_{-t}.
+\]
+\end{definition}
+
+\begin{proposition}[D.6 -- Discrete inverse conjugacy]\label{prop:reversible}
+Fix $\Delta\ne0$ and put $\zeta=\Flow_\Delta$.  For a reversible flow,
+\[
+K\zeta K=\zeta^{-1}.
+\]
+If $\zeta$ has infinite order, then
+\[
+\langle \zeta,K\mid K^2=1,\ K\zeta K=\zeta^{-1}\rangle\cong D_\infty.
+\]
+\end{proposition}
+
+\begin{proof}
+The first identity is the reversible-flow law at time $\Delta$.  The second is the standard presentation of the infinite dihedral group when the transport generator has infinite order.
+\end{proof}
+
+\section{Variational symmetry, conservation, and balance}\label{sec:noether}
+
+Let $Q$ now denote a smooth configuration manifold with local coordinates $q=(q^1,\ldots,q^m)$, and let
+\[
+S[q]=\int_{t_0}^{t_1}L(t,q,\dot q)\dd t,
+\qquad
+p_i=\frac{\partial L}{\partial\dot q^i},
+\qquad
+H=p_i\dot q^i-L.
+\]
+Consider an infinitesimal one-parameter transformation
+\[
+\delta t=\varepsilon\tau(t,q),
+\qquad
+\delta q^i=\varepsilon\xi^i(t,q).
+\]
+
+\begin{theorem}[D.7 -- Noether charge with boundary term]\label{thm:noether}
+Assume there is a smooth function $B(t,q)$ such that
+\[
+L_t\tau+L_{q^i}\xi^i
++p_i(D_t\xi^i-\dot q^iD_t\tau)
++L D_t\tau
+=D_tB.
+\]
+Then every Euler--Lagrange trajectory satisfies
+\[
+D_tJ_X=0,
+\qquad
+J_X=p_i\xi^i-H\tau-B.
+\]
+\end{theorem}
+
+\begin{proof}
+Along an Euler--Lagrange trajectory, $D_tp_i=L_{q^i}$ and $D_tH=-L_t$.  Hence
+\begin{align*}
+D_t(p_i\xi^i-H\tau-B)
+&=L_{q^i}\xi^i+p_iD_t\xi^i+L_t\tau-H D_t\tau-D_tB\\
+&=L_t\tau+L_{q^i}\xi^i
++p_i(D_t\xi^i-\dot q^iD_t\tau)
++L D_t\tau-D_tB\\
+&=0.
+\end{align*}
+\end{proof}
+
+This is the classical finite-dimensional first theorem with the endpoint term retained explicitly \cite{Noether,Arnold,MarsdenRatiu}.
+
+\begin{corollary}[D.8 -- Forced symmetry balance]\label{cor:balance}
+Assume $\tau=0$ and the forced Euler--Lagrange equations
+\[
+D_tp_i-L_{q^i}=Q_i.
+\]
+If the infinitesimal configuration transformation satisfies
+\[
+L_{q^i}\xi^i+p_iD_t\xi^i=D_tB,
+\]
+then
+\[
+J_X=p_i\xi^i-B,
+\qquad
+D_tJ_X=Q_i\xi^i=:\Pi_X.
+\]
+Consequently,
+\[
+J_X(t)-J_X(0)=\int_0^t\Pi_X(s)\dd s.
+\]
+\end{corollary}
+
+\begin{proof}
+Differentiate $J_X$ and substitute $D_tp_i=L_{q^i}+Q_i$:
+\[
+D_tJ_X=(L_{q^i}+Q_i)\xi^i+p_iD_t\xi^i-D_tB=Q_i\xi^i.
+\]
+Integration gives the balance law.
+\end{proof}
+
+The scalar $\Pi_X$ is the generalized input projected onto the symmetry direction.  Vanishing projection gives conservation; nonzero projection gives an exact current budget.  Neither case alone supplies a stability margin.
+
+\section{Axial symmetry and a periodic central-force state}\label{sec:orbit}
+
+Let the configuration space be $Q=\R^2\setminus\{0\}$ and take
+\[
+L(q,\dot q)=\frac m2\|\dot q\|^2-U(\|q\|),
+\qquad m>0,
+\]
+where $U$ is $C^1$ and radial.  The state space is $X=TQ$, with state $x=(q,v)$.  The rotation action is
+\[
+\mathcal U_\theta(q,v)=(R_\theta q,R_\theta v),
+\qquad
+R_\theta=e^{\theta J_0},
+\]
+and time reversal is $K(q,v)=(q,-v)$.
+
+\begin{proposition}[D.9 -- Axial current and reversibility]\label{prop:axial}
+For the unforced central-force flow:
+\begin{enumerate}
+  \item $L$ is invariant under $\mathcal U_\theta$;
+  \item the axial Noether current
+  \[
+  \mathcal L_z=p^{\mathsf T}J_0q
+  =m(q_1\dot q_2-q_2\dot q_1)
+  \]
+  is conserved;
+  \item the flow is reversible under $K$;
+  \item under a generalized force $Q_{\mathrm{ext}}$, the exact balance is
+  \[
+  \dot{\mathcal L}_z=Q_{\mathrm{ext}}^{\mathsf T}J_0q.
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Euclidean kinetic energy and a radial potential are rotation invariant.  Apply Theorem~\ref{thm:noether} with $\tau=B=0$ and $\xi(q)=J_0q$.  Since the equations are second order with velocity-independent potential, replacing $t$ by $-t$ and $v$ by $-v$ preserves them, proving reversibility.  The forced formula is Corollary~\ref{cor:balance}.
+\end{proof}
+
+Take the inverse-square potential $U(r)=-\mu m/r$ with $\mu>0$.
+
+\begin{theorem}[D.10 -- Periodic state, earlier output return, and bounded curvature]\label{thm:orbit}
+For every $R>0$, set
+\[
+\omega^2=\frac{\mu}{R^3},
+\qquad
+q_R(t)=R\bigl(\cos(\omega t),\sin(\omega t)\bigr),
+\qquad
+v_R(t)=\dot q_R(t).
+\]
+Then $x_R(t)=(q_R(t),v_R(t))$ is a solution with
+\[
+T=\frac{2\pi}{\omega},
+\qquad
+\kappa_{q_R}=\frac1R,
+\qquad
+\mathcal L_z=mR^2\omega.
+\]
+Its full state satisfies
+\[
+x_R(T)=x_R(0),
+\qquad
+x_R(T/2)=-x_R(0)\ne x_R(0).
+\]
+For the projective position output
+\[
+h(q,v)=[q]\in\R\mathbb P^1,
+\]
+one has
+\[
+h(x_R(T/2))=h(x_R(0)).
+\]
+Thus the output returns after half a period, the full state returns after one period, and the trajectory is nonconstant throughout.
+\end{theorem}
+
+\begin{proof}
+The radial acceleration is
+\[
+\ddot q_R=-\omega^2q_R=-\frac{\mu}{R^3}q_R,
+\]
+which is the inverse-square central acceleration at radius $R$.  The curvature of a circle is $1/R$, and Proposition~\ref{prop:axial} gives the displayed current.  Trigonometric periodicity yields the full-period return and the half-period sign reversal.  Projectivization identifies $q$ and $-q$.
+\end{proof}
+
+For any radial constraint region containing the circle, Theorem~\ref{thm:orbit} inhabits the bounded-curvature return datum of Definition~\ref{def:bounded-return}.  It also gives a concrete counterexample to the converse in Proposition~\ref{prop:return-hierarchy}.
+
+\section{Lorentzian gauge transport}\label{sec:gauge}
+
+Let
+\[
+M=\R_t\times S^1_\vartheta\times\R_x\times\R_y,
+\]
+and let $\eta$ be the standard closed one-form on $S^1$, normalized by
+\[
+\dd\eta=0,
+\qquad
+\int_{S^1}\eta=2\pi.
+\]
+Fix $c,\rho>0$ and define
+\[
+g_L=-c^2\dd t^2+\rho^2\eta^2+\dd x^2+\dd y^2.
+\]
+Take the trivial oriented rank-two bundle $E=M\times\R^2$.  In this fiber office, $\Omega$ generates $SO(2)$.  Let $f\in C^2(\R)$ with $f'\not\equiv0$, put
+\[
+u=t-\frac{x}{c},
+\]
+and define
+\[
+\mathcal A_a=a\eta+f(u)\dd y,
+\qquad
+\widehat{\mathcal A}_a=\mathcal A_a\Omega,
+\qquad
+a\in\R.
+\]
+
+\begin{theorem}[D.11 -- Source-free null transport]\label{thm:maxwell}
+The curvature
+\[
+F=\dd\mathcal A_a=f'(u)\dd u\wedge\dd y
+\]
+is independent of $a$, is nonzero for nonconstant $f$, and satisfies
+\[
+\dd F=0,
+\qquad
+\dd\star_{g_L}F=0.
+\]
+The curves
+\[
+\gamma_{x_0}(\lambda)
+=(\lambda,[0],x_0+c\lambda,0)
+\]
+are future-directed null lines and satisfy
+\[
+g_L(\dot\gamma_{x_0},\dot\gamma_{x_0})=0,
+\qquad
+u(\gamma_{x_0}(\lambda))=-x_0/c.
+\]
+Hence the wave profile is constant along the admitted null transport.
+\end{theorem}
+
+\begin{proof}
+The gauge algebra is Abelian, so $F=\dd\mathcal A_a$.  Closure is immediate.  The only nonzero coordinate components are
+\[
+F_{ty}=f'(u),
+\qquad
+F_{xy}=-\frac1c f'(u).
+\]
+The metric coefficients are constant, and the only nontrivial divergence cancels:
+\[
+\nabla_\mu F^{\mu y}
+=\partial_tF^{ty}+\partial_xF^{xy}
+=-\frac1{c^2}f''(u)+\frac1{c^2}f''(u)=0.
+\]
+All remaining divergences vanish, which is equivalent to $\dd\star_{g_L}F=0$ in this source-free Abelian model \cite{Wald}.  Along $\gamma_{x_0}$,
+\[
+-c^2(1)^2+(c)^2=0,
+\qquad
+u=\lambda-(x_0+c\lambda)/c=-x_0/c.
+\]
+\end{proof}
+
+For a piecewise-smooth path $\gamma$, parallel transport is
+\[
+P_a(\gamma)
+=\exp\!\left(-\Omega\int_\gamma\mathcal A_a\right).
+\]
+
+\begin{proposition}[D.12 -- Fixed curvature and selectable holonomy]\label{prop:holonomy}
+Let $\ell$ wind once around $S^1$ at fixed $t,x,y$.  Then
+\[
+\Hol_a(\ell)=e^{-2\pi a\Omega}.
+\]
+As $a$ ranges over $\R$, this holonomy ranges over all of $SO(2)$, while $F$ remains fixed.
+\end{proposition}
+
+\begin{proof}
+Along $\ell$, $\dd y=0$ and $\int_\ell\eta=2\pi$, so the transport formula gives the result.  The exponential of the planar generator parametrizes $SO(2)$, while $F=f'(u)\dd u\wedge\dd y$ contains no $a$.
+\end{proof}
+
+\begin{proposition}[D.13 -- Exact gluing]\label{prop:gluing}
+For every open cover $\{U_i\}$ of $M$, the restricted bundle, connection, curvature, and transport data obtained from $(E,\widehat{\mathcal A}_a,F,P_a)$ agree exactly on all overlaps under the identity transition functions of the global trivialization.
+\end{proposition}
+
+\begin{proof}
+Every local object is the restriction of a single global object.  Restriction is functorial, and the identity transition maps satisfy the cocycle condition on all multiple overlaps.
+\end{proof}
+
+\begin{proposition}[D.14 -- Unequal duration on common endpoints]\label{prop:proper-time}
+Fix
+\[
+p=(0,[0],0,0),
+\qquad
+q=(T,[0],0,0),
+\qquad
+T>\frac{2\pi\rho}{c},
+\]
+and define, for $0\le t\le T$,
+\[
+\gamma_0(t)=(t,[0],0,0),
+\qquad
+\gamma_1(t)=\left(t,\left[\frac{2\pi t}{T}\right],0,0\right).
+\]
+Both paths are timelike and join $p$ to $q$.  Their proper times are
+\[
+\tau[\gamma_0]=T,
+\qquad
+\tau[\gamma_1]
+=T\sqrt{1-\left(\frac{2\pi\rho}{cT}\right)^2},
+\]
+so
+\[
+\Delta\tau:=\tau[\gamma_0]-\tau[\gamma_1]>0.
+\]
+The loop $\gamma_1*\overline{\gamma_0}$ has holonomy $e^{-2\pi a\Omega}$, while $\Delta\tau$ is independent of $a$ and of $f$.
+\end{proposition}
+
+\begin{proof}
+The tangent norms are
+\[
+g_L(\dot\gamma_0,\dot\gamma_0)=-c^2,
+\qquad
+g_L(\dot\gamma_1,\dot\gamma_1)
+=-c^2+\rho^2\left(\frac{2\pi}{T}\right)^2<0.
+\]
+Integrating the proper-time density gives the displayed values.  The closed loop winds once around $S^1$ and has $\dd y=0$, so Proposition~\ref{prop:holonomy} applies.  Neither proper-time expression contains $a$ or $f$.
+\end{proof}
+
+The constructions above separate three standard offices on one spacetime:
+\[
+F\in\Omega^2(M),
+\qquad
+\Hol_a(\ell)\in SO(2),
+\qquad
+\Delta\tau\in\R_{>0}.
+\]
+They coexist and can be read together; no equation identifies them.
+
+\section{Persistence under equivariant evolution}\label{sec:persistence}
+
+Return and symmetry are often certified by a relation rather than by equality.  The following statement gives an exact condition under which such a certificate remains available under evolution.
+
+\begin{definition}[D.15 -- Relation-valued symmetry certificate]
+Let $\mathcal R\subseteq X\times X$ be a declared relation and let $U:X\to X$ be a map.  Define
+\[
+\Cert_U(x)\quad:\Longleftrightarrow\quad (x,Ux)\in\mathcal R.
+\]
+The relation is evolution-invariant when
+\[
+(x,y)\in\mathcal R
+\Longrightarrow
+(\Flow_tx,\Flow_ty)\in\mathcal R
+\]
+for every admitted $t$.
+\end{definition}
+
+\begin{theorem}[D.16 -- Certificate persistence by equivariance]\label{thm:persistence}
+Assume $\mathcal R$ is evolution-invariant and
+\[
+\Flow_tU=U\Flow_t
+\]
+for every admitted $t$.  Then
+\[
+\Cert_U(x)\Longrightarrow\Cert_U(\Flow_tx)
+\]
+for every admitted $t$.  Consequently, a certificate available at $x$ persists along the entire admitted orbit whenever both the relation and the transport are equivariant.
+\end{theorem}
+
+\begin{proof}
+From $(x,Ux)\in\mathcal R$ and evolution invariance,
+\[
+(\Flow_tx,\Flow_tUx)\in\mathcal R.
+\]
+Equivariance replaces the second entry by $U\Flow_tx$, yielding $\Cert_U(\Flow_tx)$.
+\end{proof}
+
+\begin{proposition}[D.17 -- Linear commutator criterion]\label{prop:commutator}
+Let $X=\R^n$, let $\Flow_t=e^{tA}$, and let $U_\theta=e^{\theta J}$.  Then
+\[
+\Flow_tU_\theta=U_\theta\Flow_t
+\quad\text{for all }t,\theta
+\]
+if and only if
+\[
+[A,J]=0.
+\]
+The operator
+\[
+\Defect_{t,\theta}
+:=\Flow_tU_\theta-U_\theta\Flow_t
+\]
+is therefore an exact global equivariance defect, with
+\[
+\|\Defect_{t,\theta}x\|
+\le \|\Defect_{t,\theta}\|\,\|x\|.
+\]
+\end{proposition}
+
+\begin{proof}
+If $[A,J]=0$, their exponentials commute.  Conversely, differentiate the assumed exponential commutation first in $t$ and then in $\theta$ at $(0,0)$ to obtain $AJ=JA$.  The norm estimate is the defining operator-norm inequality.
+\end{proof}
+
+\begin{remark}[D.18 -- Exact scope of commutator failure]
+A nonzero $[A,J]$ proves that the full linear evolution does not commute with the declared symmetry group.  It does not imply that every state loses every symmetry relation, nor does it establish instability, uncontrollability, or unobservability.  Those require additional system, input, output, and norm data.
+\end{remark}
+
+\section{Assembly and dynamical reading}\label{sec:assembly}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Take the central-force state space and flow of Section~\ref{sec:orbit}, the projective output $h(q,v)=[q]$, the circular state $x_R$, and the bounded-return datum supplied by Theorem~\ref{thm:orbit}.  Items 1 and 2 are the half-period output return, full-period state return, nonconstant trace, and curvature bound proved there.  Item 3 is Proposition~\ref{prop:reversible} together with the time-reversal involution in Proposition~\ref{prop:axial}.  Item 4 is Theorem~\ref{thm:noether}, Corollary~\ref{cor:balance}, and Proposition~\ref{prop:axial}.
+
+Take the Lorentzian manifold, bundle, and connection of Section~\ref{sec:gauge}.  Item 5 is Theorem~\ref{thm:maxwell}; Item 6 is Proposition~\ref{prop:holonomy}; exact local compatibility is Proposition~\ref{prop:gluing}; and Item 7 is Proposition~\ref{prop:proper-time}.  Finally, take any evolution-invariant relation $\mathcal R$ and any admitted equivariant map $U$ for Theorem~\ref{thm:persistence}; the linear specialization is Proposition~\ref{prop:commutator}, giving Item 8.  Every component is explicit and all displayed codomains remain distinct.
+\end{proof}
+
+\begin{resultbox}
+\textbf{State-space reading.}
+The construction can be read without changing notation as
+\[
+\begin{array}{rcl}
+\text{full state} &:& x\in X,\\
+\text{evolution} &:& x(t)=\Flow_tx,\\
+\text{declared output} &:& y(t)=h(x(t)),\\
+\text{symmetry current} &:& J_X(x(t)),\\
+\text{projected generalized input} &:& \Pi_X(t),\\
+\text{local gauge field} &:& F,\\
+\text{global loop transport} &:& \Hol_a(\ell),\\
+\text{metric duration} &:& \tau[\gamma],\\
+\text{equivariance defect} &:& \Defect_{t,\theta}.
+\end{array}
+\]
+The first three lines give the return hierarchy; the next two give conservation or balance; the following three give local, global, and metric transport reads; the last line tests exact symmetry of the evolution.
+\end{resultbox}
+
+\section{Strict boundary and status ledger}\label{sec:boundary}
+
+The following cuts are theorem conditions, not rhetorical disclaimers.
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item $h(\Flow_Tx)=h(x)$ is equality in the output space $Y$.  It does not identify the two states unless an injectivity witness is available.
+  \item Periodic return and bounded curvature are properties of the displayed orbit.  No neighborhood estimate or Lyapunov function is supplied.
+  \item $J_X$ is conserved only under the Noether hypothesis; with external generalized force it obeys the balance law $\dot J_X=\Pi_X$.
+  \item The planar rotation action and the $SO(2)$ fiber action reuse the matrix generator under separately declared representations.
+  \item Fixed curvature with variable holonomy is a global connection statement on a non-simply-connected manifold.  It is not a denial of local field observability.
+  \item The Maxwell field, loop holonomy, and proper-time difference are not functions of one another in the construction.
+  \item Exact gluing follows from a global trivial bundle and connection.  It does not prove that every local model admits such a global extension.
+  \item Equivariance preserves the declared relation-valued certificate.  The theorem does not create the relation or guarantee that its domain is nonempty.
+  \item $[A,J]\ne0$ is an algebraic symmetry defect only.  Stability, robustness, feedback performance, reachability, and observability remain separate questions.
+\end{enumerate}
+
+\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+                                  >{\raggedright\arraybackslash}p{0.18\textwidth}
+                                  >{\raggedright\arraybackslash}p{0.31\textwidth}@{}}
+\toprule
+Office & Status & Witness\\
+\midrule
+Output/state return separation
+& Proved & Proposition~\ref{prop:return-hierarchy} and Theorem~\ref{thm:orbit}\\
+Bounded-curvature periodic orbit
+& Proved & Theorem~\ref{thm:orbit}\\
+Reversible transport
+& Proved & Propositions~\ref{prop:reversible} and \ref{prop:axial}\\
+Noether conservation with boundary term
+& Proved & Theorem~\ref{thm:noether}\\
+Forced symmetry-current balance
+& Proved & Corollary~\ref{cor:balance}\\
+Axial current for central force
+& Proved & Proposition~\ref{prop:axial}\\
+Source-free null Maxwell transport
+& Proved & Theorem~\ref{thm:maxwell}\\
+Fixed curvature with selectable holonomy
+& Proved & Proposition~\ref{prop:holonomy}\\
+Exact restriction and overlap gluing
+& Proved & Proposition~\ref{prop:gluing}\\
+Unequal proper time on common endpoints
+& Proved & Proposition~\ref{prop:proper-time}\\
+Certificate persistence under equivariance
+& Proved & Theorem~\ref{thm:persistence}\\
+Linear global symmetry criterion
+& Proved & Proposition~\ref{prop:commutator}\\
+Lyapunov or adaptive-control result
+& Not asserted & No neighborhood, feedback, or robustness hypotheses\\
+Identification of field, holonomy, and duration
+& Excluded & Distinct codomains and independent parameters\\
+\bottomrule
+\end{tabularx}
+\normalsize
+
+\subsection*{Mechanical audit}
+The companion script \texttt{check\_conserved\_transport\_return\_v01.py} verifies the planar generator identities, circular-orbit dynamics, half-period output return, full-state period, curvature and current formulas, reversible-flow identities on the explicit orbit, source-free Maxwell cancellation, null propagation, holonomy periodicity, proper-time inequalities, and finite matrix instances of the commutator criterion.  These computations are regression gates for the displayed identities, not substitutes for the universal proofs.
+
+\section{Conclusion}
+
+The construction separates four questions that are frequently compressed into the word \emph{return}:
+\[
+\boxed{
+\begin{gathered}
+\text{What does the output report?}\qquad
+\text{What did the state do?}\\
+\text{What quantity was transported?}\qquad
+\text{What remained invariant?}
+\end{gathered}}
+\]
+
+A projective output can return before the state.  A state can return after a nonconstant bounded trajectory.  A continuous symmetry can transport a conserved current, or an exact input balance when forcing enters.  A local field can remain fixed while global holonomy changes.  Two paths can share endpoints while carrying different metric duration.  A return certificate can persist under evolution when the relation and the dynamics are equivariant.
+
+The common result is not that these reads are one object.  It is that they can coexist in one exact dynamical architecture while remaining separately testable.
+
+\begin{thebibliography}{9}
+
+\bibitem{Noether}
+E. Noether,
+\emph{Invariante Variationsprobleme},
+Nachrichten von der Gesellschaft der Wissenschaften zu G\"ottingen, Mathematisch-Physikalische Klasse (1918), 235--257.
+
+\bibitem{Arnold}
+V. I. Arnold,
+\emph{Mathematical Methods of Classical Mechanics},
+2nd ed., Springer, New York, 1989.
+
+\bibitem{MarsdenRatiu}
+J. E. Marsden and T. S. Ratiu,
+\emph{Introduction to Mechanics and Symmetry},
+2nd ed., Springer, New York, 1999.
+
+\bibitem{KobayashiNomizu}
+S. Kobayashi and K. Nomizu,
+\emph{Foundations of Differential Geometry}, Vol. I,
+Wiley, New York, 1963.
+
+\bibitem{Wald}
+R. M. Wald,
+\emph{General Relativity},
+University of Chicago Press, Chicago, 1984.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,649 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.82in,headheight=15pt,footskip=28pt]{geometry}
+\usepackage{amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{mathtools,bm}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{lastpage}
+
+\definecolor{onyx}{HTML}{17191C}
+\definecolor{graphite}{HTML}{4B4F55}
+\definecolor{rulegray}{HTML}{B8BBC0}
+\definecolor{papergray}{HTML}{F3F3F1}
+\definecolor{gold}{HTML}{8B6B2D}
+\definecolor{deepblue}{HTML}{244B66}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=onyx,
+  urlcolor=deepblue,
+  pdftitle={Four-Phase Addressing and Eight-State Relations},
+  pdfauthor={Anthony Vito Coppa},
+  pdfsubject={Finite phase addressing, eight-state pairwise relations, graph factorization, and exact state evolution},
+  pdfkeywords={phase addressing, occurrence, exterior algebra, K8, one-factorization, relative phase, exact computation}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small A. V. Coppa}
+\fancyhead[R]{\small Four-Phase Addressing and Eight-State Relations}
+\fancyfoot[L]{\small A. V. Coppa -- 5 August 2026}
+\fancyfoot[R]{\small \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{onyx}}
+  {\thesection}{0.7em}{}
+  [\vspace{0.2em}\color{rulegray}\titlerule]
+\titleformat{\subsection}
+  {\large\bfseries\color{onyx}}
+  {\thesubsection}{0.65em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .4ex minus .2ex}{1.2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus .3ex minus .2ex}{0.8ex}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.22em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.22em,topsep=0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.52em}
+\renewcommand{\arraystretch}{1.15}
+
+\newtheoremstyle{relationstyle}
+  {0.7em}{0.7em}{\itshape}{}%
+  {\bfseries\color{onyx}}{.}{0.5em}{}
+\theoremstyle{relationstyle}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\NF}{\operatorname{NF}}
+\newcommand{\Eval}{\operatorname{Eval}}
+\newcommand{\Phase}{\operatorname{Phase}_4}
+\newcommand{\Cycle}{\operatorname{Cycle}_4}
+\newcommand{\TimeRead}{\operatorname{TimeRead}_4}
+\newcommand{\UnRead}{\operatorname{UnRead}_4}
+\newcommand{\Scan}{\operatorname{Scan}_{28}}
+\newcommand{\Pairs}{\operatorname{Pairs}}
+\newcommand{\Ledger}{\mathsf{Ledger}}
+\newcommand{\State}{\mathsf{State}}
+\newcommand{\Step}{\mathsf{Step}}
+\newcommand{\snoc}{\operatorname{snoc}}
+\newcommand{\diagT}{\T_{\mathrm{diag}}}
+\newcommand{\wedgeTwo}{\Lambda^2}
+\newcommand{\Zfour}{\Z/4\Z}
+\newcommand{\Zseven}{\Z/7\Z}
+\newcommand{\Ztwentyeight}{\Z/28\Z}
+
+\newtcolorbox{abstractbox}{
+  colback=papergray,
+  colframe=rulegray,
+  boxrule=0.5pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt
+}
+\newtcolorbox{boundarybox}{
+  colback=white,
+  colframe=gold,
+  boxrule=0.65pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt,
+  title={\bfseries Scope and evidence boundary},
+  coltitle=onyx,
+  fonttitle=\normalsize
+}
+\newtcolorbox{resultbox}{
+  colback=papergray,
+  colframe=onyx,
+  boxrule=0.7pt,
+  arc=1.2pt,
+  left=9pt,right=9pt,top=8pt,bottom=8pt
+}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{0.09\textheight}
+
+{\fontsize{28}{33}\selectfont\bfseries\color{onyx} Four-Phase Addressing and Eight-State Relations\par}
+\vspace{0.75em}
+{\fontsize{17}{22}\selectfont\bfseries Finite Pairwise Coordinates and Exact State Evolution\par}
+
+\vspace{2.0em}
+\color{gold}\rule{0.62\textwidth}{1.1pt}\color{black}
+\vspace{1.9em}
+
+\begin{abstractbox}
+\textbf{Abstract.}
+A cyclic phase can return while the occurrence carrying that phase remains new.  This paper gives an exact finite architecture for that distinction.  Euclidean division yields a bijection $\N\cong\{0,1,2,3\}\times\N$, separating four visible phase positions from an unbounded cycle address.  Two consecutive phase windows supply eight distinct addressed states.  Their complete unordered relation set has $\binom82=28$ elements, represented by the coefficients of an alternating two-form on $\R^8$.  Vanishing triangle residues are proved equivalent to the existence of vertex potentials, unique up to a common additive constant.  A seven-round one-factorization of $K_8$, combined with the Chinese remainder theorem $\Z/28\Z\cong\Z/7\Z\times\Z/4\Z$, gives an explicit bijective scanner of all twenty-eight relations without identifying scan order with the relation set.  For eight unit phases, quotienting by common phase gives $\T^8/\diagT\cong\T^7$; the twenty-eight pairwise phase reads are invariant under the diagonal action and satisfy exact multiplicative triangle compatibility.  Finally, these components are assembled into a state-and-transition contract in which operator state, phase, occurrence, channel state, pairwise relations, scan coordinate, and receipt remain separately typed.  The principal result is a finite relational machine whose phase may close, whose occurrence may continue, and whose complete pairwise structure remains exactly recoverable.
+\end{abstractbox}
+
+\vfill
+{\large Anthony Vito Coppa\par}
+{\large Independent Research\par}
+{\large Draft 0.1 -- 5 August 2026\par}
+\vspace{0.6em}
+{\small Jurisdiction: finite combinatorics, exterior algebra, compact abelian groups, and exact state records.\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+
+\tableofcontents
+\clearpage
+
+\section{Purpose, jurisdiction, and main statement}
+
+Finite phase and event identity are often collapsed into one index.  A periodic display then appears to repeat an earlier state even when a new traversal has occurred.  The present construction keeps four objects distinct:
+\begin{enumerate}
+  \item the visible phase class;
+  \item the unbounded occurrence address;
+  \item the complete pairwise relation space on an eight-state window;
+  \item a chosen order for reading those relations.
+\end{enumerate}
+
+The first three are intrinsic to the declared carriers.  The fourth is a scanner: useful and exact, but chosen.
+
+\begin{boundarybox}
+The following separations are part of the result.
+\begin{itemize}
+  \item Phase equality is not occurrence equality.
+  \item Eight addressed states are not eight values of one untyped scalar.
+  \item A pairwise relation is not the coordinate used to scan it.
+  \item A diagonal zero of an alternating form is not an absent event or zero vector.
+  \item Common phase is invisible to relative phase, but it is not absent from the underlying eight-channel state.
+  \item Metric duration, physical time, and any synchronization between occurrence and scan order require additional data and are not supplied here.
+\end{itemize}
+\end{boundarybox}
+
+Let $P_4=\{0,1,2,3\}$.  Let $E_8=\R^8$ with ordered basis $e_0,\ldots,e_7$, and let $\Delta_{28}=\wedgeTwo(E_8^*)$.
+
+\begin{theorem}[A.0 -- Four-phase, eight-state relational architecture]\label{thm:main}
+There exists an explicit tuple
+\[
+\mathsf{Rel}_{4,8}
+=
+\bigl(
+P_4,\TimeRead,\UnRead,
+E_8,\Delta_{28},
+\{M_a\}_{a\in\Zseven},\Scan,
+\T^8/\diagT,
+\State,\Step
+\bigr)
+\]
+carrying simultaneously:
+\begin{enumerate}
+  \item a bijection $\N\cong P_4\times\N$ with exact successor and carry;
+  \item four-phase return with strictly advancing occurrence address;
+  \item two consecutive phase windows giving eight distinct addressed states;
+  \item all twenty-eight unordered and fifty-six oriented pairwise relations;
+  \item additive triangle compatibility and potential reconstruction;
+  \item a seven-round perfect-matching factorization of $K_8$ and a bijective $28$-coordinate scanner;
+  \item seven independent relative phases and twenty-eight central-phase-invariant pairwise phase reads;
+  \item an exact state contract in which operator state, phase, occurrence, channel payload, pairwise reads, scanner query, and receipt remain separately recoverable.
+\end{enumerate}
+\end{theorem}
+
+The proof is assembled in Section~\ref{sec:proof-main}.  Sections~\ref{sec:phase}--\ref{sec:state} construct each component independently.
+
+\section{Four-phase addressing and retained occurrence}\label{sec:phase}
+
+\begin{definition}[A.1 -- Phase and cycle reads]
+For $n\in\N$, define
+\[
+\Phase(n)=n\bmod4\in P_4,
+\qquad
+\Cycle(n)=\left\lfloor\frac n4\right\rfloor\in\N,
+\]
+and
+\[
+\TimeRead(n)=(\Phase(n),\Cycle(n)).
+\]
+For $(p,c)\in P_4\times\N$, define
+\[
+\UnRead(p,c)=4c+p.
+\]
+\end{definition}
+
+\begin{theorem}[A.2 -- Euclidean address isomorphism]\label{thm:euclid}
+The maps
+\[
+\TimeRead:\N\longrightarrow P_4\times\N,
+\qquad
+\UnRead:P_4\times\N\longrightarrow\N
+\]
+are mutually inverse bijections.
+\end{theorem}
+
+\begin{proof}
+Euclidean division gives unique $c\in\N$ and $p\in P_4$ such that $n=4c+p$.  Therefore
+\[
+\UnRead(\TimeRead(n))=n
+\]
+and
+\[
+\TimeRead(\UnRead(p,c))=(p,c).
+\]
+\end{proof}
+
+\begin{corollary}[A.3 -- Successor with carry]\label{cor:carry}
+If $\TimeRead(n)=(p,c)$, then
+\[
+\TimeRead(n+1)=
+\begin{cases}
+(p+1,c),&0\le p<3,\\
+(0,c+1),&p=3.
+\end{cases}
+\]
+In particular,
+\[
+\Phase(n+4)=\Phase(n),
+\qquad
+\Cycle(n+4)=\Cycle(n)+1.
+\]
+\end{corollary}
+
+Fix an opaque run identifier $u$ and define the occurrence address
+\[
+o_n=(u,n).
+\]
+
+\begin{theorem}[A.4 -- Non-erasing phase return]\label{thm:phase-return}
+For every $n\in\N$,
+\[
+\Phase(n+4)=\Phase(n),
+\qquad
+o_{n+4}\ne o_n.
+\]
+If a receipt is appended at each successor step, then the receipt after four further steps has strictly greater length even though the visible phase has returned.
+\end{theorem}
+
+\begin{proof}
+The phase identity is Corollary~\ref{cor:carry}.  Occurrence inequality follows from $n+4\ne n$.  Strict receipt growth is the append law for finite sequences.
+\end{proof}
+
+\section{The eight-state window}\label{sec:eight}
+
+\begin{definition}[A.5 -- Two-window address]
+Let $L_2=\{0,1\}$.  For $\ell\in L_2$ and $p\in P_4$, define
+\[
+i(\ell,p)=4\ell+p\in\{0,1,\ldots,7\}.
+\]
+\end{definition}
+
+\begin{proposition}[A.6 -- Eight distinct addressed states]\label{prop:eight}
+The map
+\[
+i:L_2\times P_4\longrightarrow\{0,1,\ldots,7\}
+\]
+is a bijection.  Thus two consecutive four-phase windows contain eight distinct addresses even though the phase representatives occur twice.
+\end{proposition}
+
+\begin{proof}
+The values for $\ell=0$ are $0,1,2,3$ and those for $\ell=1$ are $4,5,6,7$.  These sets are disjoint and exhaust the codomain.
+\end{proof}
+
+The eight addresses are represented by the basis vectors $e_0,\ldots,e_7$ of $E_8$.  The basis is an address carrier.  It does not assert that the underlying states are physically orthogonal or that every application must use a Euclidean metric.
+
+\section{Complete pairwise relations}\label{sec:relations}
+
+\begin{definition}[A.7 -- Alternating relation record]
+Let
+\[
+\Delta_{28}=\wedgeTwo(E_8^*).
+\]
+For coefficients $d_{ij}\in\R$ with $0\le i<j\le7$, define
+\[
+\Omega_d=\sum_{0\le i<j\le7}d_{ij}\,e^i\wedge e^j.
+\]
+Extend the coefficients by
+\[
+d_{ji}=-d_{ij},
+\qquad
+d_{ii}=0.
+\]
+\end{definition}
+
+\begin{theorem}[A.8 -- Twenty-eight unordered relations]\label{thm:28}
+The relation space has dimension
+\[
+\dim\Delta_{28}=\binom82=28.
+\]
+It supplies one independent signed coordinate for every unordered pair of addressed states, hence twenty-eight unordered and fifty-six oriented relations.  For all $x,y\in E_8$,
+\[
+\Omega_d(x,x)=0,
+\qquad
+\Omega_d(y,x)=-\Omega_d(x,y).
+\]
+\end{theorem}
+
+\begin{proof}
+A basis of $\Lambda^2(E_8^*)$ is
+\[
+\{e^i\wedge e^j:0\le i<j\le7\},
+\]
+whose cardinality is $\binom82=28$.  Alternation gives the diagonal zero and orientation reversal.  Each unordered pair admits two orientations.
+\end{proof}
+
+\begin{definition}[A.9 -- Triangle residue]
+For distinct $i,j,k$, define the oriented triangle residue
+\[
+h_{ijk}=d_{ij}+d_{jk}+d_{ki}.
+\]
+\end{definition}
+
+\begin{theorem}[A.10 -- Additive triangle-potential criterion]\label{thm:triangle}
+The following are equivalent:
+\begin{enumerate}
+  \item $h_{ijk}=0$ for every oriented triangle $(i,j,k)$;
+  \item there exist vertex values $s_0,\ldots,s_7\in\R$ such that
+  \[
+  d_{ij}=s_j-s_i
+  \]
+  for every ordered pair $(i,j)$.
+\end{enumerate}
+When they exist, the vertex values are unique up to addition of one common constant.
+\end{theorem}
+
+\begin{proof}
+If $d_{ij}=s_j-s_i$, then the triangle sum telescopes.  Conversely, fix $s_0=0$ and define $s_i=d_{0i}$.  The vanishing residue on $(0,i,j)$ gives
+\[
+0=d_{0i}+d_{ij}+d_{j0}=s_i+d_{ij}-s_j,
+\]
+so $d_{ij}=s_j-s_i$.  If $s$ and $s'$ produce the same $d_{ij}$, then
+\[
+(s'_j-s_j)=(s'_i-s_i)
+\]
+for all $i,j$, hence the difference is constant.
+\end{proof}
+
+The residue $h_{ijk}$ is a finite compatibility test on a complete relation record.  It is not spacetime curvature and does not by itself define transport outside the eight-address carrier.
+
+\section{A seven-round scanner of all relations}\label{sec:scanner}
+
+Label the eight vertices by
+\[
+V_8=\{\infty\}\cup\Zseven.
+\]
+For each $a\in\Zseven$, define
+\begin{equation}\label{eq:matching}
+M_a=
+\bigl\{\{\infty,a\}\bigr\}
+\cup
+\bigl\{\{a+j,a-j\}:j=1,2,3\bigr\},
+\end{equation}
+with finite labels reduced modulo $7$.
+
+\begin{theorem}[A.11 -- One-factorization of $K_8$]\label{thm:factor}
+Each $M_a$ is a perfect matching of $K_8$.  The seven matchings are pairwise edge-disjoint and partition the full edge set:
+\[
+E(K_8)=\bigsqcup_{a\in\Zseven}M_a.
+\]
+\end{theorem}
+
+\begin{proof}
+Within $M_a$, the finite endpoints are
+\[
+a,\ a\pm1,\ a\pm2,\ a\pm3,
+\]
+which are all seven residues modulo $7$, while $\infty$ occurs once.  Thus $M_a$ covers every vertex once.
+
+Every edge $\{\infty,a\}$ occurs in exactly one matching.  For a finite edge $\{x,y\}$, the element
+\[
+a=\frac{x+y}{2}\in\Zseven
+\]
+is uniquely defined because $2$ is invertible modulo $7$.  The nonzero difference $x-y$ determines a unique $j\in\{1,2,3\}$ up to sign, so $\{x,y\}=\{a+j,a-j\}$ occurs exactly in $M_a$.  Hence the matchings are disjoint and contain all $7\cdot4=28$ edges.
+\end{proof}
+
+Define
+\[
+\kappa(a,0)=\{\infty,a\},
+\qquad
+\kappa(a,b)=\{a+b,a-b\}
+\quad(b=1,2,3).
+\]
+Since $4$ and $7$ are coprime, the Chinese remainder theorem gives
+\[
+\chi:\Ztwentyeight\overset{\cong}{\longrightarrow}\Zseven\times\Zfour,
+\qquad
+\chi(q)=(q\bmod7,q\bmod4).
+\]
+
+\begin{corollary}[A.12 -- Bijective relation scanner]\label{cor:scanner}
+The map
+\[
+\Scan=\kappa\circ\chi:\Ztwentyeight\overset{\cong}{\longrightarrow}E(K_8)
+\]
+is a bijection.
+\end{corollary}
+
+\begin{proof}
+The map $\chi$ is a bijection by the Chinese remainder theorem, and $\kappa$ lists the four edges of each of the seven disjoint perfect matchings from Theorem~\ref{thm:factor}.
+\end{proof}
+
+\begin{remark}[A.13 -- Scan order is not occurrence order]
+The scanner coordinate $q\in\Ztwentyeight$ orders the twenty-eight relations.  The occurrence coordinate $n\in\N$ orders traversals.  No equation $q=q(n)$ is supplied or implied.  A synchronization between them is an additional policy and requires its own witness.
+\end{remark}
+
+\section{Relative phase and multiplicative compatibility}\label{sec:phasequotient}
+
+Let $\T=U(1)$.  The diagonal subgroup
+\[
+\diagT=\{(\lambda,\ldots,\lambda):\lambda\in\T\}
+\]
+acts on $\T^8$ by common phase multiplication.
+
+\begin{theorem}[A.14 -- Seven independent relative phases]\label{thm:quotient}
+There is a group isomorphism
+\[
+\T^8/\diagT\cong\T^7.
+\]
+One explicit isomorphism is
+\[
+[z_0,\ldots,z_7]
+\longmapsto
+(z_1\overline{z_0},\ldots,z_7\overline{z_0}).
+\]
+\end{theorem}
+
+\begin{proof}
+The displayed map is invariant under common multiplication by $\lambda\in\T$.  It is a homomorphism.  Every element of $\T^7$ is represented by $(1,w_1,\ldots,w_7)$, so the map is surjective.  Its kernel consists exactly of tuples with $z_j\overline{z_0}=1$ for all $j$, namely the diagonal subgroup.
+\end{proof}
+
+For $z=(z_0,\ldots,z_7)\in\T^8$, define the pairwise phase read
+\[
+w_{ij}(z)=z_j\overline{z_i}.
+\]
+
+\begin{theorem}[A.15 -- Pairwise phase compatibility]\label{thm:phasecompat}
+The pairwise reads satisfy
+\[
+w_{ii}=1,
+\qquad
+w_{ji}=w_{ij}^{-1},
+\qquad
+w_{ij}w_{jk}=w_{ik},
+\]
+and therefore
+\[
+w_{ij}w_{jk}w_{ki}=1
+\]
+for every oriented triangle.  They are invariant under common phase:
+\[
+w_{ij}(\lambda z)=w_{ij}(z)
+\quad(\lambda\in\T).
+\]
+Conversely, any collection $w_{ij}\in\T$ satisfying these identities arises from a phase tuple $z\in\T^8$, unique up to common phase.
+\end{theorem}
+
+\begin{proof}
+The identities follow directly from $w_{ij}=z_j\overline{z_i}$.  For the converse, choose $z_0=1$ and $z_i=w_{0i}$.  Compatibility gives
+\[
+w_{ij}=w_{i0}w_{0j}=\overline{w_{0i}}w_{0j}=z_j\overline{z_i}.
+\]
+Any second realization differs from the first by multiplication of every $z_i$ by the same element of $\T$.
+\end{proof}
+
+The additive criterion of Theorem~\ref{thm:triangle} and the multiplicative criterion of Theorem~\ref{thm:phasecompat} are parallel finite compatibility statements.  They are not identified: one lives in an additive real carrier, the other in a compact multiplicative group.
+
+\section{Exact state and transition contract}\label{sec:state}
+
+This section assembles the finite architecture around two imported interfaces:
+\begin{enumerate}
+  \item an exact operator evaluator with a canonical normal form $\NF$;
+  \item an append-only receipt operation whose prefix and final payload remain recoverable.
+\end{enumerate}
+The internal proofs of those interfaces are not repeated here; the present results depend only on their stated contracts.
+
+Let $\mathcal A$ be an exact operator carrier with coordinate space $\mathcal C$ and mutually inverse maps
+\[
+\Eval:\mathcal C\longrightarrow\mathcal A,
+\qquad
+\NF:\mathcal A\longrightarrow\mathcal C.
+\]
+Let $\mathcal G\subset\mathcal A$ be a declared generator set.  Let $R_n\in\Ledger$ be a finite receipt archive.
+
+\begin{definition}[A.16 -- Exact finite-relational state]\label{def:state}
+At occurrence $n$, define
+\[
+X_n=(\alpha_n,p_n,c_n,z_n,R_n),
+\]
+where
+\[
+\alpha_n\in\mathcal C,
+\qquad
+(p_n,c_n)=\TimeRead(n),
+\qquad
+z_n\in\T^8.
+\]
+The complete pairwise phase record $W(z_n)=(w_{ij}(z_n))$ is derived from $z_n$.  A scanner query $q\in\Ztwentyeight$ is supplied separately and returns the selected unordered pair $\Scan(q)$.
+\end{definition}
+
+\begin{definition}[A.17 -- Typed transition]\label{def:transition}
+Let $g_n\in\mathcal G$ be the declared operator move, and let
+\[
+F_{g_n}:\T^8\longrightarrow\T^8
+\]
+be a declared exact channel update.  Define
+\[
+\Step_{g_n}(X_n)=X_{n+1}
+\]
+by
+\begin{align*}
+\alpha_{n+1}&=\NF\bigl(\Eval(\alpha_n)g_n\bigr),\\
+(p_{n+1},c_{n+1})&=\TimeRead(n+1),\\
+z_{n+1}&=F_{g_n}(z_n),\\
+R_{n+1}&=\snoc(R_n,r_{n+1}),
+\end{align*}
+where $r_{n+1}$ retains at least the move, unreduced expression, reduced operator coordinate, input and output addresses, channel update, evidence status, and occurrence address.
+\end{definition}
+
+\begin{proposition}[A.18 -- Recoverable transition offices]\label{prop:state}
+Under Definitions~\ref{def:state} and \ref{def:transition}, each transition keeps separately recoverable:
+\begin{enumerate}
+  \item exact operator state $\alpha_n$;
+  \item visible phase $p_n$;
+  \item completed-cycle count $c_n$;
+  \item eight-channel phase state $z_n$;
+  \item twenty-eight derived pairwise reads $W(z_n)$;
+  \item independently supplied scanner coordinate $q$;
+  \item occurrence receipt $R_n$.
+\end{enumerate}
+No equality among their values authorizes substitution among their carriers.
+\end{proposition}
+
+\begin{proof}
+Each field is assigned a distinct type and projection.  The pairwise reads are functions of $z_n$, the phase and cycle are functions of $n$, and the scanner is a function of $q$.  The receipt stores the transition occurrence rather than replacing any of these values.  Recoverability is therefore by the displayed projections and append contract.
+\end{proof}
+
+\begin{remark}[A.19 -- Equivariance requirement for relative-phase dynamics]
+If pairwise relative phases are the authoritative relational output, a common-phase-insensitive update should satisfy
+\[
+F_g(\lambda z)=\lambda F_g(z)
+\]
+for all $\lambda\in\T$.  Then $F_g$ descends to $\T^8/\diagT$.  This equivariance is an adapter obligation, not a consequence of the finite address construction.
+\end{remark}
+
+\section{Proof of the main theorem}\label{sec:proof-main}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Item 1 is Theorem~\ref{thm:euclid} and Corollary~\ref{cor:carry}.  Item 2 is Theorem~\ref{thm:phase-return}.  Item 3 is Proposition~\ref{prop:eight}.  Item 4 is Theorem~\ref{thm:28}.  Item 5 is Theorem~\ref{thm:triangle}.  Item 6 is Theorem~\ref{thm:factor} and Corollary~\ref{cor:scanner}.  Item 7 is Theorems~\ref{thm:quotient} and \ref{thm:phasecompat}.  Item 8 is Definitions~\ref{def:state}--\ref{def:transition} and Proposition~\ref{prop:state}.  Every component is explicit, and the strict type separations are recorded in Sections~1 and 9.
+\end{proof}
+
+\section{Proved data and strict scope}\label{sec:scope}
+
+The proved data may be summarized by
+\[
+\mathsf{FiniteRelationData}
+=
+\bigl(
+P_4,\TimeRead,\UnRead,
+E_8,\Delta_{28},
+\{M_a\},\Scan,
+\T^8/\diagT,
+W,\State,\Step
+\bigr).
+\]
+This is a register of distinct carriers and maps, not one opaque index.
+
+The paper proves:
+\begin{itemize}
+  \item exact four-phase addressing with unbounded retained occurrence;
+  \item eight distinct addresses across two phase windows;
+  \item all twenty-eight unordered and fifty-six oriented relations;
+  \item additive and multiplicative triangle compatibility;
+  \item a complete seven-round factorization and bijective relation scanner;
+  \item seven relative-phase degrees of freedom after quotient by common phase;
+  \item an exact state-and-transition interface preserving operator, address, channel, relation, scan, and receipt offices.
+\end{itemize}
+
+It does not supply metric duration, a physical clock, a unique relation-scanning order, a synchronization between scan and occurrence, a physical interpretation of the eight channels, or a theorem forcing any additional cyclic register.  In particular, no $137$-address or $548$-address construction is used in the result.  Those may be introduced only as separately declared extensions.
+
+\section{Computational verification}
+
+The companion regression script checks the Euclidean address bijection and carry law over a declared finite range; uniqueness of the eight-state window; the $28/56$ pair count; exact alternating identities; additive triangle reconstruction; the complete $K_8$ one-factorization; the bijective $\Z/28\Z$ scanner; common-phase invariance and multiplicative triangle identities over exact finite root-of-unity samples; and a finite state-transition witness with strict receipt growth.  These computations are regression gates for the displayed formulas; the universal proofs remain the arguments above.
+
+\begin{thebibliography}{9}
+\small
+
+\bibitem{BondyMurty}
+J.~A. Bondy and U.~S.~R. Murty,
+\emph{Graph Theory},
+Springer, London, 2008.
+
+\bibitem{Greub}
+W.~H. Greub,
+\emph{Multilinear Algebra},
+2nd ed., Springer, New York, 1978.
+
+\bibitem{CoppaAlgebra}
+A.~V. Coppa,
+\emph{A Complete $2\times2$ Operator Algebra for Recurrence, Phase, and Reversible Transport},
+2026.
+
+\bibitem{CoppaLift}
+A.~V. Coppa,
+\emph{Central Lift, Representation Difference, and Retained Occurrence},
+2026.
+
+\end{thebibliography}
+
+\end{document}

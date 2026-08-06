@@ -1,0 +1,687 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.82in,headheight=15pt,footskip=28pt]{geometry}
+\usepackage{amsthm}
+\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{mathtools,bm}
+\usepackage{booktabs,tabularx,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{lastpage}
+
+\definecolor{onyx}{HTML}{17191C}
+\definecolor{graphite}{HTML}{4B4F55}
+\definecolor{rulegray}{HTML}{B8BBC0}
+\definecolor{papergray}{HTML}{F3F3F1}
+\definecolor{gold}{HTML}{8B6B2D}
+\definecolor{deepblue}{HTML}{244B66}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=onyx,
+  urlcolor=deepblue,
+  pdftitle={Central Lift, Representation Difference, and Retained Occurrence},
+  pdfauthor={Anthony Vito Coppa},
+  pdfsubject={Covering-space return, representation difference, central closure, and lossless occurrence records},
+  pdfkeywords={covering spaces, group representations, central lift, return, occurrence ledger, SU(2), SO(3), Spin(8)}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small A. V. Coppa}
+\fancyhead[R]{\small Central Lift and Retained Occurrence}
+\fancyfoot[L]{\small A. V. Coppa -- 5 August 2026}
+\fancyfoot[R]{\small \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{onyx}}
+  {\thesection}{0.7em}{}
+  [\vspace{0.2em}\color{rulegray}\titlerule]
+\titleformat{\subsection}
+  {\large\bfseries\color{onyx}}
+  {\thesubsection}{0.65em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .4ex minus .2ex}{1.2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus .3ex minus .2ex}{0.8ex}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.22em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.22em,topsep=0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.52em}
+\renewcommand{\arraystretch}{1.15}
+
+\newtheoremstyle{returnstyle}
+  {0.7em}{0.7em}{\itshape}{}%
+  {\bfseries\color{onyx}}{.}{0.5em}{}
+\theoremstyle{returnstyle}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\Spin}{\operatorname{Spin}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\kerop}{\operatorname{ker}}
+\newcommand{\Archive}{\mathsf{Archive}}
+\newcommand{\Ledger}{\mathsf{Ledger}}
+\newcommand{\snoc}{\operatorname{snoc}}
+\newcommand{\dropLast}{\operatorname{dropLast}}
+\newcommand{\last}{\operatorname{last}}
+\newcommand{\RR}{\mathsf{RR}}
+\newcommand{\ClRead}{\mathsf{Cl}}
+\newcommand{\DiffRead}{\mathsf{D}}
+\newcommand{\boxplusop}{\mathbin{\boxplus}}
+
+\newtcolorbox{abstractbox}{
+  colback=papergray,
+  colframe=rulegray,
+  boxrule=0.5pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt
+}
+\newtcolorbox{boundarybox}{
+  colback=white,
+  colframe=gold,
+  boxrule=0.65pt,
+  arc=1.2pt,
+  left=8pt,right=8pt,top=7pt,bottom=7pt,
+  title={\bfseries Scope and evidence boundary},
+  coltitle=onyx,
+  fonttitle=\normalsize
+}
+\newtcolorbox{resultbox}{
+  colback=papergray,
+  colframe=onyx,
+  boxrule=0.7pt,
+  arc=1.2pt,
+  left=9pt,right=9pt,top=8pt,bottom=8pt
+}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{0.09\textheight}
+
+{\fontsize{28}{33}\selectfont\bfseries\color{onyx} Central Lift, Representation Difference, and Retained Occurrence\par}
+\vspace{0.75em}
+{\fontsize{17}{22}\selectfont\bfseries A Typed Return Architecture\par}
+
+\vspace{2.0em}
+\color{gold}\rule{0.62\textwidth}{1.1pt}\color{black}
+\vspace{1.9em}
+
+\begin{abstractbox}
+\textbf{Abstract.}
+A return in a base space, the endpoint of a chosen lift, the action visible in a representation, and the stored occurrence are different mathematical data.  This paper places them in one typed construction.  For a representation $\rho:G\to\GL(W)$, the difference read
+\[
+D_\rho(g)=\rho(g)-I_W
+\]
+obeys the ordered nonlinear law $D_\rho(gh)=D_\rho(g)+D_\rho(h)+D_\rho(g)D_\rho(h)$, and its zero set is exactly $\ker\rho$.  A based loop in $\SO(3)$ carries a central endpoint class in the double cover $\SU(2)\to\SO(3)$; half-integer action cannot descend through the physical rotation quotient, while an axis-relative equivalence exists on the covering torus.  Append-only receipts preserve repeated occurrences and exactly recover the stored lift data.  The central theorem treats a double covering with nontrivial deck element $z$ acting by $-I_W$: the closure read $\rho(z)+I_W$ vanishes, the represented difference $\rho(z)-I_W=-2I_W$ remains nonzero, and the occurrence ledger strictly grows.  Explicit $\SU(2)$ and $\Spin(8)$ paths inhabit the theorem.  A double traversal then returns the represented endpoint to identity by both central multiplication and the difference-composition law, while the retained occurrence distinguishes the traversal from rest.
+\end{abstractbox}
+
+\vfill
+{\large Anthony Vito Coppa\par}
+{\large Independent Research\par}
+{\large Draft 0.1 -- 5 August 2026\par}
+\vspace{0.6em}
+{\small Jurisdiction: covering spaces, group representations, finite sequence records, and spin double covers.\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+
+\tableofcontents
+\clearpage
+
+\section{Purpose, jurisdiction, and main statement}
+
+Return has several mathematically distinct meanings.  A reader may return while the underlying state does not.  A projected loop may close while its chosen lift ends on another sheet.  A representation may fail to detect a nontrivial source element.  A complete endpoint read may return to identity while a record still contains a nonconstant traversal.
+
+This paper isolates these distinctions and then proves that they can coexist in one exact return datum.
+
+\begin{boundarybox}
+The following rules are part of the result.
+\begin{itemize}
+  \item Equality in a reader codomain is not equality of underlying states.
+  \item A deck element, its represented operator, a scalar sign, and a stored receipt are not interchangeable.
+  \item A zero difference read reports the kernel of the declared representation; it does not report the absence of an event.
+  \item Lossless storage does not require recurrence, curvature, or a nonzero observable.
+  \item The spin and axial results below are representation-theoretic placement statements.  They do not identify a covering-space endpoint with an independently constructed physical or computational phase without an explicit compatibility witness.
+\end{itemize}
+\end{boundarybox}
+
+\begin{theorem}[R.0 -- Central return with retained difference and occurrence]\label{thm:main}
+Let
+\[
+p:\widetilde G\longrightarrow G
+\]
+be a double covering of connected Lie groups with kernel $\{1,z\}$, where $z^2=1$.  Let $W\ne0$ be a real or complex vector space and let
+\[
+\rho:\widetilde G\longrightarrow\GL(W)
+\]
+be a representation satisfying
+\[
+\rho(z)=-I_W.
+\]
+Choose a path $\widetilde\gamma$ from $1$ to $z$, let $\gamma=p\circ\widetilde\gamma$, and append a receipt of this traversal to an archive $R_n$.  Then
+\[
+\rho(z)+I_W=0,
+\qquad
+\rho(z)-I_W=-2I_W\ne0,
+\qquad
+R_{n+1}\ne R_n.
+\]
+Thus endpoint closure, represented difference, and retained occurrence are simultaneously inhabited in the product type
+\[
+\End(W)\times\End(W)\times\Ledger.
+\]
+\end{theorem}
+
+The proof is given in Section~\ref{sec:central}.  The surrounding sections establish the return interface, difference calculus, lift class, placement rule, and append theorem needed to state the result without coercing one datum into another.
+
+\section{Return readers and retained return data}\label{sec:return-data}
+
+\begin{definition}[R.1 -- Return reader]
+Let $X$ be a state space and let $r:X\to Y$ be a declared reader.  A path $x:[0,1]\to X$ is an $r$-return when
+\[
+r(x(1))=r(x(0)).
+\]
+The equality is in $Y$ only.  It does not imply $x(1)=x(0)$ in $X$.
+\end{definition}
+
+The reader may be the identity, a quotient map, projectivization, or another specified observation.  Its codomain determines what has returned.
+
+\begin{definition}[R.2 -- Covering return datum]\label{def:rr}
+Let $p:\widetilde X\to X$ be a regular covering with deck group $\Gamma$.  Let $\gamma:[0,1]\to X$ be a based loop and let $\widetilde\gamma$ be a chosen lift.  There is a unique endpoint defect $\varepsilon\in\Gamma$ satisfying
+\[
+\widetilde\gamma(1)=\varepsilon\cdot\widetilde\gamma(0).
+\]
+Let $r:X\to Y$ be a reader, let $\rho:\Gamma\to\GL(W)$ be a representation, let $o_n=(u,n)$ be an occurrence address, and let $R_n$ be a finite receipt archive.  A \emph{retained return datum} is
+\[
+\RR=
+\bigl(
+ p,\gamma,\widetilde\gamma,\varepsilon,
+ r,r(\gamma(0)),r(\gamma(1)),
+ \rho,D_\rho(\varepsilon),o_n,R_n
+\bigr),
+\]
+together with witnesses for the covering, lift, endpoint defect, reader equality, representation, and append laws.
+\end{definition}
+
+\begin{proposition}[R.3 -- Reader return does not erase the lift]\label{prop:reader-return}
+For a retained return datum, reader closure
+\[
+r(\gamma(1))=r(\gamma(0))
+\]
+is compatible with each of the following:
+\begin{enumerate}
+  \item $\widetilde\gamma(1)\ne\widetilde\gamma(0)$;
+  \item $D_\rho(\varepsilon)\ne0$;
+  \item $o_{n+1}\ne o_n$;
+  \item $R_{n+1}\ne R_n$.
+\end{enumerate}
+No one of these statements follows from another without the displayed data and witnesses.
+\end{proposition}
+
+\begin{proof}
+The four statements lie respectively in the covering space, an endomorphism algebra, the occurrence-address set, and the receipt ledger.  Reader equality is an equality in $Y$.  Since the carriers and codomains are distinct, no implication among them follows from a matching endpoint read alone.
+\end{proof}
+
+\section{Representation difference}\label{sec:difference}
+
+Let $G$ be a group and let $\rho:G\to\GL(W)$ be a representation on a real or complex vector space $W$.
+
+\begin{definition}[R.4 -- Representation difference]
+For $g\in G$, define
+\begin{equation}\label{eq:diff}
+D_\rho(g)=\rho(g)-I_W\in\End(W).
+\end{equation}
+\end{definition}
+
+\begin{theorem}[R.5 -- Ordered difference law]\label{thm:composition}
+For all $g,h\in G$,
+\begin{equation}\label{eq:composition}
+D_\rho(gh)
+=D_\rho(g)+D_\rho(h)+D_\rho(g)D_\rho(h).
+\end{equation}
+Equivalently, with
+\begin{equation}\label{eq:boxplus}
+A\boxplusop B:=A+B+AB,
+\end{equation}
+one has $D_\rho(gh)=D_\rho(g)\boxplusop D_\rho(h)$.
+\end{theorem}
+
+\begin{proof}
+Using multiplicativity,
+\[
+D_\rho(gh)
+=\rho(g)\rho(h)-I
+=(I+D_\rho(g))(I+D_\rho(h))-I,
+\]
+which expands to Eq.~\eqref{eq:composition}.
+\end{proof}
+
+\begin{proposition}[R.6 -- Transported group law]\label{prop:group-law}
+On
+\[
+\mathcal D_W=\{A\in\End(W):I_W+A\in\GL(W)\},
+\]
+the operation $\boxplusop$ is associative, has identity $0$, and has inverse
+\begin{equation}\label{eq:boxinverse}
+A^{\boxplusop-1}=-(I+A)^{-1}A=-A(I+A)^{-1}.
+\end{equation}
+The map $A\mapsto I+A$ is a group isomorphism
+\[
+(\mathcal D_W,\boxplusop)\cong\GL(W).
+\]
+\end{proposition}
+
+\begin{proof}
+The identity
+\[
+I+(A\boxplusop B)=(I+A)(I+B)
+\]
+transports multiplication in $\GL(W)$ to $\mathcal D_W$.  Associativity, the identity, and Eq.~\eqref{eq:boxinverse} follow immediately.
+\end{proof}
+
+\begin{corollary}[R.7 -- Inverse difference]
+For $g\in G$,
+\[
+D_\rho(g^{-1})
+=-\rho(g)^{-1}D_\rho(g)
+=-D_\rho(g)\rho(g)^{-1}.
+\]
+\end{corollary}
+
+\begin{proof}
+Apply Proposition~\ref{prop:group-law} to $A=D_\rho(g)$ and use $I+D_\rho(g)=\rho(g)$.
+\end{proof}
+
+\begin{theorem}[R.8 -- Silent locus]\label{thm:silent}
+For every $g\in G$,
+\begin{equation}\label{eq:silent}
+D_\rho(g)=0
+\quad\Longleftrightarrow\quad
+g\in\ker\rho.
+\end{equation}
+Consequently, a zero difference read implies $g=e$ only when $\rho$ is faithful.
+\end{theorem}
+
+\begin{proof}
+The equality $D_\rho(g)=0$ is equivalent to $\rho(g)=I_W$, which is exactly the condition $g\in\ker\rho$.
+\end{proof}
+
+\section{Central lift and monodromy}\label{sec:monodromy}
+
+Let
+\[
+p_2:\SU(2)\longrightarrow\SO(3)
+\]
+be the standard double cover, with kernel $\{I_2,-I_2\}$.  Fix $g_0\in\SO(3)$ and a lift $\widetilde g_0\in p_2^{-1}(g_0)$.
+
+\begin{definition}[R.9 -- Central endpoint class]
+For a based loop $\gamma:[0,1]\to\SO(3)$ at $g_0$, let $\widetilde\gamma$ be the lift beginning at $\widetilde g_0$.  The unique element
+\[
+\varepsilon_{\mathrm{cen}}(\gamma)\in\{I_2,-I_2\}
+\]
+satisfying
+\[
+\widetilde\gamma(1)=\varepsilon_{\mathrm{cen}}(\gamma)\widetilde g_0
+\]
+is the central endpoint class of $\gamma$.
+\end{definition}
+
+\begin{theorem}[R.10 -- Central monodromy]\label{thm:monodromy}
+The central endpoint class is independent of the chosen sheet over $g_0$, invariant under based homotopy, and multiplicative under loop concatenation:
+\[
+\varepsilon_{\mathrm{cen}}(\gamma_1*\gamma_2)
+=
+\varepsilon_{\mathrm{cen}}(\gamma_1)
+\varepsilon_{\mathrm{cen}}(\gamma_2).
+\]
+After fixing the base lift, it induces the standard isomorphism
+\[
+\pi_1(\SO(3),g_0)\cong\{I_2,-I_2\}\cong\Z/2\Z.
+\]
+\end{theorem}
+
+\begin{proof}
+Changing the initial lift from $\widetilde g_0$ to $-\widetilde g_0$ changes the entire lifted path by the same deck action, so the endpoint class is unchanged.  Based homotopy invariance follows from the homotopy lifting property.  Under concatenation, the lift of the second loop continues from the endpoint of the first, and the two deck transformations multiply.  Since $\SU(2)\cong S^3$ is simply connected, $p_2$ is the universal cover and its deck group is the fundamental group of $\SO(3)$; see \cite{Hatcher,Hall}.
+\end{proof}
+
+For rotation through $2\pi$ about a fixed axis,
+\[
+\varepsilon_{\mathrm{cen}}(\gamma_{2\pi})=-I_2,
+\qquad
+\varepsilon_{\mathrm{cen}}(\gamma_{4\pi})=I_2.
+\]
+
+\begin{proposition}[R.11 -- Central character]
+In the irreducible spin-$J$ representation $\rho_J$ of $\SU(2)$,
+\[
+\rho_J(-I_2)=(-1)^{2J}I_{V_J}.
+\]
+Thus integer-spin representations are silent on the nontrivial central element, while half-integer-spin representations detect it.
+\end{proposition}
+
+\begin{proof}
+Realize $V_J$ as $\operatorname{Sym}^{2J}(\C^2)$.  The element $-I_2$ acts by $-1$ on each tensor factor, hence by $(-1)^{2J}$ on the symmetric power; see \cite{FultonHarris,Hall}.
+\end{proof}
+
+\section{Axial placement}\label{sec:placement}
+
+Let $U(1)_{\mathrm{top}}$ be the maximal torus of $\SU(2)$, with
+\[
+\iota(e^{i\alpha})=
+\begin{pmatrix}
+ e^{i\alpha}&0\\
+ 0&e^{-i\alpha}
+\end{pmatrix}.
+\]
+Let
+\[
+q:U(1)_{\mathrm{top}}\longrightarrow\SO(2)_{\mathrm{phys}},
+\qquad
+q(z)=z^2,
+\]
+so both routes to $\SO(3)$ give physical rotation through $2\alpha$.
+
+Let $W$ be an oriented real two-plane with skew-adjoint generator $C_1$ satisfying $C_1^2=-I_W$.  Define
+\[
+\rho_W(e^{i\alpha})=e^{\alpha C_1}.
+\]
+
+\begin{theorem}[R.12 -- Lower-quotient obstruction]\label{thm:obstruction}
+If the phase-plane action is first placed on $\SO(2)_{\mathrm{phys}}$ and then pulled back along $q$, there is no nonzero $U(1)_{\mathrm{top}}$-equivariant linear map from the defining spinor representation $\C^2$ to $W_\C$.
+\end{theorem}
+
+\begin{proof}
+The element $-1\in\ker q$ acts trivially on the pulled-back physical-plane action.  In the defining spinor representation, $\iota(-1)=-I_2$.  If $E:\C^2\to W_\C$ were equivariant, then
+\[
+E(-v)=E(v)
+\]
+for every $v$, so $E=0$ over characteristic zero.
+\end{proof}
+
+\begin{theorem}[R.13 -- Covering-torus equivalence]\label{thm:torus}
+Place $\rho_W$ directly on $U(1)_{\mathrm{top}}$.  After choosing the rotation axis and compatible weight bases, there is a $U(1)_{\mathrm{top}}$-equivariant isomorphism
+\[
+E:W_\C\overset{\cong}{\longrightarrow}\C^2\big|_{\iota(U(1)_{\mathrm{top}})}.
+\]
+This equivalence is axis-relative and does not extend canonically to an $\SU(2)$-module isomorphism.
+\end{theorem}
+
+\begin{proof}
+The complexified plane splits into the $\pm i$ eigenspaces of $C_1$:
+\[
+W_\C=W_+\oplus W_-.
+\]
+The action $e^{\alpha C_1}$ has weights $e^{i\alpha}$ and $e^{-i\alpha}$ on these lines.  The defining spinor restricted to $\iota(U(1)_{\mathrm{top}})$ has the same two weights.  Matching the weight lines gives the isomorphism.  The construction uses the selected torus and supplies no natural action of the remaining elements of $\SU(2)$ on the original real plane.
+\end{proof}
+
+Theorems~\ref{thm:obstruction} and \ref{thm:torus} are a placement result: half-integer central action belongs on the covering torus, not on the physical rotation quotient.
+
+\section{Lossless occurrence records}\label{sec:ledger}
+
+Let $\mathcal R$ be a receipt type.  Define
+\[
+\Archive_n(\mathcal R)=\mathcal R^n,
+\qquad
+\Ledger(\mathcal R)=\bigsqcup_{n\in\N}\Archive_n(\mathcal R).
+\]
+For $R_n=(r_0,\ldots,r_{n-1})$ and $r\in\mathcal R$, write
+\[
+\snoc(R_n,r)=(r_0,\ldots,r_{n-1},r).
+\]
+
+\begin{theorem}[R.14 -- Split append]\label{thm:append}
+For every finite archive $R_n$ and receipt $r$,
+\[
+\dropLast(\snoc(R_n,r))=R_n,
+\qquad
+\last(\snoc(R_n,r))=r.
+\]
+Thus append is injective in the archive argument, the appended receipt is exactly recoverable, and repeated equal-valued receipts remain distinct occurrences.
+\end{theorem}
+
+\begin{proof}
+The equations are the constructor--eliminator laws of finite sequences.  The first recovers the complete prefix, and the second recovers the final payload.  Sequence position and length distinguish repeated occurrences even when their stored values agree.
+\end{proof}
+
+\begin{corollary}[R.15 -- Lossless lift retention]
+If a receipt stores a parameterized path, its chosen lift, endpoint defect, representation read, witnesses, evidence mode, and occurrence address, then all of those fields remain recoverable after append, independently of whether $D_\rho(\varepsilon)$ is zero.
+\end{corollary}
+
+\section{Central closure with retained difference}\label{sec:central}
+
+Let $p:\widetilde G\to G$ and $z\in\ker p$ satisfy the hypotheses of Theorem~\ref{thm:main}.  Define two exact operator reads:
+\begin{equation}\label{eq:closure-diff}
+C_\rho(z)=\rho(z)+I_W,
+\qquad
+D_\rho(z)=\rho(z)-I_W.
+\end{equation}
+
+\begin{theorem}[R.16 -- Central closure triple]\label{thm:central}
+Under the odd central-action hypothesis $\rho(z)=-I_W$,
+\begin{equation}\label{eq:central-triple}
+\bigl(C_\rho(z),D_\rho(z),R_{n+1}\bigr)
+=
+\bigl(0,-2I_W,\snoc(R_n,r_{n+1})\bigr)
+\end{equation}
+is a well-typed element of
+\[
+\End(W)\times\End(W)\times\Ledger(\mathcal R),
+\]
+with $D_\rho(z)\ne0$ and $R_{n+1}\ne R_n$.
+\end{theorem}
+
+\begin{proof}
+The representation hypothesis gives
+\[
+C_\rho(z)=-I_W+I_W=0,
+\qquad
+D_\rho(z)=-I_W-I_W=-2I_W.
+\]
+Since $W\ne0$ over $\R$ or $\C$, the second operator is nonzero.  The ledger inequality follows from Theorem~\ref{thm:append} because the appended archive has length $n+1$.
+\end{proof}
+
+\begin{remark}[Two reads of one return]
+At the same central endpoint, the sum read closes while the difference read remains.  These are two operations in $\End(W)$, not contradictory claims about one scalar value.  The receipt occupies a third carrier.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+The projected path $\gamma=p\circ\widetilde\gamma$ is a based loop because $p(z)=p(1)$.  The path and endpoint defect supply a retained return datum as in Definition~\ref{def:rr}.  The operator identities and nonvanishing are Theorem~\ref{thm:central}; strict growth of the ledger is Theorem~\ref{thm:append}.
+\end{proof}
+
+\section{Explicit realizations}\label{sec:realizations}
+
+\subsection{Planar half-turn}
+
+Let
+\[
+J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad
+U(\theta)=e^{\theta J}.
+\]
+For $v\in\R^2\setminus\{0\}$, let $[v]$ denote its real projective line.
+
+\begin{proposition}[R.17 -- First active projective return]\label{prop:halfturn}
+The least positive $\theta$ for which
+\[
+[U(\theta)v]=[v]
+\quad\text{and}\quad
+(U(\theta)-I)v\ne0
+\]
+is $\theta=\pi$.  At that angle,
+\[
+U(\pi)+I=0,
+\qquad
+U(\pi)-I=-2I.
+\]
+\end{proposition}
+
+\begin{proof}
+A real planar rotation preserves the line $[v]$ only at angles $0$ and $\pi$ modulo $2\pi$.  At $0$, the difference vanishes.  At $\pi$, $U(\pi)=-I$, giving the two displayed reads.
+\end{proof}
+
+\subsection{The defining spinor return}
+
+Define
+\[
+\widetilde\gamma_2(t)=
+\begin{pmatrix}
+ e^{-i\pi t}&0\\
+ 0&e^{i\pi t}
+\end{pmatrix},
+\qquad 0\le t\le1.
+\]
+Then $\widetilde\gamma_2(0)=I_2$ and $\widetilde\gamma_2(1)=-I_2$.  Under $p_2:\SU(2)\to\SO(3)$, the projected path is rotation through $2\pi t$ about the selected axis.
+
+\begin{proposition}[R.18 -- Defining spinor return]
+For the defining representation $\rho_2:\SU(2)\to\GL(\C^2)$,
+\[
+C_{\rho_2}(-I_2)=0,
+\qquad
+D_{\rho_2}(-I_2)=-2I_2.
+\]
+Together with the path, lift, and appended receipt, these data inhabit Theorem~\ref{thm:main}.
+\end{proposition}
+
+\begin{proof}
+The endpoint is the nontrivial deck element and the defining representation sends it to $-I_2$.  Apply Theorem~\ref{thm:central}.
+\end{proof}
+
+\subsection{Positive half-spin return in dimension eight}
+
+Use the Riemannian Clifford convention $e_j^2=-1$ and set $E=e_1e_2$, so $E^2=-1$.  Define
+\[
+\widetilde\gamma_8(t)=e^{\pi tE}=\cos(\pi t)+\sin(\pi t)E.
+\]
+This path lies in $\Spin(8)$, begins at $1$, and ends at $-1$.  Its projection under
+\[
+p_8:\Spin(8)\longrightarrow\SO(8)
+\]
+is rotation through $2\pi t$ in the $e_1e_2$-plane and the identity on its orthogonal complement.
+
+Let $\Delta_+$ be the positive complex half-spin module and let
+\[
+\rho_+:\Spin(8)\longrightarrow\GL(\Delta_+)
+\]
+be the positive half-spin representation; see \cite{LawsonMichelsohn}.  The scalar $-1$ acts as $-I_{\Delta_+}$.
+
+\begin{proposition}[R.19 -- Positive half-spin return]
+The path $\widetilde\gamma_8$, its projected loop, the endpoint $-1$, the positive half-spin representation, and an appended receipt inhabit Theorem~\ref{thm:main}.  In particular,
+\[
+C_{\rho_+}(-1)=0,
+\qquad
+D_{\rho_+}(-1)=-2I_{\Delta_+}.
+\]
+\end{proposition}
+
+\begin{proof}
+The explicit Clifford path supplies the lift and endpoint defect.  Its projection is a based loop because a $2\pi$ plane rotation is the identity in $\SO(8)$.  Since $\rho_+(-1)=-I_{\Delta_+}$, Theorem~\ref{thm:central} applies.
+\end{proof}
+
+\begin{remark}
+The zero above is an endomorphism value.  It is not a zero element of $\Spin(8)$, and no homomorphism $\Spin(8)\to\{0\}$ is asserted.
+\end{remark}
+
+\section{The overdetermined double return}\label{sec:double}
+
+Consider two concatenated $2\pi$ rotation loops in the defining spinor representation.  One loop has central endpoint $-I_2$ and difference $-2I_2$.
+
+\begin{theorem}[R.20 -- Double return with retained traversal]\label{thm:double}
+The represented difference after the concatenated $4\pi$ traversal vanishes by two independent calculations:
+\begin{align*}
+(-I_2)(-I_2)&=I_2,\\
+(-2I_2)\boxplusop(-2I_2)&=0.
+\end{align*}
+Nevertheless, a lossless receipt distinguishes the traversed $4\pi$ loop from a constant path even though both have central endpoint $I_2$ and represented difference $0$.
+\end{theorem}
+
+\begin{proof}
+The first equation is central multiplication.  The second is
+\[
+-2I_2-2I_2+(-2I_2)(-2I_2)=0,
+\]
+which is Theorem~\ref{thm:composition}.  The endpoint class records only the homotopy class in $\pi_1(\SO(3))\cong\Z/2\Z$, and the difference read records only the represented endpoint.  By Theorem~\ref{thm:append}, the archive retains the parameterized path, chosen lift, and occurrence address.  Hence the constant and traversed paths can agree in both reduced reads while remaining distinct receipts.
+\end{proof}
+
+\section{Proved data and strict scope}\label{sec:scope}
+
+The proved data may be summarized by
+\[
+\mathsf{ReturnData}
+=
+\bigl(
+ r,p,\gamma,\widetilde\gamma,\varepsilon,
+ \rho,D_\rho(\varepsilon),o_n,R_n,
+ \varepsilon_{\mathrm{cen}},E,
+ C_\rho(z)
+\bigr),
+\]
+together with the proofs above.  This is a register of separately typed fields, not a chain of automatic identifications.
+
+The paper proves:
+\begin{itemize}
+  \item the exact nonlinear composition, inverse, and kernel laws for representation difference;
+  \item the central endpoint class of rotation loops in the $\SU(2)$ double cover;
+  \item the obstruction to lower-quotient placement and the covering-torus equivalence;
+  \item split append and exact recovery of retained lift records;
+  \item central closure with nonzero represented difference and strict ledger growth;
+  \item concrete defining-spinor and positive half-spin realizations;
+  \item vanishing of the double-turn observable by two independent routes.
+\end{itemize}
+
+It does not assert that all memory is return, that storage requires recurrence or curvature, that endpoint recurrence supplies geometric phase without transport data, or that a mathematical return datum is automatically a law of a physical, biological, or cognitive system.  Equal values such as $-1$, $-I_2$, and $-I_W$ remain distinct objects until related by the displayed maps.
+
+\section{Computational verification}
+
+The companion regression script checks the transported difference group law, inverse law, finite central-character cases, the planar half-turn, the central closure triple, split append, the two independent $4\pi$ calculations, and finite sampled torus-weight compatibility.  These checks are regression gates for the displayed formulas; the universal proofs remain the arguments above.
+
+\begin{thebibliography}{9}
+\small
+
+\bibitem{FultonHarris}
+W. Fulton and J. Harris,
+\emph{Representation Theory: A First Course},
+Springer, New York, 1991.
+
+\bibitem{Hall}
+B.~C. Hall,
+\emph{Lie Groups, Lie Algebras, and Representations},
+2nd ed., Springer, Cham, 2015.
+
+\bibitem{Hatcher}
+A. Hatcher,
+\emph{Algebraic Topology},
+Cambridge University Press, Cambridge, 2002.
+
+\bibitem{LawsonMichelsohn}
+H.~B. Lawson, Jr. and M.-L. Michelsohn,
+\emph{Spin Geometry},
+Princeton University Press, Princeton, 1989.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,37 @@
+{
+  "schema": "clear-onyx.exact-kernel-release.v1",
+  "release_date": "2026-08-06",
+  "author": "Anthony Vito Coppa",
+  "papers": [
+    {
+      "order": 1,
+      "slug": "complete-2x2-operator-algebra",
+      "checks": 1112
+    },
+    {
+      "order": 2,
+      "slug": "condition-and-constraint",
+      "checks": 35
+    },
+    {
+      "order": 3,
+      "slug": "central-lift",
+      "checks": 137
+    },
+    {
+      "order": 4,
+      "slug": "four-phase-eight-state",
+      "checks": 13823639
+    },
+    {
+      "order": 5,
+      "slug": "conserved-transport-return",
+      "checks": 61380
+    }
+  ],
+  "total_reported_checks": 13886303,
+  "exposition": "clear-onyx-computational-kernel",
+  "portable_checksum_ledger": "SHA256SUMS",
+  "original_manifests_preserved": true,
+  "license_included": false
+}
