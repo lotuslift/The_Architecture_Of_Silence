@@ -37,3 +37,8 @@ The original per-artifact `.sha256` manifests are preserved byte-for-byte. Two c
 *The Structure of Survival: The Minimum Geometry of Motion, Memory, and Recognition*, Review Edition v66, was added as a supplemental exposition with its compiled PDF, inspectable LaTeX source, and SHA-256 manifest.
 
 The supplement coordinates the planar root, axial quotient and lift, compatible reader family, twenty-eight-seam ledger, physical field interfaces, and covariant continuum closure in one ordered manuscript. It leaves the original five-paper executable release, its manifest, and its reported check count unchanged.
+
+The permanent publication record is carried by the Zenodo concept DOI
+`10.5281/zenodo.23697264`; Review Edition v66 is fixed by the version DOI
+`10.5281/zenodo.23697265`. The concept DOI is the stable all-versions address,
+while the version DOI identifies the exact deposited manuscript.

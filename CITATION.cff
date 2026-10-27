@@ -1,9 +1,22 @@
 cff-version: 1.2.0
-title: "Clear_Onyx Exact Kernel: Five-Paper Set and Computational Exposition"
-message: "Please cite the individual paper used and this repository release when relying on the executable witnesses."
-type: collection
+title: "Clear_Onyx Exact Kernel: Five-Paper Kernel and Two Expositions"
+message: "Please cite The Structure of Survival and the individual formal paper or executable witness used."
+type: dataset
 authors:
   - family-names: Coppa
     given-names: Anthony Vito
-version: "2026-08-06"
-date-released: 2026-08-06
+version: "2026-10-27"
+date-released: 2026-10-27
+url: "https://github.com/lotuslift/The_Architecture_Of_Silence"
+preferred-citation:
+  type: article
+  title: "The Structure Of Survival"
+  authors:
+    - family-names: Coppa
+      given-names: Anthony Vito
+  date-published: 2026-10-27
+  status: preprint
+  publisher:
+    name: Zenodo
+  doi: "10.5281/zenodo.23697265"
+  url: "https://doi.org/10.5281/zenodo.23697265"

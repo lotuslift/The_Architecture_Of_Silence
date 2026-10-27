@@ -1,10 +1,23 @@
 # Clear_Onyx Exact Kernel
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23697264.svg)](https://doi.org/10.5281/zenodo.23697264)
+[![Verify release](https://github.com/lotuslift/The_Architecture_Of_Silence/actions/workflows/verify.yml/badge.svg)](https://github.com/lotuslift/The_Architecture_Of_Silence/actions/workflows/verify.yml)
+
 ## Five-paper kernel and two expositions
 
 This repository presents a bounded, auditable mathematical release by **Anthony Vito Coppa**. It contains five papers that separate local operator algebra, admissibility discipline, central return, finite relational addressing, and conserved transport into distinct jurisdictions. The Clear_Onyx exposition states the computational implementation contract. *The Structure of Survival* supplies the unified synthesis of motion, metric, memory, recognition, physical readout, and continuum return.
 
 Each paper directory contains the compiled PDF, the LaTeX source, its regression checker, and the original SHA-256 manifest. Each exposition directory contains its compiled PDF, LaTeX source, and SHA-256 manifest.
+
+## Canonical publication
+
+The stable record for *The Structure of Survival* is the Zenodo concept DOI
+[10.5281/zenodo.23697264](https://doi.org/10.5281/zenodo.23697264). Review
+Edition v66 is fixed at the version DOI
+[10.5281/zenodo.23697265](https://doi.org/10.5281/zenodo.23697265).
+
+The DOI identifies the published paper. This repository carries its inspectable
+source beside the preceding formal kernel and its executable witnesses.
 
 ## Reading order
 
