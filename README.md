@@ -19,6 +19,10 @@ Edition v66 is fixed at the version DOI
 The DOI identifies the published paper. This repository carries its inspectable
 source beside the preceding formal kernel and its executable witnesses.
 
+Read Review Edition v66: [publication record](https://doi.org/10.5281/zenodo.23697265)
+· [download PDF](https://zenodo.org/records/23697265/files/The_Structure_of_Survival_v66.pdf?download=1)
+· [LaTeX source](exposition/the-structure-of-survival/The_Structure_of_Survival_v66.tex).
+
 ## Reading order
 
 | # | Work | Primary jurisdiction | Executable witness |
@@ -29,7 +33,7 @@ source beside the preceding formal kernel and its executable witnesses.
 | 4 | [Four-Phase Addressing and Eight-State Relations](papers/04-four-phase-eight-state/Four_Phase_Addressing_and_Eight_State_Relations_Draft_0_1.pdf) | Phase/occurrence separation, eight states, 28 pair relations, exact scan | 13,823,639 checks |
 | 5 | [Conserved Transport and Return](papers/05-conserved-transport-return/Conserved_Transport_and_Return_Draft_0_1.pdf) | Dynamics, Noether currents, reversible flow, gauge transport, proper time | 61,380 checks |
 | — | [Clear_Onyx Computational Kernel Briefing](exposition/clear-onyx-computational-kernel/Clear_Onyx_Computational_Kernel_Briefing_AVC_2026-08-05.pdf) | Exact normal-form engine, typed state, phase/lift addressing, implementation boundary | Exposition |
-| — | [The Structure of Survival](exposition/the-structure-of-survival/The_Structure_of_Survival_v66.pdf) | Unified typed architecture of motion, metric, memory, recognition, physical readout, and continuum return | Internal proof register |
+| — | [The Structure of Survival](https://doi.org/10.5281/zenodo.23697265) ([repository PDF](exposition/the-structure-of-survival/The_Structure_of_Survival_v66.pdf) · [source](exposition/the-structure-of-survival/The_Structure_of_Survival_v66.tex)) | Unified typed architecture of motion, metric, memory, recognition, physical readout, and continuum return | Internal proof register |
 
 ## Central computational statement
 
