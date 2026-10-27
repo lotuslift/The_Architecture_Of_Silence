@@ -26,7 +26,12 @@ The release is intentionally typed. Numerical coincidence, shared appearance, co
 
 ## Verify the package
 
-Python 3.10 or later is sufficient; the checkers use only the standard library.
+Python 3.10 or later is required. Install the two symbolic and numerical
+verification dependencies before running the checkers:
+
+```bash
+python -m pip install --requirement requirements.txt
+```
 
 ```bash
 python scripts/verify_release.py

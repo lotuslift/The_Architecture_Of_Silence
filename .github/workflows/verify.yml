@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install verification dependencies
+        run: python -m pip install --requirement requirements.txt
+
       - name: Verify repository hashes
         run: python scripts/verify_release.py
 
