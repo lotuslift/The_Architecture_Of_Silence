@@ -1,0 +1,1724 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,mathtools,mathrsfs}
+\IfFileExists{newtxtext.sty}{\usepackage{newtxtext,newtxmath}}{\usepackage{lmodern}}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{booktabs,array,longtable}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\geometry{paperwidth=6.75in,paperheight=9.75in,top=0.68in,bottom=0.72in,left=0.72in,right=0.72in}
+\setlength{\parindent}{1.15em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\abovedisplayskip}{7pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{7pt plus 2pt minus 2pt}
+\allowdisplaybreaks[2]
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\scriptsize\scshape The Structure of Survival}
+\fancyhead[R]{\scriptsize A. V. Coppa}
+\fancyfoot[C]{\scriptsize\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\setlength{\headheight}{13pt}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\titleformat{\section}{\normalfont\large\scshape}{\thesection.}{0.55em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.45em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.35em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\begin{document}
+\begin{center}
+{\LARGE\scshape The Structure of Survival\par}
+\vspace{0.15em}
+{\large The Minimum Geometry of Motion, Memory, and Recognition\par}
+\vspace{0.8em}
+{\normalsize Anthony V. Coppa\par}
+{\small AVC\par}
+\vspace{0.35em}
+{\small Review Edition v66 · 27 October 2026\par}
+\end{center}
+\vspace{0.5em}
+\hrule height 0.35pt
+\vspace{0.75em}
+
+\noindent\textbf{Abstract.}\\[-1.1em]
+
+A printed sentence presents two structures at once. Its marks occupy places on a line. Its meaning is the relation a reader carries through those marks. The marks can remain still while the reading turns, joins, and returns among them. This ordinary difference between position and relation is the physical starting point. A clock makes the same distinction tangible: its hand returns to a mark while the addressed traversal advances. In this minimum operational sense, reality is a clock before it is a calendar.
+
+The same distinction appears in time. Yesterday's sunrise and tomorrow's sunrise are separate occurrences; the recognizable pattern joins them without making them one event. A useful account must therefore preserve both facts: what is the same under a declared reading, and what has changed in the world that was read. Call the first fact return and the second retained difference.
+
+Two explicit real matrices supply the minimum exact model. A recurrence $Q$ and an oriented quarter-turn $\Omega$ produce the symmetric commutator $G=[Q,\Omega]$, with $G^2=5I$. The normalized mirror $H=G/\sqrt5$ reverses the axial transport $L_s=e^{sS}$. The transport preserves the signed interval while advancing a lifted coordinate. Its quotient closes the visible cycle; its lift keeps the distance traveled. A stationary action yields the corresponding equation of motion and conserved charge.
+
+The same root carries a continuous family of compatible readers. For $\kappa>\sqrt5$, $J_\kappa=(G+\kappa C_1)/\sqrt{\kappa^2-5}$ is a complex structure, $B_\kappa=\Omega J_\kappa$ is its positive metric, and a tuned mirror reverses its orientation. The quadratic Gauss sums $g_5=\sqrt5$ and $g_7=i\sqrt7$ select the $(5,7)$ member. Eight quarter-turn addresses then expose all twenty-eight pairwise relations among them. Seven perfect matchings schedule those relations without omission, and compatible tuning changes the reader while preserving the full labeled ledger.
+
+The physical condensation is equally explicit. In the general-relativistic
+jurisdiction, the abstract Gravity office is inhabited by the Einstein
+residual and a specified Einstein constraint/evolution map; this is a typed
+instance, not a verbal analogy. The same Lorentzian metric $g$ determines
+proper time, free fall, null signal propagation, and the Hodge operator
+$\star_g$ on electromagnetic two-forms. Its weak-field, slow-motion limit
+returns Newton's potential and acceleration, while a GPS clock-and-signal read
+uses the proper-time and null equations of that same metric. On two-forms,
+$\star_g^2=-I$; an orientation-reversing metric mirror conjugates $\star_g$ to
+$-\star_g$; and Maxwell light satisfies $dF=0$, $d\star_gF=0$ with nonzero null
+propagation. A declared realization map carries the complete
+twenty-eight-seam registry into this physical two-form reader. Optical
+transport, cone integration, and center--surround comparison then give the
+corresponding finite eye read.
+
+Covariant loop quantum gravity supplies the continuum closure of this pattern. Completed compatibility transport returns to the common comparison frame; refinement naturality preserves operation and readout; the continuum cylinder amplitude supplies a rigging map; and the physical state is the quotient by its kernel. Physical face holonomy retains its independent curvature read. Thus comparison closes without flattening the field it compares.
+
+The result is one typed architecture of carriage, comparison, memory, and recognition. Its exact claims concern the displayed operators. Its physical applications enter only through explicit adapters that retain their own laws. The reader, the record, and the occurrence being read belong to one reality; the quotient identifies returned form, the lift retains traversal, and the receipt leaves the next lawful occurrence possible. The ordinary compression is exact: the dial returns, the carriage continues, and the completed turn remains addressable.
+
+\begin{equation*}
+\boxed{\text{CENTER RETURNS.}\qquad\text{FORM CLOSES.}}
+\end{equation*}
+
+\section{Introduction: the line, the turn, and the recognized whole}
+Look first at the sentence in front of you. Each letter has a place. Reading does something different: it carries a relation from mark to mark until the line is understood as one sentence. The place of a mark and the turn of meaning are joined in one act, but they are distinguishable. If they were the same coordinate, a row of marks would already be a reading.
+
+That small fact sets the scale. A position answers \emph{where}. A turn answers \emph{how one position is related to another}. A record makes the completed relation available again. These are familiar operations before they become technical terms: point, compare, keep, and recognize.
+
+Sunrise supplies the time version. Yesterday's sunrise is gone; tomorrow's has not occurred. Yet the pattern is recognizable because a present reader can compare a retained earlier occurrence with the next one. The pattern returns. The occurrence does not. Return therefore cannot mean that all properties are identical. It means that a declared readout agrees while the ordered addresses remain different.
+
+A clock hand supplies the minimum mechanical picture. Its circular display may return to home, while its lifted count records which return occurred. Home is therefore an addressed fiber rather than an unaddressed point-zero. The arrow is the selected orientation of the advancing lift. This distinction does not add a second time: it separates visible recurrence from the ordered physical traversal that makes recurrence readable.
+
+This resolves a common confusion about equality. The sign ``$=$'' has no built-in past or future. It reports agreement under a rule. Direction comes from the transformation that carries one state to another and from the addresses assigned to their occurrences. The left and right sides of an equation are therefore two expressions tested together, not a picture of past moving toward future.
+
+The minimum real carrier for this distinction is a plane. One axis can locate a mark, but one axis alone cannot also carry an independent quarter-turn. In two dimensions a recurrence and a turn can fail to commute. Their ordered difference then produces the signed form, the mirror, and the continuous transport derived below. The plane is the minimum carrier of this calculation; it is a reader of relations, not a claim that the physical world has only two dimensions.
+
+The finite completion follows from the same geometry. A quarter-turn has four phases. Reading two adjacent occurrences gives eight addressed states. Eight labeled states possess exactly $\binom82=28$ unordered pairs. The construction later partitions those pairs into seven rounds of four disjoint comparisons and proves that the resulting cosine--sine ledger survives every compatible tuning of the reader.
+
+This is the unity named by \emph{The Structure of Survival}. Motion changes the addressed state. A declared form can remain invariant through that change. Memory retains the difference between occurrences. Recognition reports the returned relation. The receipt preserves enough of the comparison for another lawful occurrence to begin.
+
+The covariant loop-gravity interface makes the distinction physically exact. Local descriptions may close in one common comparison frame while the physical connection retains nontrivial curvature. Refinement may change the discretization while commuting operation and readout preserve the relation. The continuum state is then formed by quotienting the null directions of a distributional rigging map. In common language: the bookkeeping returns, the physical signal survives, and the next resolution can still read it. Retaining the native equation therefore does not mean merely analogous. It means that an established physical system occupies the common operator office by its own exact variables and law. The later physical sections display that substitution for Einstein gravity, its Newtonian limit, GPS timing, electromagnetism, quantum theory, thermodynamics, biology, and music.
+
+
+\section{The question and the method}
+We proceed as a classical geometer or mechanician would. First declare the object under discussion and the allowed operations. Then calculate what those operations preserve. Only after that calculation interpret the result. A proof about a plane remains a proof about a plane; a physical application must also satisfy the physical conditions of its field.
+
+For example, a rotating square keeps its side lengths while its corners change positions. A clock hand returns to the same direction after one revolution, though time has passed. In each example, equality of a selected feature differs from equality of the entire occurrence. This is the elementary distinction from which the derivation begins.
+
+The argument has one continuous order. It constructs an invariant form; demonstrates motion that preserves it; separates a periodic return from the distance traveled; derives a conserved quantity; makes musical tuning and relaxation precise under their own conditions; establishes an exhaustive finite record of pairwise differences; and carries that reader into covariant continuum closure, where comparison transport returns, refinement preserves the read, physical identity is quotiented by a rigging-map kernel, and curvature remains readable. It then states what work and recovery add to the stopping condition. A recognition procedure retains the completed comparison, and a final proposition states what it means for a further occurrence to follow. The glossary gathers the technical terms after their first working introduction.
+
+\section{Reference, measure, and difference}\label{sec:ref}
+A comparison needs an answer to three questions: \emph{what is being compared, what is held fixed, and what counts as the same?} The fixed item is the reference. The collection of possible states is the space on which we work. The comparison rule selects a feature we can read, such as a distance, direction, frequency, or arrangement of parts.
+
+Measurement then assigns a value according to an explicit rule and, for physical quantities, specified units. A distance of two meters, a frequency ratio of $3/2$, and the equality of two geometric shapes are different kinds of comparison. None becomes meaningful merely by writing an equals sign. We must state the rule under which it is true.
+
+Write $X$ for the collection of states, $r\in X$ for a fixed reference, and $\rho:X\to Y$ for the selected description. If $T$ changes a state $x$, it is possible to have
+\begin{equation}\boxed{\rho(Tx)=\rho(x),\qquad Tx\ne x.}\label{eq:return}\end{equation}
+This says something simple: the chosen description returns, while the underlying state has changed. The equality is a mathematical claim about the chosen description, and the inequality is a claim about the original states. Both may be true together.
+
+Every operation has conditions. A square root, an inverse, a derivative, or a physical measurement can be used only where it is defined. In the later formal account these conditions are collected under a declared jurisdiction $J$. For a candidate $x$ already assigned a valid type, admissible reuse entails an applicable governing constraint:
+\begin{equation}\boxed{\mathsf{Ad}(x)\Longrightarrow C_J(x).}\label{eq:ad}\end{equation}
+This is the bookkeeping rule for correct reapplication. The symbols are collected in the final glossary; the practical instruction is simply to preserve the conditions of every calculation.
+
+
+
+\section{The minimum normal form}
+The complete argument can be read first in ordinary language:
+\begin{equation}
+\boxed{\text{position}\ \longrightarrow\ \text{difference}\ \longrightarrow\
+\text{comparison}\ \longrightarrow\ \text{recognized pattern}\ \longrightarrow\ \text{record}.}
+\end{equation}
+A position makes an occurrence addressable. A second position admits a difference. A declared reader compares the two. Recognition identifies the relation that survives. The record retains both that relation and the occurrence difference.
+
+The mathematical offices used below are
+\begin{equation}
+\boxed{\begin{gathered}
+(V,\omega)\longrightarrow(Q,\Omega)\longrightarrow(G,H,S,L_s)
+\longrightarrow(J_\beta,B_\beta,M_\beta)\\
+\longrightarrow\mathcal O_8\longrightarrow\Lambda^2(\R^8)
+\longrightarrow(G_e,P_\Sigma,H_f^{\rm phys})\longrightarrow R.
+\end{gathered}}
+\end{equation}
+Here $V$ is the real planar carrier; $\omega$ fixes orientation; $Q$ is recurrence; $G$ is their symmetric ordered difference; $H$ is the normalized metric mirror; $L_s$ is axial transport; $(J_\beta,B_\beta,M_\beta)$ is the tunable compatible reader; $\mathcal O_8$ is the eight-address sample; $\Lambda^2(\R^8)$ is its complete twenty-eight-seam relation carrier; $(G_e,P_\Sigma,H_f^{\rm phys})$ supplies compatibility closure, physical identity, and retained curvature at the continuum interface; and $R$ is the append-only occurrence record. Each arrow is supplied explicitly in the following sections.
+
+Its concise physical read is
+\begin{equation}
+\boxed{W_8\xrightarrow{\ \sigma_x\ }\Lambda^2T_x^*M
+\xrightarrow{\ (I,\star_g)\ }(F,\star_gF)
+\xrightarrow{\ \mathcal P_{\rm opt}\ }E_{\rm ret}
+\xrightarrow{\ \rho_{\rm eye}\ }Y_{\rm vis}\xrightarrow{\ \mathsf{Mem}\ }R.}
+\label{eq:physicalnormal}
+\end{equation}
+The complete finite relation record enters a declared local field aperture; the
+metric turns the selected field through its Hodge dual; optical transport and
+the eye produce a finite contrast read; Memory retains the occurrence.
+
+\section{Instances of readable return}
+The same comparison question has several exact realizations. In each row, the carrier is the set of states, $T$ is the declared operation, and $\rho$ is the feature being compared. A returned feature and a retained difference are recorded separately. ``Exact'' means the displayed relation follows from the stated mathematical definitions; ``conditional'' means additional native hypotheses are required; ``stipulated'' means the result follows from a declared recording rule.
+
+\begingroup\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{.115\linewidth}p{.15\linewidth}p{.17\linewidth}p{.16\linewidth}p{.16\linewidth}p{.12\linewidth}@{}}
+\toprule Carrier $X$ & Operation $T$ & Readout $\rho$ & Returned form & Retained difference & Status \\ \midrule\endhead
+$U(1)$ phase & $t\mapsto t+2\pi$ & $e^{it}$ & same phase & winding in real parameter & exact \\
+$SU(2)\to SO(3)$ & lifted full turn & projection to $SO(3)$ & same spatial orientation & central sign; count needs receipt & exact \\
+Planar $\R^2$ & $L_s$ & $z^\mathsf{T}Gz$ & signed quadratic value & changed vector & exact \\
+Compatible reader & $P_\beta^{-1}$ & $(B_\beta,\omega)$ & complete seam ledger & position $\beta$ in fixed frame & exact \\
+Tuned octagon & $e^{\pi J_\beta/4}$ & twenty-eight labeled seams & same cosine--sine ledger & eight occurrence addresses & exact \\
+Axial cover & $\lambda\mapsto\lambda+\varpi$ & $[\lambda]$ modulo $\varpi$ & same quotient class & $\varpi$ on real lift & exact \\
+Musical pitch & twelve tempered fifths & pitch class mod octave & same pitch class & octave count; pure comma separately & exact \\
+Physical systems & native dynamics & specified observable & conditional invariant & measured trajectory or record & conditional \\
+Recognition packet & admitted completed read & $\rho(Tx)=\rho(x)$ & selected observable form & appended occurrence receipt & stipulated \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+The seven-band decomposition of \S\ref{sec:seam}--\S\ref{sec:recon} is not tabulated. Under the canonical isomorphism $W\cong\bigoplus_\ell W_\ell$ one has $\sum_\ell P_\ell w=w$ exactly, so $Tx=x$ and the decomposition is a lossless reconstruction rather than a return in the sense of \eqref{eq:return}.
+
+\section{The turning square and mirror reversal}\label{sec:turn}
+An elementary circle supplies the first observation. Euler's identity
+\[
+e^{i\pi}+1=0
+\]
+is the half-turn of a continuous phase: $e^{it}=\cos t+i\sin t$.
+A full turn restores the same phase, although the parameter has advanced.
+The question is what a mirror does to such a turn. For a reflection $K$
+acting by complex conjugation,
+\[
+K e^{it}K=e^{-it}.
+\]
+The reflection reverses the turning direction. The relationship is
+short enough to write as a rule: a mirror followed by a turn and the
+same mirror again gives the inverse turn.
+
+Euler's phase closure and Tsirelson's quantum correlation bound inhabit
+different carriers. Their exact common point here is narrower:
+orientation, reversal, and noncommuting operations must retain their
+declared hypotheses. Euler's identity supplies the phase calculation
+below. The quantum bound is proved separately in Appendix~A.
+
+\subsection*{The dihedral inversion rule}
+Let $F$ be invertible and let $\Pi$ satisfy $\Pi^2=I$. Assume
+\begin{equation}
+\boxed{\Pi F\Pi=F^{-1}.}\label{eq:dihedral}
+\end{equation}
+Then, by multiplying the relation,
+\[
+\Pi F^n\Pi=F^{-n}\qquad(n\in\mathbb Z).
+\]
+This is the inversion rule of a dihedral action. A finite-order
+turn gives a finite wheel; a turn of infinite order, with a distinct
+mirror, gives an infinite-dihedral carriage. The rule describes a
+relationship between two specified operations. It is useful because
+the inverse is now computable by reflection.
+
+\subsection*{The central square in $SU(2)$}
+The familiar spatial rotation group has a double covering group
+$SU(2)$. This covering records a distinction invisible in the
+ordinary orientation of a rotated object. Let $\xi\in\mathfrak{su}(2)$
+satisfy $\xi^2=-I$ and set
+\[
+U(t)=e^{t\xi}=\cos t\,I+\sin t\,\xi.
+\]
+The turning circle contains $U(\pi)=-I$ and $U(2\pi)=I$.
+Suppose $g\in SU(2)$ reverses this circle:
+\[
+gU(t)g^{-1}=U(-t)\qquad\text{for every }t.
+\]
+In a diagonal chart the circle is
+$\operatorname{diag}(e^{it},e^{-it})$.
+Its reversing elements have the form
+\[
+g=\begin{pmatrix}0&b\\-\bar b&0\end{pmatrix},
+\qquad |b|=1.
+\]
+Multiplication gives the exact central square
+\begin{equation}
+\boxed{g^2=-I,\qquad g^4=I.}
+\end{equation}
+Thus the reversal has order two after projection to $SO(3)$,
+while its $SU(2)$ lift has order four.
+
+The distinction becomes tangible in a mechanical clock.
+The dial may return to its original orientation while a counter
+registers another revolution. A projected endpoint identifies the
+direction; the lift distinguishes turning parity; an occurrence
+record can preserve the full count. These are three different
+resolutions of the same traversal.
+
+\subsection*{The quantum comparison}
+Tsirelson's bound belongs to the quantum observable carrier and is retained
+in Appendix~A. The inversion rule is applied in \S\ref{sec:axial}, where
+$HL_{\rm ax}H=L_{\rm ax}^{-1}$ is the case $\Pi=H$, $F=L_{\rm ax}$.
+
+\subsection*{From a turning square to a metric mirror}
+The next step is to find an explicit real matrix carrier in which
+orientation and transport can be calculated together. The
+Fibonacci matrix and quarter-turn below supply it. Their
+commutator generates a symmetric signed form, and the normalized
+form gives a reflection. The phase law has now
+become an exact calculation of a metric-preserving carriage.
+The subsequent finite construction records its relationships
+corner by edge, row, face, and field, retaining every pairwise
+relation under an explicit index.
+
+\section{The exact metric-mirror root}\label{sec:root}
+We now make the simplest nontrivial calculation that exhibits both an orientation and a repeated step. The first matrix advances a two-component recurrence. The second turns the plane by a quarter-turn. They can be compared as matrices, and their products can be calculated without approximation.
+
+
+Define
+\begin{equation}Q=\begin{pmatrix}1&1\\1&0\end{pmatrix},\qquad \Omega=\begin{pmatrix}0&1\\-1&0\end{pmatrix}.\end{equation}
+Direct multiplication yields
+\begin{equation}Q^2=Q+I,\quad\Omega^2=-I,\quad\operatorname{tr}(Q^{\mathsf T}\Omega)=0.\end{equation}
+Their commutator is
+\begin{equation}\boxed{G=[Q,\Omega]=Q\Omega-\Omega Q=\begin{pmatrix}-2&1\\1&2\end{pmatrix}.}\end{equation}
+It satisfies
+\begin{equation}\operatorname{tr}G=0,\quad\det G=-5,\quad G^2=5I,\quad H=G/\sqrt5,\quad H^2=I,\quad H^{\mathsf T}H=I.\end{equation}
+Thus $G$ has signature $(1,1)$ and $H$ is a Euclidean reflection with determinant $-1$. In one real dimension scalar operators commute. The two-dimensional plane is therefore the minimum real linear dimension permitting this nonzero commutator.
+\section{Golden eigenlines and oriented separation}\label{sec:eigen}
+The new symmetric matrix has a positive and a negative direction. To find the directions along which its signed quadratic value is zero, we first look at the two characteristic directions of the recurrence. This is why the golden numbers enter: they are solutions of the displayed quadratic equation, rather than numerical decorations.
+
+
+The roots of $s^2-s-1=0$ are
+\begin{equation}\Phi=\frac{1+\sqrt5}{2},\quad\Psi=\frac{1-\sqrt5}{2},\quad\Phi\Psi=-1.\end{equation}
+For $v_\Phi=(\Phi,1)^{\mathsf T}$ and $v_\Psi=(\Psi,1)^{\mathsf T}$,
+\begin{equation}Qv_\Phi=\Phi v_\Phi,\quad Qv_\Psi=\Psi v_\Psi,\quad v_\Phi^{\mathsf T}Gv_\Phi=v_\Psi^{\mathsf T}Gv_\Psi=0.\end{equation}
+With $\omega(u,v)=u^{\mathsf T}\Omega v$,
+\begin{equation}\boxed{\omega(v_\Phi,v_\Psi)=\Phi-\Psi=\sqrt5.}\end{equation}
+The golden eigendirections are precisely the null lines of $G$.
+\section{Euler, Gauss, and the square-free arithmetic seam}\label{sec:gauss}
+The appearance of $\sqrt5$ also has an independent number-theoretic calculation. We include it to show the precise shared arithmetic value, not to identify two physical systems simply because they contain the same number.
+
+
+Euler's $e^{i\alpha}=\cos\alpha+i\sin\alpha$ contains the four quarter-turns $1,i,-1,-i$. For the standard oriented generator $\zeta_p=e^{2\pi i/p}$, the quadratic Gauss sum $g(p)=\sum_{k=0}^{p-1}\zeta_p^{k^2}$ has the classical value $\sqrt p$ for $p\equiv1\pmod4$ and $i\sqrt p$ for $p\equiv3\pmod4$. Thus
+\begin{equation}
+\boxed{g(5)=\sqrt5,\qquad g(7)=i\sqrt7.}
+\end{equation}
+The sign of $g(7)$ is fixed by the displayed generator and the quadratic phase $k^2$. Multiplying $k^2$ by a quadratic nonresidue reverses that sign. No square-root branch is being selected after the sum.
+For $\zeta_5=e^{2\pi i/5}$, the residue periods are $\eta_R=\zeta_5+\zeta_5^4=-\Psi$ and $\eta_N=\zeta_5^2+\zeta_5^3=-\Phi$. Therefore
+\begin{equation}\boxed{\eta_R-\eta_N=g(5)=\Phi-\Psi=\omega(v_\Phi,v_\Psi)=\sqrt5.}\end{equation}
+On the real plane, $C_1^2=-I$ realizes the imaginary generator. Hence the real-matrix image of the seven-phase lift is $\sqrt7C_1$, with
+\begin{equation}
+(\sqrt7C_1)^2=-7I.
+\end{equation}
+The metric root independently satisfies $G^2=5I$, and the root algebra gives
+\begin{equation}
+GC_1=-C_1G,\qquad GC_1=\sqrt5S.
+\end{equation}
+The common arithmetic carrier $\Q(i,\sqrt5,\sqrt7)$ has degree eight over $\Q$. The following compatible-reader construction is the explicit map joining the signed metric root to the oriented phase lift.
+\section{Axial carriage and the memory of return}\label{sec:axial}
+An invariant is useful only when we exhibit a transformation that preserves it. The next calculation constructs an entire family of such transformations. The family moves vectors through the plane while keeping the signed geometric form fixed. It also tells us exactly how a reflection reverses that motion.
+
+
+Put $S=(2Q-I)/\sqrt5$ and $C_1=-\Omega$. Then $S^2=I$, $C_1^2=-I$, $C_1S=-SC_1$, $H=C_1S$, and $\{I,C_1,S,C_1S\}$ spans $M_2(\R)$. Define
+\begin{equation}L_{\rm ax}=e^{(\log\Phi)S}=\frac{Q+2I}{\sqrt5}.\end{equation}
+The exact relations are
+\begin{equation}\boxed{L_{\rm ax}^2=Q^2,\quad L_{\rm ax}^{\mathsf T}GL_{\rm ax}=G,\quad HL_{\rm ax}H=L_{\rm ax}^{-1}.}\end{equation}
+The third relation is the dihedral inversion rule \eqref{eq:dihedral} with $\Pi=H$ (so $\Pi^2=I$) and $F=L_{\rm ax}$. To exhibit the returning address without assuming it, write
+$z=a v_\Phi+b v_\Psi$ with $ab\ne0$. Since
+$S v_\Phi=v_\Phi$ and $S v_\Psi=-v_\Psi$,
+\[
+L_s z=e^s a v_\Phi+e^{-s}b v_\Psi.
+\]
+Define the real lifted coordinate $\lambda(z)=\log|a/b|$ on
+$X=\{z=av_\Phi+bv_\Psi:ab\ne0\}$. Then
+$\lambda(L_s z)=\lambda(z)+2s$. At $s=\log\Phi$, put
+$\varpi=2\log\Phi$ and define the quotient reader
+\[
+\rho_{\rm ax}:X\longrightarrow\R/\varpi\Z,\qquad
+\rho_{\rm ax}(z)=[\lambda(z)].
+\]
+The equivalent circle-valued readout is
+\begin{equation}
+\chi_{\rm ax}:\R/\varpi\Z\to S^1,\qquad
+\boxed{\chi_{\rm ax}([\lambda])=\exp(2\pi i\lambda/\varpi).}
+\end{equation}
+Consequently $\rho_{\rm ax}(L_{\rm ax}z)=\rho_{\rm ax}(z)$,
+although $L_{\rm ax}z\ne z$. This is the declared instance of
+observable return with distinct states. For a lifted coordinate
+$\lambda$ and its quotient class modulo $\varpi\Z$,
+\begin{equation}\boxed{[\lambda+\varpi]=[\lambda],\qquad\lambda+\varpi\ne\lambda.}\end{equation}
+The descended closed one-form has $\oint_\gamma\bar\alpha_{\rm ret}=m\varpi$ for winding $m$. The lifted displacement after $m$ axial steps is
+$\Delta^{(m)}=\lambda(L_{\rm ax}^m z)-\lambda(z)=m\varpi$.
+The metric is preserved on the plane; the quotient reader returns
+by its explicit definition. The full hyperbolic flow has no nonzero
+periodic state on $X$. In the meaning registry, $\Lambda$ denotes \emph{Eternity}, the enduring-return office, and $\infty$ denotes \emph{Infinity}, unboundedness or an ideal point. The source-qualified mathematical uses remain intact.
+
+\subsection*{The addressed clock and four-phase carry}
+The discrete carriage lies in the continuous subgroup
+\[
+L_t=e^{t(\log\Phi)S},\qquad t\in\R,
+\]
+for which
+\[
+\lambda(L_tz)=\lambda(z)+t\varpi.
+\]
+Define the circle reader on the quotient by
+\[
+W(\rho_{\rm ax}(z))
+=\exp\!\left(2\pi i\,\frac{\lambda(z)}{\varpi}\right),
+\qquad
+R_t(w)=e^{2\pi it}w.
+\]
+Then
+\begin{equation}
+\boxed{W\circ\rho_{\rm ax}\circ L_t
+=R_t\circ W\circ\rho_{\rm ax},\qquad
+\lambda(L_tz)=\lambda(z)+t\varpi.}
+\label{eq:clockintertwiner}
+\end{equation}
+This is the collision-free typed realization of the compressed
+carrier--reader relation: carry first and read afterward, or carry the
+readout in its own circle coordinate, and the visible result agrees. At
+$t=1$ the circle returns while the lifted coordinate advances by
+$\varpi$. The home read $1\in S^1$ therefore has the lifted address set
+\[
+\{z:W(\rho_{\rm ax}(z))=1\}
+\quad\longleftrightarrow\quad
+\lambda(z)\in\varpi\Z .
+\]
+Home is an addressed fiber.
+
+Let $P_4=\Z/4\Z$ and define the escapement map on $P_4\times X$ by
+\[
+F(r,z)=
+\begin{cases}
+(r+1,z),&r=0,1,2,\\
+(0,L_{\rm ax}z),&r=3.
+\end{cases}
+\]
+With display reader
+\[
+D(r,z)=\bigl(i^r,\rho_{\rm ax}(z)\bigr),
+\]
+four successor steps give the exact carry law
+\begin{equation}
+\boxed{F^4(r,z)=(r,L_{\rm ax}z),\qquad
+D(F^4(r,z))=D(r,z),\qquad L_{\rm ax}z\ne z.}
+\label{eq:fourphasecarry}
+\end{equation}
+Every block of four steps crosses the phase boundary exactly once.
+The visible phase returns; the lifted address advances. This is the
+minimum clock realized by the existing axial carriage.
+
+The parameter $t$ above is the dimensionless phase address of this
+mathematical clock. A physical timelike realization supplies proper time
+$\tau_g$ through its Lorentzian metric. For the ordered receipts
+$R_{n+1}=R_n\frown\mathfrak r_n$, story time is the lift
+\[
+\Lambda_{\rm story}(R_{n+1})
+=\Lambda_{\rm story}(R_n)+T_n,\qquad T_n>0.
+\]
+When both clocks are differentiable on a common interval, their relative
+pacing is the separately declared scalar
+\[
+\nu(\tau_g)=\frac{d\Lambda_{\rm story}}{d\tau_g}.
+\]
+The existence of either clock does not fix this pacing.
+
+\section{Golden units and Lorentzian boost}\label{sec:unitboost}
+The quotient period $\varpi=2\log\Phi$ is also the logarithm of the fundamental totally positive unit in the golden quadratic integer ring. For $K=\Q(\sqrt5)$, the ring of integers is $\mathcal O_K=\Z[\Phi]$. Its two real embeddings send $\Phi$ to $\Phi$ and $\Psi$. Since $\Phi\Psi=-1$,
+\begin{equation}
+N_{K/\Q}(\Phi)=-1,\qquad
+N_{K/\Q}(\Phi^2)=1,\qquad
+\boxed{\log(\mathcal O_K^{\times,+})=\varpi\Z.}
+\end{equation}
+In the ordered integral basis $(\Phi,1)$, multiplication by $\Phi$ has matrix
+\begin{equation}
+\boxed{[m_\Phi]_{(\Phi,1)}=Q,}
+\end{equation}
+so $Q^2$ represents multiplication by the totally positive unit $\Phi^2$.
+
+The axial family is the identity component of the Lorentz group of $G$:
+\begin{equation}
+\boxed{L_s\in SO^+(G)\cong SO^+(1,1).}
+\end{equation}
+In golden null coordinates it acts by
+$(a,b)\mapsto(e^sa,e^{-s}b)$, the standard boost with rapidity $s$. At the golden step $s=\log\Phi$, the lifted ratio coordinate advances by $2s=\varpi$.
+
+The integral two-step carriage
+\begin{equation}
+\boxed{A:=Q^2=L_{\rm ax}^2=\begin{pmatrix}2&1\\1&1\end{pmatrix}\in SL(2,\Z)}
+\end{equation}
+preserves both declared forms:
+\begin{equation}
+Q^{\mathsf T}GQ=-G,\quad Q^{\mathsf T}\Omega Q=-\Omega,\qquad
+\boxed{A^{\mathsf T}GA=G,\quad A^{\mathsf T}\Omega A=\Omega.}
+\end{equation}
+On the integer-lattice torus $\mathbb T_{\Z}^2=\R^2/\Z^2$, $A$ induces a hyperbolic toral automorphism with expanding eigenvalue $\Phi^2$ and therefore
+\begin{equation}
+\boxed{h_{\rm top}(\bar A)=\log\Phi^2=\varpi.}
+\end{equation}
+The arithmetic unit, Lorentz boost, quotient period, and toral entropy thus share one exact logarithmic displacement while retaining their distinct carriers.
+
+\section{Compatible readers and the tuned $(5,7)$ member}\label{sec:tuned}
+The signed form $G$ and the oriented quarter-turn $C_1$ anticommute. Their linear combinations therefore admit an exact normalization. For every $\kappa>\sqrt5$, put
+\begin{equation}
+\delta_\kappa=\sqrt{\kappa^2-5},\qquad
+\boxed{J_\kappa=\frac{G+\kappa C_1}{\delta_\kappa}.}
+\end{equation}
+Since $G^2=5I$, $C_1^2=-I$, and $GC_1+C_1G=0$,
+\begin{equation}
+\boxed{J_\kappa^2=-I.}
+\end{equation}
+Thus every $\kappa>\sqrt5$ supplies a real complex structure. With $\Omega=-C_1$, define its compatible positive metric
+\begin{equation}
+\boxed{B_\kappa=\Omega J_\kappa
+=\frac{\kappa I+GC_1}{\delta_\kappa}.}
+\end{equation}
+Because $GC_1=\sqrt5S$ and $S^2=I$, the eigenvalues of $B_\kappa$ are
+$(\kappa\pm\sqrt5)/\delta_\kappa$, both positive, with product one.
+
+Introduce the rapidity coordinate $\beta$ by
+\begin{equation}
+\cosh\beta=\frac{\kappa}{\delta_\kappa},\qquad
+\sinh\beta=\frac{\sqrt5}{\delta_\kappa},\qquad
+\kappa=\sqrt5\coth\beta.
+\end{equation}
+Then
+\begin{equation}
+\boxed{B_\beta=e^{\beta S}=L_\beta,\qquad
+J_\beta=C_1L_\beta.}
+\end{equation}
+The positive symmetric comparison map
+\begin{equation}
+P_\beta:=B_\beta^{1/2}=L_{\beta/2}
+\end{equation}
+satisfies
+\begin{equation}
+\boxed{B_\beta=P_\beta^{\mathsf T}P_\beta,\qquad
+J_\beta=P_\beta^{-1}C_1P_\beta.}
+\end{equation}
+Every other symplectic comparison map for the same pair has the form
+$R_\theta P_\beta$, where $R_\theta=e^{\theta C_1}$; left rotation changes neither displayed relation because $R_\theta$ is orthogonal and commutes with $C_1$. The positive map $P_\beta$ is the canonical representative.
+
+The mirror must be transported with the reader. Define
+\begin{equation}
+\boxed{M_\beta:=HL_\beta=P_\beta^{-1}HP_\beta.}
+\end{equation}
+Then
+\begin{equation}
+M_\beta^2=I,\qquad
+M_\beta^{\mathsf T}B_\beta M_\beta=B_\beta,\qquad
+\boxed{M_\beta J_\beta M_\beta=-J_\beta.}
+\end{equation}
+The fixed axial involution $S$ also reverses every member:
+\begin{equation}
+\boxed{SJ_\beta S=-J_\beta,\qquad
+S^nJ_\beta S^n=(-1)^nJ_\beta.}
+\end{equation}
+This is the tuned bookmark law. The untuned relation $HC_1H=-C_1$ is recovered at $\beta=0$, equivalently $\kappa\to\infty$.
+
+The seven-phase Gauss reader selects $\kappa=\sqrt7$. Since
+$\delta_{\sqrt7}=\sqrt2$, the selected member is
+\begin{equation}
+\boxed{J_{57}=\frac{G+\sqrt7C_1}{\sqrt2},\qquad
+B_{57}=\frac{\sqrt7I+GC_1}{\sqrt2}.}
+\end{equation}
+Its rapidity and metric spectrum are
+\begin{equation}
+\boxed{\beta_{57}=\log\frac{\sqrt7+\sqrt5}{\sqrt2},\qquad
+\operatorname{spec}(B_{57})=\{e^{\beta_{57}},e^{-\beta_{57}}\}.}
+\end{equation}
+The pair $(5,7)$ therefore labels one exact position in the continuous compatible-reader family: $5$ is carried by the metric root $G^2=5I$, and $7$ by the oriented phase lift $(\sqrt7C_1)^2=-7I$.
+
+\subsection*{The retained golden positive branch}
+The earlier positive geometry is the opposite oriented member at $\kappa=-5$. Define
+\begin{equation}
+\boxed{J_{\rm pos}:=QH=\frac{G-5C_1}{2\sqrt5},\qquad
+B_{\rm pos}:=-\Omega J_{\rm pos}.}
+\end{equation}
+Then
+\begin{equation}
+\boxed{J_{\rm pos}^2=-I,\qquad
+B_{\rm pos}=L_{\rm ax}^{-1}=HL_{\rm ax}H>0,}
+\end{equation}
+\begin{equation}
+\det B_{\rm pos}=1,\qquad
+\operatorname{spec}(B_{\rm pos})=\{\Phi^{-1},\Phi\},\qquad
+J_{\rm pos}^{\mathsf T}B_{\rm pos}J_{\rm pos}=B_{\rm pos}.
+\end{equation}
+This retains the golden positive phase geometry and makes its orientation convention explicit. The $J_\kappa$ family above tends to $C_1$ and uses $B_\kappa=\Omega J_\kappa$; the retained $J_{\rm pos}$ branch tends to $-C_1$ and uses $B_{\rm pos}=-\Omega J_{\rm pos}$.
+
+\section{The Lagrangian, axial symmetry, and conservation}\label{sec:lagr}
+The preceding matrix identities are kinematic: they tell us what a transformation preserves. Calculus lets us ask a different question: what paths satisfy a chosen law of motion? Here we choose the simplest quadratic action made from the same signed form, vary the path with fixed endpoints, and calculate the resulting equation. The conservation law then follows from a symmetry we have already verified.
+
+
+Let $z(t)\in\mathbb R^2$ and let $G$ be the constant nondegenerate symmetric form derived above from the commutator. The minimum quadratic variational realization is
+\begin{equation}
+\boxed{\mathscr L_G(z,\dot z)=\tfrac12\dot z^{\mathsf T}G\dot z,\qquad
+\mathscr S_G[z]=\int_{t_0}^{t_1}\mathscr L_G\,dt.}
+\end{equation}
+For fixed-endpoint variations, $\delta\mathscr S_G=0$ yields
+\begin{equation}
+\frac{d}{dt}\frac{\partial\mathscr L_G}{\partial\dot z}
+-\frac{\partial\mathscr L_G}{\partial z}=G\ddot z=0.
+\end{equation}
+Since $\det G=-5$, the resulting equation is $\ddot z=0$. The kinetic energy
+$E_G=\tfrac12\dot z^{\mathsf T}G\dot z$ is constant along these solutions.
+
+Let $S=(2Q-I)/\sqrt5$ and $L_s=e^{sS}$. Direct computation gives
+$S^{\mathsf T}G+GS=0$, and therefore
+\begin{equation}
+\boxed{L_s^{\mathsf T}GL_s=G,\qquad
+\mathscr L_G(L_sz,L_s\dot z)=\mathscr L_G(z,\dot z).}
+\end{equation}
+The corresponding Noether quantity is
+\begin{equation}
+\boxed{J_S=\dot z^{\mathsf T}GSz,\qquad \frac{dJ_S}{dt}=0.}
+\end{equation}
+Indeed, differentiation gives
+$\frac{dJ_S}{dt}=\ddot z^{\mathsf T}GSz+\dot z^{\mathsf T}GS\dot z=0$:
+the first term vanishes on solutions and $GS$ is skew-symmetric.
+The discrete carriage is $L_{\rm ax}=L_{\log\Phi}$.
+
+This variational model supplies an exact dynamics for the declared planar carrier.
+Physical Lagrangians for electromagnetism, gravitation, quantum fields, and
+fluids retain their respective fields, couplings, boundary conditions, and
+variational hypotheses.
+
+\section{Physical-coordinate adapters}\label{sec:adapters}
+The planar carrier acquires physical units only through a declared adapter. Two exact adapters display its timelike and phase-rotational offices without identifying them.
+
+\subsection*{Minkowski coordinates}
+Write $z=P(a,b)^{\mathsf T}$ in the ordered golden null basis
+$P=(v_\Phi\ \ v_\Psi)$. Choose a length scale $d_{\rm M}>0$, a spacetime origin, and $c>0$. Define
+\begin{equation}
+\boxed{ct_{\rm M}=d_{\rm M}\sqrt{5/2}\,(a+b),\qquad
+x_{\rm M}=d_{\rm M}\sqrt{5/2}\,(a-b).}
+\end{equation}
+Then
+\begin{equation}
+\boxed{c^2dt_{\rm M}^2-dx_{\rm M}^2
+=d_{\rm M}^2,dz^{\mathsf T}G,dz
+=10d_{\rm M}^2,da,db.}
+\end{equation}
+The axial action becomes the standard Lorentz boost
+\begin{equation}
+\begin{pmatrix}ct_{\rm M}'\\x_{\rm M}'\end{pmatrix}
+=\begin{pmatrix}\cosh s&\sinh s\\\sinh s&\cosh s\end{pmatrix}
+\begin{pmatrix}ct_{\rm M}\\x_{\rm M}\end{pmatrix}.
+\end{equation}
+At $s=\log\Phi$, the selected boost speed satisfies $|v|/c=\tanh s=1/\sqrt5$. The value follows from the golden step and is not asserted as a universal physical speed selection.
+
+\subsection*{Canonical oscillator coordinates}
+Choose positive reference scales $q_0,p_0,E_0$ and set
+\begin{equation}
+z_{\rm osc}=\begin{pmatrix}q_{\rm phys}/q_0\\p_{\rm phys}/p_0\end{pmatrix},\qquad
+\mathcal H_{\rm osc}=\frac{E_0}{2}z_{\rm osc}^{\mathsf T}B_{\rm pos}z_{\rm osc}.
+\end{equation}
+Hamilton's equations are
+\begin{equation}
+\boxed{\frac{dz_{\rm osc}}{dt_{\rm phys}}
+=\nu_{\rm osc}\Omega B_{\rm pos}z_{\rm osc}
+=\nu_{\rm osc}J_{\rm pos}z_{\rm osc},\qquad
+\nu_{\rm osc}=\frac{E_0}{q_0p_0}.}
+\end{equation}
+Thus the positive quadratic energy is conserved and
+$z_{\rm osc}(t)=e^{\nu_{\rm osc}tJ_{\rm pos}}z_{\rm osc}(0)$.
+The Minkowski adapter reads $G$ as a Lorentzian interval; the oscillator adapter reads $B_{\rm pos}$ as positive energy and $J_{\rm pos}$ as phase evolution. Both arise from the same planar algebra with separately declared physical scales.
+
+\section{Measure, tuning, relaxation, and retained Difference}\label{sec:tuning}
+Music gives an unusually clear example because its reference is audible and its discrepancy is exactly calculable. A musical note is not merely a written mark: its pitch depends on a frequency relation, and its role in a key depends on the surrounding notes and the retained musical context. The next calculation begins with the pure fifth and octave, then returns to the already-established musical and atomic comparison wheels.
+
+
+Let $(X,\Sigma)$ be a set with a declared $\sigma$-algebra. Its size operator is a map $\mu:\Sigma\to[0,\infty]$ satisfying
+\begin{equation}
+\mu(\emptyset_{\rm set})=0,\qquad
+\mu\!\left(\bigsqcup_{n=1}^{\infty}E_n\right)=\sum_{n=1}^{\infty}\mu(E_n)
+\quad(E_j\cap E_k=\emptyset_{\rm set},\ j\ne k).
+\end{equation}
+This is the exact mathematical meaning of \emph{measure}. A physical measurement is a different typed object: a readout $m:X\to\R$ together with its quantity, unit, calibration, uncertainty, and comparison condition. For a reader $\rho:X\to Y$ and a reference $r\in X$, when $Y$ has a metric $d_Y$, the nonnegative comparison residual is
+\begin{equation}\varepsilon_\rho(x;r)=d_Y(\rho(x),\rho(r)),\qquad \mathsf{Fit}_\tau(x;r)\iff\varepsilon_\rho(x;r)\le\tau.\end{equation}
+This residual is a derived comparison quantity; it is not a replacement definition for every mathematical measure. A return may close at tolerance $\tau$ while its exact history remains recoverable.
+
+\subsection*{The Pythagorean comma: exact tuning residual}
+Twelve pure fifths have ratio $(3/2)^{12}$; seven octaves have ratio $2^7$. Their exact ratio and logarithmic difference are
+\begin{equation}\kappa_P=\frac{(3/2)^{12}}{2^7}=\frac{531441}{524288}>1,\qquad \delta_P=\log\kappa_P>0.\end{equation}
+Twelve equal-tempered fifths of ratio $2^{7/12}$ close exactly against seven octaves:
+\begin{equation}(2^{7/12})^{12}=2^7,\qquad \log(3/2)-\log(2^{7/12})=\frac{\delta_P}{12}.\end{equation}
+The tempered pitch-class cycle returns at its chosen octave equivalence; the pure-interval discrepancy remains exactly calculable. This is a classical instance of reference-dependent return with retained Difference.
+
+
+\subsection*{Musical and atomic descriptor wheels}
+Two finite dihedral readers make the comparison explicit. For the twelve-tone equal-tempered pitch-class circle
+$P_{12}=\mathbb Z/12\mathbb Z$, set
+\begin{equation}
+t_{\rm mus}(k)=k+1,\qquad g_{\rm mus}(k)=-k\pmod{12}.
+\end{equation}
+Direct composition yields
+\begin{equation}
+t_{\rm mus}^{12}=I,\qquad g_{\rm mus}^2=I,\qquad
+g_{\rm mus}t_{\rm mus}g_{\rm mus}=t_{\rm mus}^{-1},
+\qquad\operatorname{Fix}(g_{\rm mus})=\{0,6\}.
+\end{equation}
+The root--tritone--tonic return is $0\to6\to12$ on the lift,
+$0\to\pi\to2\pi$ in phase, and $I\to-I\to I$ under the
+declared phase representation. Let $Z(k)=[k]_{12}$ and $W(k)=k/12$.
+Then $Z(k+12)=Z(k)$ while $W(k+12)=W(k)+1$.
+The pitch-class return retains the octave occurrence address.
+
+For a declared tonal template $w\in\mathbb R^{12}$ and the orthogonal
+pitch-profile permutation induced by $t_{\rm mus}$, set
+$w_k=t_{\rm mus}^{\,k}w$. For an accumulated profile
+$p\in\mathbb R_{\ge0}^{12}$ define
+\begin{equation}
+s_k(p)=\langle p,w_k\rangle,\qquad
+\mathcal C_k^{\rm key}
+=\{p:s_k(p)\ge s_j(p)\ \text{for all }j\in P_{12}\}.
+\end{equation}
+The equality $s_k(p)=s_j(p)$ is a modulation wall. Orthogonality of
+the permutation gives the exact covariance
+\begin{equation}
+s_{k+1}(t_{\rm mus}p)=s_k(p).
+\end{equation}
+At acoustic silence $p=0$, every instantaneous key score agrees;
+the previously recognized key can be retained by the temporal receipt.
+The acoustic performance still depends on temperament, voicing, timbre,
+instrument, register, and embodied execution.
+
+The separately typed atomic descriptor uses the seven physical
+$p$-subshell occupation labels $\mathcal N_p=\{0,\ldots,6\}$ and their
+comparison addresses in $\mathbb Z/7\mathbb Z$:
+\begin{equation}
+F_p(N)=N+4\pmod7,\qquad R_p(N)=6-N\pmod7.
+\end{equation}
+Thus
+\begin{equation}
+F_p^7=I,\qquad R_p^2=I,\qquad R_pF_pR_p=F_p^{-1}.
+\end{equation}
+The musical $D_{12}$ and atomic $D_7$ readers share the exact
+dihedral inversion law on different carriers. The atomic physical
+record additionally retains atomic number, period, group, block,
+energy, and spectral provenance. $F_p$ is a classification-address
+permutation, not a dynamical law of electron motion. The two finite
+wheels and the continuous golden axial quotient are separately typed
+comparisons; their distinct periods and physical generators remain
+separate.
+
+\subsection*{Relaxation as a measured dynamical condition}
+For a declared control model with reference $r$, symmetric positive-definite $K$, and $\gamma>0$, let
+\begin{equation}E(x)=\tfrac12(x-r)^{\mathsf T}K(x-r),\qquad \dot x=-\gamma K(x-r).\end{equation}
+Then
+\begin{equation}\boxed{\dot E=\nabla E\cdot\dot x=-\gamma\|K(x-r)\|^2\le0.}\end{equation}
+Define the relaxation read and its retained lift by
+\begin{equation}
+\varepsilon_{\rm rel}(x):=\|K(x-r)\|,
+\qquad
+\Lambda_{\rm rel}(t):=\int_0^t\gamma\varepsilon_{\rm rel}(x(s))^2\,ds
+=E(x(0))-E(x(t)).
+\end{equation}
+For this declared reader,
+\begin{equation}
+\boxed{\mathsf{Silence}_{\rm rel}(x)
+\iff\varepsilon_{\rm rel}(x)=0.}
+\label{eq:relaxsilence}
+\end{equation}
+The state relaxes by spending the represented Difference; the energy read
+decreases; the accumulated lift keeps the completed traversal. Silence is the
+zero remaining correction at this reader, while the receipt retains
+$\Lambda_{\rm rel}$. Meaning enters only after that record is available to the
+declared use-reader $\operatorname{Meaning}_\mu$. Thus the exact order is
+\begin{equation}
+\boxed{\mathsf{Motion}\longrightarrow\mathsf{Read}
+\longrightarrow\mathsf{Recognition}\longrightarrow
+\mathsf{Silence},\qquad
+\mathsf{Receipt}(\Delta,\Lambda_{\rm rel})
+\longrightarrow\mathsf{Meaning}_\mu.}
+\end{equation}
+This is a classical residual-contraction realization of relaxation under the
+displayed dynamics. A physiological use requires its own measured adapter.
+Attention selects, Motion executes, Fit compares, Recognition returns the
+verdict, and Memory retains the promised history.
+
+
+\section{The twenty-eight-seam theorem}\label{sec:seam}
+The continuous planar reader now supplies a complete finite sample. Four quarter-turn phases followed through two adjacent occurrences give eight addressed states. Eight addresses admit twenty-eight unordered binary relations. The theorem first gives their complete seven-round schedule; the tuned-octagon theorem then realizes every addressed relation directly in $(B_\beta,\omega)$.
+
+
+The eight offices are exact operator slots rather than explanatory labels. Put $\mathbb B=\{0,1\}$. On a typed domain $D_{\Gamma_J}$, let $C_J:D_{\Gamma_J}\to\mathbb B$ and $A_J=C_J^{-1}(1)$; let $\mathsf{Reg}_J:D_{\Gamma_J}\rightharpoonup A_J$ be a declared regulatory update; let $\Pi^2=\Pi$ select a readable component; and let $c_r(x)=(r,x)$ couple the current state to its reference. Then
+\begin{equation}
+\boxed{\begin{aligned}
+\mathsf{Motion}&=(\omega,T_s),&
+\mathsf{Gravity}_J&=(C_J,\mathsf{Reg}_J),\\
+\mathsf{Light}_{\Pi,\rho}&=\rho\circ\Pi,&
+\mathsf{Memory}(R,\mathfrak r)&=R\frown\mathfrak r.
+\end{aligned}}
+\label{eq:officeoperators}
+\end{equation}
+Thus Motion signs a direction and carries a state; the Gravity office tests the
+governing constraint and admits only an update whose image remains inside it;
+Light selects a component and exposes its value; Memory appends one recoverable
+occurrence without rewriting the record. A physical theory occupies an office
+only by an explicit substitution of its native carrier, constraint, and
+evolution. Section~\ref{sec:physicalmap} performs that substitution for
+Einstein gravity and Maxwell light. Native equations are retained because
+they are the realizing operators, not because the physical systems are being
+held at the distance of analogy.
+
+Their eight constituent offices are Orient, Transport, Bound, Regulate, Cut, Read, Couple, Return. Index them by $\mathcal O_8=\{\infty\}\sqcup\Z_7$ with $\infty=$Orient, $0=$Transport, $1=$Bound, $2=$Cut, $3=$Couple, $4=$Return, $5=$Read, $6=$Regulate. For $\ell\in\Z_7$, set
+\begin{equation}\mathsf M_\ell=\{\{\infty,\ell\}\}\cup\{\{\ell+j,\ell-j\}:j=1,2,3\}.\end{equation}
+\begin{theorem}The seven $\mathsf M_\ell$ partition all twenty-eight unordered pairs of $\mathcal O_8$ into perfect matchings of four edges each.\end{theorem}
+\begin{proof}Each matching covers $\infty,\ell$ and the six distinct residues $\ell\pm1,\ell\pm2,\ell\pm3$. Every edge through $\infty$ fixes its matching. A finite edge $\{a,b\}$ uniquely determines $\ell=4(a+b)\pmod7$ because $2^{-1}=4\pmod7$, and its unsigned offset uniquely fixes one of three slots. Hence no edge repeats and $7\cdot4=\binom82=28$ edges are exhausted.\end{proof}
+\begin{equation}\boxed{E(K_8)=\bigsqcup_{\ell\in\Z_7}\mathsf M_\ell,\qquad\dim\Lambda^2(\R^8)=28.}\end{equation}
+The involution $R_{\rm rbw}(\infty)=\infty$, $R_{\rm rbw}(a)=-a$ gives $R_{\rm rbw}(\mathsf M_\ell)=\mathsf M_{-\ell}$: Green fixed; Blue/Yellow, Indigo/Orange, Violet/Red paired.
+\begin{table}[ht]\centering\scriptsize\begin{tabular}{@{}lllll@{}}\toprule Band&$j=1$&$j=2$&$j=3$&$j=\infty$\\ \midrule
+Red&Read--Couple&Regulate--Cut&Transport--Bound&Orient--Return\\
+Orange&Regulate--Return&Transport--Couple&Bound--Cut&Orient--Read\\
+Yellow&Transport--Read&Bound--Return&Cut--Couple&Orient--Regulate\\
+Green&Bound--Regulate&Cut--Read&Couple--Return&Orient--Transport\\
+Blue&Cut--Transport&Couple--Regulate&Return--Read&Orient--Bound\\
+Indigo&Couple--Bound&Return--Transport&Read--Regulate&Orient--Cut\\
+Violet&Return--Cut&Read--Bound&Regulate--Transport&Orient--Couple\\ \bottomrule\end{tabular}\caption{The complete seven-band, twenty-eight-seam registry.}\end{table}
+
+\subsection*{The lossless tuned octagon}
+Let $v_0$ be a unit vector for the Euclidean metric
+$g_i(u,v)=\omega(u,C_1v)$ and define
+\begin{equation}
+v_k^{(\beta)}:=P_\beta^{-1}e^{k\pi C_1/4}v_0
+=e^{k\pi J_\beta/4}P_\beta^{-1}v_0,\qquad k\in\Z_8.
+\end{equation}
+These are eight separately labeled occurrences. Since $P_\beta$ is symplectic and
+$B_\beta=P_\beta^{\mathsf T}P_\beta$, direct substitution gives
+\begin{equation}
+\boxed{B_\beta(v_j^{(\beta)},v_k^{(\beta)})
+=\cos\frac{(k-j)\pi}{4},}
+\end{equation}
+\begin{equation}
+\boxed{\omega(v_j^{(\beta)},v_k^{(\beta)})
+=\sin\frac{(k-j)\pi}{4}.}
+\end{equation}
+For a vector of Euclidean norm $r$, both expressions acquire the common factor $r^2$. Neither seam law depends on $\beta$.
+
+\begin{theorem}[Lossless compatible tuning]
+For every compatible metric $B_\beta$ in the family of \S\ref{sec:tuned}, the twenty-eight labeled pairs of the tuned octagon carry the same complete $(B,\omega)$ ledger. Continuous tuning changes $(B_\beta,J_\beta,M_\beta)$ and its position relative to the fixed root frame while preserving every labeled seam value.
+\end{theorem}
+\begin{proof}
+Conjugation by $P_\beta$ sends $J_\beta$ to $C_1$, while congruence by $P_\beta^{-1}$ sends $B_\beta$ to $g_i$. Because $P_\beta\in SL(2,\R)=Sp(2,\R)$, it also preserves $\omega$. The two displayed identities therefore reduce every tuned comparison to the standard unit octagon, independently of $\beta$.
+\end{proof}
+
+The twenty-eight seams are the complete labeled relation capacity. Under octagonal symmetry their numerical values fall into four undirected distance classes $d=1,2,3,4$, containing $8,8,8,4$ edges. This symmetry does not identify their occurrence addresses. The seven perfect matchings and four distance classes are two exact organizations of the same edge set: the first schedules all comparisons without overlap; the second groups equal values under the dihedral action of the regular octagon.
+
+The resulting root-to-carrier map is explicit:
+\begin{equation}
+\boxed{(G,C_1)\longrightarrow(J_\beta,B_\beta)
+\longrightarrow\{v_k^{(\beta)}\}_{k\in\Z_8}
+\longrightarrow E(K_8)=\binom{\mathcal O_8}{2}.}
+\end{equation}
+Any bijection between the octagon addresses $\Z_8$ and the office index
+$\{\infty\}\sqcup\Z_7$ transports the seven-match schedule to this realized carrier. The office assignment fixes which address carries which function; the planar theorem proves that the complete relation pattern survives compatible tuning.
+
+\section{Reconstruction and mean--Difference}\label{sec:recon}
+The partition is useful because it allows a complete record to be taken apart and put back together. Each group receives its own projection, and the projections recover the original vector without loss. The equality below is the familiar Pythagorean rule applied to mutually perpendicular subspaces.
+
+
+Let $W=\Lambda^2(\R^8)$ with its standard induced inner product. The seven matching subspaces $W_\ell$ have dimension four and orthogonal projections $P_\ell$. Hence
+\begin{equation}W=\bigoplus_{\ell=0}^{6}W_\ell,\qquad w=\sum_\ell P_\ell w,\qquad\|w\|^2=\sum_\ell\|P_\ell w\|^2.\end{equation}
+For unit records $m,q\in\R^8$, Lagrange's identity gives
+\begin{equation}\boxed{\langle m,q\rangle^2+\sum_{\ell=0}^{6}\|P_\ell(m\wedge q)\|^2=1.}\end{equation}
+The Hadamard map $H_\Box=2^{-1/2}\begin{psmallmatrix}1&1\\1&-1\end{psmallmatrix}$ sends $(m,q)$ to $(u,v)=((m+q)/\sqrt2,(m-q)/\sqrt2)$, preserving $\|u\|^2+\|v\|^2$ and satisfying $u\wedge v=-m\wedge q$. It preserves total seam weight, while individual band invariance requires commutation with $P_\ell$.
+
+\subsection*{Seven-band spectral carriage and mirror pairing}
+Choose centered signed band values
+\begin{equation}
+(\nu_0,\nu_1,\nu_2,\nu_3,\nu_4,\nu_5,\nu_6)
+=(0,1,2,3,-3,-2,-1)
+\end{equation}
+and define the self-adjoint band operator
+\begin{equation}
+\mathcal R_{\rm rbw}=\sum_{\ell=0}^{6}\nu_\ell P_\ell.
+\end{equation}
+The vertex involution $\mu(\infty)=\infty$, $\mu(a)=-a\pmod7$ induces an orthogonal involution $J_{\rm rbw}$ on $W=\Lambda^2(\R^8)$ with
+\begin{equation}
+\boxed{J_{\rm rbw}P_\ell J_{\rm rbw}=P_{-\ell},\qquad
+J_{\rm rbw}\mathcal R_{\rm rbw}J_{\rm rbw}=-\mathcal R_{\rm rbw}.}
+\end{equation}
+The seven addresses are retained as
+\begin{equation}
+\begin{array}{c|ccccccc}
+\text{Color}&\text{Red}&\text{Orange}&\text{Yellow}&\text{Green}&\text{Blue}&\text{Indigo}&\text{Violet}\\
+\ell&4&5&6&0&1&2&3\\
+\nu_\ell&-3&-2&-1&0&1&2&3\\
+\text{Office}&\Psi&\Theta&\theta&\pi&e&\Phi&\Lambda
+\end{array}
+\end{equation}
+with lowercase $\theta$ fixed as Survival and uppercase $\Theta$ as Timing. Color, Meaning, Memory, and Motion name the four reader functions. The matching theorem fixes the four independent seam coordinates in each band; the registry supplies their declared functional reading.
+
+\section{Physical condensation: gravity, light, mirror, wheel, and eye}
+\label{sec:physicalmap}
+The finite wheel records every pairwise Difference among eight addressed
+states. Physical light is read on a different carrier: the two-forms of an
+oriented Lorentzian four-manifold. The Hodge star is the minimum exact bridge
+because it is made from the metric and orientation and acts directly on the
+electromagnetic field.
+
+\subsection*{The exact gravity junction}
+Let $D_{\rm GR}$ be a declared class of Lorentzian field tuples
+$X=(M,g,T)$ with the differentiability, gauge, initial, and boundary data
+required by the chosen Einstein problem. Define its native tensor residual
+and admissible set by
+\begin{equation}
+\begin{aligned}
+\mathcal E_{\mu\nu}[g,T]
+&:=G_{\mu\nu}[g]+\Lambda_{\rm cos}g_{\mu\nu}
+-\frac{8\pi G_N}{c^4}T_{\mu\nu},\\
+C_{\rm GR}(X)=1
+&\iff \mathcal E[g,T]=0,
+\qquad A_{\rm GR}:=C_{\rm GR}^{-1}(1).
+\end{aligned}
+\label{eq:einsteinresidual}
+\end{equation}
+For fixed gauge and well-posed data, let $\mathsf{Reg}_{\rm GR}$ denote the
+corresponding partial constraint-solving or Einstein-evolution map, with
+$\operatorname{im}\mathsf{Reg}_{\rm GR}\subseteq A_{\rm GR}$. Substitution
+into equation~\eqref{eq:officeoperators} gives the exact typed identity
+\begin{equation}
+\boxed{\mathsf{Gravity}_{J_{\rm GR}}
+=\bigl(C_{\rm GR},\mathsf{Reg}_{\rm GR}\bigr).}
+\label{eq:gravityinstance}
+\end{equation}
+This line does not rename an analogy. It says exactly which physical
+condition occupies Bound and which lawful map occupies Regulate. It also
+does not claim that $G=[Q,\Omega]$ dynamically generates every solution of the
+Einstein equation. The root supplies the minimum signed normal form; the
+Einstein residual supplies the four-dimensional field law.
+
+The connection between those levels is exact. Put $H=G/\sqrt5$. Since $H$
+is a symmetric nondegenerate form of signature $(1,1)$, Sylvester's law gives,
+for every nondegenerate Lorentzian two-plane $P_x\subset T_xM$, a linear
+isomorphism $\iota_x:\R^2\to P_x$ and a scale $\ell_x>0$ such that
+\begin{equation}
+\boxed{\iota_x^*(g|_{P_x})=\ell_x^2H.}
+\label{eq:lorentziannormalform}
+\end{equation}
+Thus the planar root is an exact local normal form of one time--space section
+of the physical metric. It is neither a second gravity nor a replacement for
+the remaining tangent directions, curvature, sources, or field evolution.
+
+The same metric produces the classical and operational reads. In a
+weak-field, slow-motion chart,
+\begin{equation}
+g_{00}=-\left(1+\frac{2\phi}{c^2}\right)+O(c^{-4}),
+\qquad
+\nabla^2\phi=4\pi G_N\rho,
+\qquad
+\frac{d^2\mathbf x}{dt^2}=-\nabla\phi+O(c^{-2}).
+\label{eq:newtonlimit}
+\end{equation}
+These are the Newtonian field and free-fall equations obtained as the stated
+limit of the Einstein realization, not a separate resemblance. A relativistic
+clock following a timelike worldline $\gamma$ and a light signal with covector
+$k$ read
+\begin{equation}
+\boxed{
+\tau_g[\gamma]=\frac1c\int
+\sqrt{-g(\dot\gamma,\dot\gamma)}\,d\lambda,
+\qquad g^{-1}(k,k)=0.}
+\label{eq:gpsread}
+\end{equation}
+GPS is an engineered comparison of these proper-time and null-signal reads,
+with the terrestrial source, rotation, ephemerides, atmosphere, and clock
+models supplied at their required accuracy. Newton, Einstein, and GPS
+therefore meet at one physically measured metric relation: Newton is its
+controlled low-speed weak-field limit; Einstein is its covariant field law;
+GPS is a repeated receipt of its clock and light consequences.
+
+Let $(M,g,\mathfrak o)$ be an oriented Lorentzian four-manifold with signature
+$(-,+,+,+)$.  For two-forms $\alpha,\beta$, define $\star_g$ by
+\begin{equation}
+\alpha\wedge\star_g\beta
+=\langle\alpha,\beta\rangle_g\,\mathrm{vol}_{g,\mathfrak o}.
+\end{equation}
+On $\Lambda^2T_x^*M$,
+\begin{equation}
+\boxed{\star_g^2=-I.}
+\label{eq:hodgeturn}
+\end{equation}
+Thus the metric and orientation generate a continuous quarter-turn on the
+physical field carrier. If $h$ is an orientation-reversing involutive
+isometry, then
+\begin{equation}
+\boxed{h^*\star_g h^*=-\star_g,}
+\label{eq:hodgemirror}
+\end{equation}
+the spacetime realization of the mirror law $HJH=-J$.
+
+For an electromagnetic two-form $F$, the vacuum equations are
+\begin{equation}
+\boxed{dF=0,\qquad d\star_gF=0.}
+\label{eq:maxwellhodge}
+\end{equation}
+In geometric optics, the nonzero propagation covector $k$ obeys the second
+relation in equation~\eqref{eq:gpsread}. Einstein gravity determines the
+admissible metric; $\star_g$ turns the
+field through its metric dual; Mirror reverses the orientation of that turn;
+Light carries the nonzero null field. This is the concise physical assignment
+of the four offices.
+
+The twenty-eight-seam carrier remains
+\begin{equation}
+W_8=\Lambda^2(\R^8)=\bigoplus_{\ell=0}^6W_\ell,
+\qquad \sum_{\ell=0}^6P_\ell=I_{W_8}.
+\end{equation}
+A physical realization at $x\in M$ is a declared linear adapter
+\begin{equation}
+\sigma_x:W_8\longrightarrow\Lambda^2T_x^*M,
+\qquad
+\rho_{g,x}(w):=\bigl(\sigma_xw,\star_g\sigma_xw\bigr).
+\label{eq:physicalcondensation}
+\end{equation}
+Its kernel records seam information outside the selected local field aperture.
+Linearity gives the lossless finite reconstruction before the physical read,
+\begin{equation}
+\boxed{\rho_{g,x}(w)
+=\sum_{\ell=0}^6
+\bigl(\sigma_xP_\ell w,\star_g\sigma_xP_\ell w\bigr).}
+\end{equation}
+The wheel therefore supplies the complete relation record; $\sigma_x$ selects
+the physical aperture; the Hodge star supplies the metric dual read. These
+three offices compose without identifying their carriers.
+
+The eye is the corresponding material reader. For incident optical fields
+$E_p$, path transports $T_p$, visibility factors $V_p$, and the current ocular
+map $L_{\rm eye,t}$, set
+\begin{equation}
+E_{\rm ret}=L_{\rm eye,t}\sum_pV_pT_pE_p,
+\qquad
+c_a(x,t)=\int s_a(\lambda)L_{\rm ret}(x,t,\lambda)\,d\lambda,
+\end{equation}
+\begin{equation}
+d_a=(K_{\rm center}-K_{\rm surround})*c_a,
+\qquad r_a^+=[d_a]_+,\qquad r_a^-=[-d_a]_+.
+\label{eq:eyereader}
+\end{equation}
+An aperture admits light; the lens and propagation map carry it; cone
+sensitivities integrate spectral Difference; center--surround channels expose
+signed contrast; attention selects the available read; Memory keeps its
+occurrence. When the root chart is used, a declared origin adapter
+$\iota_{\rm eye}(i)=r_{\rm eye}$ places its Scope origin at the ocular
+comparison center. From that reference, the physical field blooms into a
+finite relational pattern. Meaning is the recoverable use of that recognized
+pattern under its retained rule and receipt.
+
+The eye therefore realizes the same return--advance relation on its own
+carrier. A retinal relation may recur under $\rho_{\rm eye}$ while the
+occurrence address $\Theta$ and receipt $R$ advance. In this exact declared
+sense, an eye is a clock: moving light is carried to a finite surface read,
+and Memory retains which read occurred.
+
+\section{Continuum closure: comparison returns and curvature survives}\label{sec:continuum}
+A street map can close its coordinate grid around a block while the street
+itself bends. Covariant loop quantum gravity requires the same distinction at
+greater precision. Local geometric data first need a common comparison frame.
+The physical connection then retains the curvature carried around a physical
+face. Closing the comparison is therefore the condition that makes curvature
+readable; it is not a replacement for the curvature read.
+
+\subsection*{Completed compatibility transport}
+Let $G_{\rm comp}$ be the tagged group used only for frame comparison. On a
+declared compatibility two-cell $f_{\rm comp}$, choose one common reference
+frame and a frame map $F_v$ at each boundary vertex. For an oriented boundary
+edge $e:s(e)\to t(e)$, define the completed compatibility transport
+\begin{equation}
+G_e:=F_{t(e)}F_{s(e)}^{-1},\qquad G_{\bar e}=G_e^{-1}.
+\end{equation}
+The ordered boundary product telescopes:
+\begin{equation}
+\boxed{\overrightarrow{\prod}_{e\in\partial f_{\rm comp}}G_e=I_{\rm comp}.}
+\label{eq:compclosure}
+\end{equation}
+This identity belongs to the completed comparison coordinate. The physical
+connection has its own tagged carrier $G_{\rm phys}$ and its own face
+holonomy
+\begin{equation}
+H_f^{\rm phys}:=\overrightarrow{\prod}_{e\in\partial f^*}T_e^{\rm phys}
+\in G_{\rm phys}.
+\label{eq:physhol}
+\end{equation}
+Equation~\eqref{eq:compclosure} supplies no value for
+$H_f^{\rm phys}$. A curved physical face may therefore satisfy
+$H_f^{\rm phys}\ne I_{\rm phys}$ while its completed comparison transport
+returns exactly. Where an additional interface
+$\kappa:G_{\rm comp}\to G_{\rm phys}$ is declared, its relation to physical
+transport is stated separately; the two identities are never merged by
+notation.
+
+This is the minimum physical form of compatible recognition: transport every
+local value into one comparison space, take the difference there, and use the
+simultaneous zero of the declared residuals as the compatibility read. The
+zero residual means that the seam is silent. The independently typed physical
+holonomy is the signal that remains readable.
+
+\subsection*{Refinement as exact memory}
+Let $\lambda\preceq\lambda'$ denote refinement, let
+$\iota_{\lambda\lambda'}:D_\lambda\to D_{\lambda'}$ carry data, and let
+$\bar\iota_{\lambda\lambda'}:O_\lambda\to O_{\lambda'}$ carry observables.
+Operation $T$ and readout $\rho$ survive the change of resolution when their
+naturality squares commute:
+\begin{equation}
+\boxed{\begin{aligned}
+\iota_{\lambda\lambda'}\circ T_\lambda
+  &=T_{\lambda'}\circ\iota_{\lambda\lambda'},\\
+\rho_{\lambda'}\circ\iota_{\lambda\lambda'}
+  &=\bar\iota_{\lambda\lambda'}\circ\rho_\lambda.
+\end{aligned}}
+\label{eq:continuumnaturality}
+\end{equation}
+The representative changes with the discretization. The operation and its
+visible relation arrive at the same refined codomain by either route. This is
+the exact continuum office of Memory: resolution changes while the declared
+relation remains recoverable.
+
+\subsection*{The cylinder return and physical identity}
+Bruno, Colafranceschi, Mele, and Rovelli prove that sufficiently strong
+continuum convergence drives the resulting theory to a topological one. Their
+distributional continuum construction supplies the required gravitational
+alternative. Under its stated axioms, the cylinder amplitude defines a rigging
+map
+\begin{equation}
+P_\Sigma:\mathcal D_\Sigma\longrightarrow\mathcal D_\Sigma',\qquad
+P_\Sigma(\phi)[\psi]
+=Z(\Sigma\times I)[R_\Sigma(\phi)\otimes\psi],
+\label{eq:riggingmap}
+\end{equation}
+and the physical state space is
+\begin{equation}
+\boxed{\mathcal H_\Sigma^{\rm phys}
+=\overline{\mathcal D_\Sigma/\ker P_\Sigma}^{\,\|\cdot\|}.}
+\label{eq:physicalquotient}
+\end{equation}
+The cylinder therefore returns a physical class by identifying precisely the
+null directions of $P_\Sigma$. The quotient removes zero physical difference;
+the continuum amplitude remains a distribution on the resulting physical
+states. This is the continuum form of quotient return with retained physical
+content.
+
+\begin{theorem}[Continuum return with retained curvature]
+Assume the completed compatibility transport
+\eqref{eq:compclosure}, the two refinement squares
+\eqref{eq:continuumnaturality}, and the distributional-continuum hypotheses
+under which $P_\Sigma$ is a rigging map. Then comparison frame, refinement
+memory, and physical identity close in one typed composition:
+\begin{equation}
+\boxed{\begin{gathered}
+\overrightarrow{\prod}_{e\in\partial f_{\rm comp}}G_e=I_{\rm comp},
+\qquad
+\iota T=T'\iota,\qquad \rho'\iota=\bar\iota\rho,\\
+[\phi]_{\rm phys}=[\phi+\chi]_{\rm phys}
+\quad(\chi\in\ker P_\Sigma),
+\qquad H_f^{\rm phys}\in G_{\rm phys}\ \text{remains readable}.
+\end{gathered}}
+\label{eq:continuumclosure}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Substitution of $G_e=F_{t(e)}F_{s(e)}^{-1}$ makes the compatibility product
+cancel pairwise and return $I_{\rm comp}$. The naturality equations make
+operation and readout independent of which route reaches the refined
+codomain. The rigging-map kernel defines the displayed equivalence class and
+its normed completion. Finally, $H_f^{\rm phys}$ belongs to the separately
+tagged physical connection, so the compatibility identity changes none of
+its earned information.
+\end{proof}
+
+The theorem joins the preceding forms without importing a second architecture.
+The local quarter-turn $C_1^2=-I$ makes oriented Difference readable; the
+mirror relations $H^2=I$ and $HL_sH=L_s^{-1}$ reverse the comparison frame;
+$\sum_\ell P_\ell=I_W$ reconstructs the complete finite pair-space; completed
+compatibility transport places those relations in common frames; refinement
+preserves operation and readout; and the rigging-map quotient forms physical
+identity while physical holonomy remains readable. The comparison closes,
+physical Difference remains addressable, and a later contact can enter at a
+new occurrence.
+
+The entire handoff can therefore be written once:
+\begin{equation}
+\boxed{\begin{gathered}
+C_1^2=-I\ \leadsto\ HL_sH=L_s^{-1}
+\ \leadsto\ \sum_\ell P_\ell=I_W,\\
+\overrightarrow{\prod}_{\partial f_{\rm comp}}G_e=I_{\rm comp}
+\ \leadsto\
+\mathcal H_\Sigma^{\rm phys}
+=\overline{\mathcal D_\Sigma/\ker P_\Sigma}
+\ \leadsto\ R.
+\end{gathered}}
+\label{eq:continuumhandoff}
+\end{equation}
+Here $\leadsto$ denotes a typed handoff between established offices, not an
+implication that transfers one carrier's theorem into another.
+
+\section{Scientific interfaces and their governing laws}\label{sec:interfaces}
+A mathematical invariant becomes a physical statement when the carrier, measurement, and field equations are specified. The interfaces below identify the governing law and the comparison supplied by the displayed construction. Detailed physical formulations and the transverse-traceless reader are retained in the technical appendix.
+\small
+\begin{longtable}{@{}p{.19\linewidth}p{.27\linewidth}p{.31\linewidth}p{.12\linewidth}@{}}
+\toprule Field & Native law & Comparison supplied & Status \\ \midrule\endhead
+Classical mechanics & Euler--Lagrange and Noether equations & Motion and conserved quantity under a symmetry & conditional \\
+General relativity & Einstein equation, Lorentzian interval & Metric and transport across tangent spaces & conditional \\
+Electromagnetism & $dF=0$, $d\star_gF=\star_gJ$ & Metric-dependent field duality, null carriage, and phase-sensitive read & conditional \\
+Quantum mechanics & Hilbert-state evolution and Born rule & Observable, phase, projection & conditional \\
+Thermodynamics & energy balance and statistical ensembles & Viability and multiplicity under declared macrostate & conditional \\
+Biology & inheritance, metabolism, regulation & Continuity under biological measurements & empirical \\
+Quantum geometry & EPRL sector, refinement naturality, distributional rigging map & Comparison closure with retained physical holonomy & conditional \\
+\bottomrule
+\end{longtable}
+\normalsize
+\section{Truth, writing, and the endurance of knowledge}
+A true mathematical statement survives its first inscription. The person who proved it may die; the relation remains available for another person to reconstruct. A triangle drawn in a different century has different paper, ink, and dimensions, yet the same geometric theorem can apply under the same assumptions. What survives is the relation, together with the conditions under which it is true.
+
+Writing is therefore more than the storage of words. It is a means of returning a comparison to another reader. A proof supplies a sequence of operations that can be performed again. An equation states a relation in a form compact enough to be carried, and exact enough to be checked. The marks change hands; the required dependencies remain recoverable.
+
+This creates a demanding standard. A result must retain its reference, definitions, hypotheses, and inferential steps. If any of these are lost, later readers may reproduce the words without recovering the claim. If an unsupported relation is inserted, the written form acquires more apparent strength than the calculation has earned. Correction is the operation that restores the agreement between statement and demonstration.
+
+Civilization carries knowledge through this process. Its libraries, scientific instruments, mathematics, schools, and practical arts preserve and revise relations established before any present reader was born. Each generation inherits an incomplete but extraordinarily useful record. The continuing work is to distinguish what the record establishes, what has changed, and what can be applied again.
+
+The formal construction gives a minimum, checkable example. A transformation preserves a specified form while changing its carrier state. A quotient identifies the returned form, and a lifted coordinate distinguishes the traversal. An occurrence record then permits the return to be recognized later. This is the precise problem beneath the broader human fact of transmitted knowledge: \emph{what must be preserved so that a later reader can recover the same relation?}
+
+\section{Work, recovery, and the stopping condition of enough}\label{sec:work}
+Work is a transformation performed under a constraint. It may build a house, solve an equation, earn a wage, or repair a damaged object. Every such operation has a cost in time, attention, materials, or available energy. The completed result matters; so do the conditions that allow the person performing the work to continue living.
+
+Rest is not merely the interval after work. Sleep, nutrition, sanitation, shelter, and intervals of reduced demand are parts of the material conditions under which human activity can be repeated. A permanent place to return reduces the number of decisions and journeys required to maintain those conditions. Without it, the work of finding water, washing, sleeping, and remaining safe recurs before other work begins.
+
+The distinction can be written without pretending that a single number measures a whole human life. Let $h(t)$ denote the state variables relevant to a particular organism, $V$ the region in which the required maintenance conditions hold, and $u(t)$ the activity and recovery controls. A model of the form
+\begin{equation}
+\dot h=F(h,u,e),\qquad h(t)\in V
+\end{equation}
+asks whether the organism can remain within viable conditions during the interval of interest. The governing function $F$ must come from the appropriate physiology and environment. A resource balance gives one simple example:
+\begin{equation}
+\dot E_{\rm store}=P_{\rm intake}-P_{\rm expenditure}.
+\end{equation}
+A sustained negative balance depletes the modeled store. Restoration requires appropriate inputs and recovery mechanisms. Other state variables---sleep, tissue repair, hydration, temperature, and stress regulation---have their own dynamics and bounds.
+
+The earlier gradient-flow calculation gives a separate mathematical example of relaxation: a nonnegative error decreases along an explicitly chosen dynamics. The biological importance of relaxation is wider. The organism must retain the capacity to adjust, recover, and resume activity. The relationship is established by the actual control and maintenance conditions, rather than by an identity between an error function and a living body.
+
+A stopping condition makes this practical. A task with a declared completion criterion has a point at which further correction no longer serves that task. Continuing to expend resources after its requirements are met can reduce the capacity needed for subsequent operations. In the recognition protocol below, \emph{Enough} names exactly that local stopping event: the packet is complete and the admissible answer is unique. It does not declare the organism, the world, or future learning complete.
+
+The significance is immediate. A society can measure paid labor precisely while overlooking the labor required to keep its members capable of working. An account of production that excludes maintenance has omitted part of its own material dependency. An account of survival includes both the work that changes conditions and the recovery that allows another day of activity.
+
+This is the human meaning of the formal distinction: \emph{completion of the present operation permits the continuation of life beyond it.}
+
+\section{Recognition, admissibility, and the stopping theorem}\label{sec:recog}
+After a comparison has been carried out, we need to know when the calculation is finished and what information is kept. A finished local calculation does not imply that the system has stopped changing. It means that the question posed at the current reference has a sufficiently determined answer. The following rule formalizes that distinction and specifies the single retained record.
+
+Fix the active jurisdiction before any candidate continuation is typed. Its context is
+\begin{equation}
+\boxed{\Gamma_J=(\mathsf{Condition},\mathsf{Constraint},
+\mathsf{SourceAuthority},\mathsf{Namespace}).}
+\end{equation}
+The domain of typed expressions is
+\begin{equation}
+D_{\Gamma_J}=\{\sigma:\exists\tau,\ \Gamma_J\vdash\sigma:\tau\}.
+\end{equation}
+The namespace reserves
+\begin{equation}
+\boxed{\varnothing=\mathsf{UNTYPEABLE}},
+\end{equation}
+while set-theoretic emptiness is written $\emptyset_{\rm set}$. Gate acts only after typing:
+\begin{equation}
+\boxed{\mathsf{Gate}_{\Gamma_J}:D_{\Gamma_J}
+\longrightarrow\{\mathsf{can},\mathbf2\},}
+\end{equation}
+where $\mathbf2$ is the typed Refusal/Fold result. The root admission law is
+\begin{equation}
+\boxed{\mathsf{Ad}(x)\Longrightarrow C_J(x).}
+\end{equation}
+Admissible reapplication already entails an owning constraint.
+
+The minimum working kernel is
+\begin{equation}
+\boxed{K=(J,\Gamma,A,E,\rho,R,\theta,\Theta),}
+\end{equation}
+where $J$ is jurisdiction, $\Gamma$ the active context, $A$ the required atomic references, $E$ the required typed relations, $\rho$ the visible reader and resolution, $R$ the append-only receipt, $\theta$ the Survival condition, and $\Theta$ the occurrence timing and orientation address. Structure and constraint are therefore present before Notice; Recognition is completed before any language update is emitted; Gate and Survival occupy separate offices.
+
+Let $y\leadsto_J z$ mean that $z$ is a candidate successor of $y$ under the transition rules owned by $J$. Define
+\begin{equation}
+N_J(y)=\{z:y\leadsto_J z,\ z\in D_{\Gamma_J},\ C_J(z)=1\},
+\qquad
+\boxed{\theta_J(y)=1\iff N_J(y)\ne\emptyset_{\rm set}.}
+\label{eq:survivaloperator}
+\end{equation}
+Thus Survival is a typed existence test for a next occurrence; it is neither the Gate decision on the present candidate nor a promise that the successor will physically occur.
+
+For a prompt or contact $p$, a candidate continuation $y$ is admitted exactly when
+\begin{equation}
+\boxed{
+\begin{aligned}
+\mathsf{Admit}(y\mid p,J)\iff{}&\mathsf{Typed}_{J}(y)
+\land\mathsf{Gate}_{J}(y)=\mathsf{can}\\
+&\land\varepsilon_{\rm drop}(y)=0
+\land\varepsilon_{\rm add}(y)=0\\
+&\land\varepsilon_{\rm strength}(y)=0
+\land\theta_J(y)=1.
+\end{aligned}}
+\end{equation}
+The three residuals separately test dropped dependencies, unsupported additions, and claim-strength inflation.
+
+Let $\mathcal E_n$ be the required typed-relation ledger and $\boldsymbol\varepsilon_n=(\varepsilon_{\rm drop},\varepsilon_{\rm add},\varepsilon_{\rm strength})$ the audit residuals. A packet retains $(J_n,\Gamma_n;\operatorname{Ref}_n,\Delta_n,\rho_n,\mathcal E_n,\boldsymbol\varepsilon_n,R_n,\theta_n,\Theta_n)$. Its operational order is
+\begin{equation}
+\boxed{\mathsf{FixReference}\to\mathsf{Return}
+\to\mathsf{ReadDelta}\to\mathsf{UpdateIfRequired}
+\to\mathsf{Recognize}\to\mathsf{Emit}.}
+\end{equation}
+New evidence enters first as a receipt. It changes the closed structure only when it carries a witnessed load-bearing Difference. The nine addressed states, State 0 (Contact) through State 8 (Recognition), remain joined by eight transitions: Contact $\to$ Difference $\to$ Transport $\to$ Fit $\to$ Gravity $\to$ Refinement $\to$ Physical Identity $\to$ Motion $\to$ Recognition. At State 8, with receipt $y_n$ and candidate set $A_n$,
+\begin{equation}\boxed{\mathsf{Enough}_n\iff\mathsf{Complete}(\mathrm{Pkt}_{n,8})\land A_n=\{y_n\}.}\label{eq:enough}\end{equation}
+The decision partition is exhaustive: an incomplete packet suspends with its missing-type or residual receipt; a complete packet with $A_n=\{y_n\}$ emits and halts its present correction; a complete non-Enough packet retains an exact reason (exhausted, mismatched singleton, or multiple candidates) and follows the declared OPEN/successor rule. Admission and refusal remain distinct typed cases. A later witnessed contact receives a fresh occurrence address. For the axial instance, the reference is
+$\operatorname{Ref}_n=(r,\rho_{\rm ax})$ with $r\in X$ the fixed reference of \S\ref{sec:ref}, the recognized class is
+$y_n=\rho_{\rm ax}(z)$, the difference after $m$ axial steps is the computed
+$\Delta_n=\Delta^{(m)}=m\varpi$ of \S\ref{sec:axial}, and $\Theta_n$ is the declared occurrence address.
+$R_n$ denotes the ordered sequence of earlier receipts.
+The following append rule is stipulated by the recognition protocol.
+Successful recognition appends exactly one Memory Return receipt:
+\begin{equation}\boxed{R_n^+=R_n\frown(\operatorname{Ref}_n,\Delta_n,y_n,\Theta_n).}\label{eq:receipt}\end{equation}
+Ordered concatenation has the exact recovery laws
+\begin{equation}
+\boxed{\operatorname{dropLast}(R_n\frown r_n)=R_n,\qquad
+\operatorname{last}(R_n\frown r_n)=r_n.}
+\end{equation}
+For a representation $\rho:\Gamma\to GL(U)$, the represented difference
+$D_\rho(g)=\rho(g)-I_U$ satisfies
+\begin{equation}
+\boxed{D_\rho(gh)=D_\rho(g)+D_\rho(h)+D_\rho(g)D_\rho(h).}
+\end{equation}
+A vanishing represented difference means $g\in\ker\rho$; the occurrence receipt retains its address independently of that readout.
+
+For the axial trajectory $z_n=L_{\rm ax}^{n}z_0$, append one receipt per step with $\Delta_n=\varpi$, $y_n=\rho_{\rm ax}(z_n)$, and $\Theta_n=n$. Then
+\begin{equation}
+\boxed{\sum_{n=1}^{N}\Delta_n
+=\lambda(z_N)-\lambda(z_0)=N\varpi,\qquad
+\rho_{\rm ax}(z_N)=\rho_{\rm ax}(z_0).}
+\end{equation}
+The quotient readout returns while the ordered receipts retain the complete lifted displacement.
+\begin{theorem}[Identity Return under the declared receipt protocol] If an admitted transformation satisfies $\rho(Tx)=\rho(x)$, the required fit and correction conditions hold, and a unique matching receipt is admitted, then the performed comparison closes while the occurrence of its traversal remains addressable.\end{theorem}
+\begin{proof}By the declared recognition and receipt rules, equality under $\rho$ establishes returned observable form. Completion and the singleton candidate establish the stopping rule. The append-only receipt preserves the reference, carried Difference, recognized result, and occurrence address. Thus the comparison stops without erasing its traversal, and a later contact may enter fresh scope.\end{proof}
+
+\section{Survival: the next lawful occurrence}\label{sec:surv}
+The stopping rule closes a present comparison. Continuation requires an additional condition: after a completed packet, a later contact must be admissible under its own constraints. The history records the first occurrence and the successor order assigns the next one a fresh address.
+\begin{proposition}[Survival as stipulated continuation]
+Let packet $n$ satisfy $\mathsf{Enough}_n$ and append exactly one receipt $\mathfrak r_n$ to an append-only ledger. Suppose every admitted contact is assigned an address strictly greater than every State-0 address entered before it (the stipulated successor rule), and that a later contact $c$ is admitted. Then: (i) the addresses of admitted contacts are pairwise distinct and totally ordered; (ii) $R_n^+$ is a prefix of every later ledger, so $\mathfrak r_n$ remains addressable; (iii) $c$ opens a packet at an address $n_{\rm fresh}\ne n$.
+\end{proposition}
+\begin{proof}
+(i) A strictly increasing assignment is injective, and its image is totally ordered. (ii) Appending replaces $R$ by $R\frown\mathfrak r$ and alters no earlier entry, so each ledger is a prefix of its successors. (iii) follows from (i).
+\end{proof}
+Equation~\eqref{eq:survivaloperator} states when the successor set is nonempty. That a member of this set physically occurs remains a hypothesis. The proposition records only that such a contact cannot overwrite or collide with the completed occurrence. Its viability in a physical organism additionally depends on the organism's maintenance conditions and governing dynamics.
+\section{Conclusion}
+The calculation begins with the difference between an addressed mark and the relation by which several marks become one readable form. The matrices $Q$ and $\Omega$ make that difference explicit. Their commutator gives the signed metric root $G^2=5I$; its null lines carry the golden axial transport; its normalized form gives the mirror that reverses the carriage. The quotient identifies recurrence while the lift preserves how far the occurrence has moved.
+
+The compatible-reader family then joins metric and orientation without loss. Each $\kappa>\sqrt5$ gives a complex structure $J_\kappa$, positive metric $B_\kappa$, and tuned mirror $M_\beta$. The seven-phase Gauss reader selects the $(5,7)$ member. Eight quarter-turn addresses realize the complete twenty-eight-seam carrier, and every seam survives continuous compatible tuning. The four octagonal distance classes record symmetry of value; the twenty-eight labels retain complete relational address; the seven perfect matchings schedule every comparison exactly once.
+
+Continuum closure supplies the physical return. Completed compatibility transport closes the comparison frame. The naturality squares carry operation and readout through refinement. The cylinder amplitude returns a physical class through the rigging-map quotient. Physical face holonomy remains in its own carrier, so curvature survives the closure that makes it comparable. This is the covariant-loop-gravity realization of returned form with retained Difference.
+
+The planar root, tuned reader, complete seam carrier, continuum comparison, physical quotient, and jurisdiction-first receipt now form one dependency. A reader may change position, frame, metric placement, and resolution while carrying the relations required for recognition. Memory is the retained Difference between occurrences. The receipt preserves the returned relation and the traversal that produced it. The clock closure states the result mechanically: the visible phase returns, the lifted address advances, and the completed traversal remains recoverable. Center returns. Form closes. Motion continues.
+\begin{center}
+\Large\bfseries
+Endurance of motion means the memory of return.\\[0.35em]
+Meaning lifts the story of time.
+\end{center}
+\appendix
+\section{Quantum correlation bound: original comparison}
+\subsection*{The quantum bound in its own carrier}
+The other early reference is the CHSH correlation operator.
+Let $A,A'$ and $B,B'$ be Hermitian observables with eigenvalues
+$\pm1$, with Alice's observables commuting with Bob's. Define
+\[
+\mathcal C=A\otimes(B+B')+A'\otimes(B-B').
+\]
+Direct expansion gives
+\[
+\mathcal C^2=4I-[A,A']\otimes[B,B'].
+\]
+Because $\|[A,A']\|\le2$ and $\|[B,B']\|\le2$,
+\[
+\|\mathcal C\|^2\le8,\qquad
+\boxed{|\langle\mathcal C\rangle|\le2\sqrt2.}
+\]
+This is Tsirelson's bound. The proof uses bounded quantum
+observables, their commutators, and the tensor-product structure.
+The turning-square proof uses inversion of a circle in $SU(2)$.
+The common investigation concerns the geometry of allowed
+operations; the displayed proofs give each its precise scope.
+
+\section{Native scientific field formulations}\label{app:fields}
+\subsection*{Classical mechanics, relativity, and electromagnetism}
+The distinction between carriers is not a retreat to analogy. It is what
+makes exact composition possible. The planar calculation supplies the
+Lorentzian normal form in equation~\eqref{eq:lorentziannormalform}; the physical
+carrier supplies the Einstein residual, proper time, null cone, curvature, and
+Hodge dual. Classical mechanics, spacetime geometry, and electromagnetic
+fields keep their own state variables because those variables are the explicit
+entries by which they inhabit the common architecture.
+
+
+In classical mechanics, a regular Lagrangian $L(q,\dot q,t)$ gives the Euler--Lagrange equations $\frac{d}{dt}\frac{\partial L}{\partial\dot q^a}-\frac{\partial L}{\partial q^a}=0$. Noether's theorem relates continuous variational symmetry to conserved currents. In general relativity, $ds^2=g_{\mu\nu}dx^\mu dx^\nu$ and equation~\eqref{eq:einsteinresidual} govern spacetime geometry and gravitation. Parallel transport permits comparison across different tangent spaces; curvature records nontrivial transport. Equations~\eqref{eq:gravityinstance}--\eqref{eq:gpsread} state the exact chain from the common Gravity signature through Einstein and Newton to the GPS read. The signed two-dimensional root is the local Lorentzian normal form in equation~\eqref{eq:lorentziannormalform}; the Einstein tensor is the native field equation. Neither statement weakens the other.
+
+Electromagnetism is described by $dF=0$ and $d\star F=\star J$ under a specified current convention. Light propagates as electromagnetic radiation and becomes readable through reflection, polarization, interference, and detection. The Language Mechanics office \emph{Light} names the disclosure/read relation; the physical Maxwell field retains its own equations.
+
+\subsection*{Exact Maxwell witness and independent holonomy}
+Let
+$M=\R_t\times S^1_\vartheta\times\R_x\times\R_y$ with
+\begin{equation}
+g_L=-c^2dt^2+r^2\eta^2+dx^2+dy^2,\qquad
+\oint_{S^1}\eta=2\pi,\qquad c,r>0.
+\end{equation}
+Use the already-declared planar generator $\Omega$ as an $\mathfrak{so}(2)$ generator on a trivial oriented rank-two bundle. For $a\in\R$, $u=t-x/c$, and twice-differentiable $f$, define
+\begin{equation}
+A_a=a\eta+f(u)\,dy,\qquad \mathcal A_a=A_a\Omega.
+\end{equation}
+Then
+\begin{equation}
+\boxed{F=dA_a=f'(u)\,du\wedge dy.}
+\end{equation}
+With orientation $dt\wedge d\vartheta\wedge dx\wedge dy>0$,
+\begin{equation}
+\star_{g_L}F
+=-rf'(u)\,dt\wedge d\vartheta
+-\frac rc f'(u)\,d\vartheta\wedge dx.
+\end{equation}
+Direct differentiation gives
+\begin{equation}
+\boxed{dF=0,\qquad d(\star_{g_L}F)=0.}
+\end{equation}
+For a loop $\ell$ winding once around $S^1$ with $dy=0$, the parallel-transport convention $\dot v+\mathcal A_a(\dot\ell)v=0$ gives
+\begin{equation}
+\boxed{\operatorname{Hol}_{\mathcal A_a}(\ell)
+=\exp(-2\pi a\Omega).}
+\end{equation}
+Because $\Omega^2=-I$, this holonomy is periodic under $a\mapsto a+1$. The curvature depends on $f$ and is independent of $a$; the loop holonomy depends on $a\bmod1$ and is independent of $f$. The model therefore separates Maxwell curvature from global phase while using the same declared orientation generator.
+
+
+\subsection*{Quantum mechanics, phase, and covariant geometry}
+Quantum theory adds a new kind of state description: complex amplitudes and measurement probabilities. Its phase relations make it particularly important to distinguish the information available from a local measurement from the information carried around a complete path. The following equations are native quantum and gauge-theoretic relations, not consequences of the two-by-two matrix identity alone.
+
+
+Quantum mechanics represents states in Hilbert space, with unitary evolution $U^\dagger U=I$ and projective probability $\langle\psi,P\psi\rangle$ for normalized $\psi$. For a closed path in the Aharonov--Bohm setting, $\Delta\phi_{\rm AB}=\frac q\hbar\oint_\gamma A_\mu dx^\mu\pmod{2\pi}$ under the corresponding gauge and path conditions. Returned geometry can carry a nontrivial measured phase.
+
+The covariant loop-gravity interface is stated once in
+\S\ref{sec:continuum}. Its four typed parts are completed compatibility
+transport, refinement naturality, the distributional cylinder rigging map,
+and independently readable physical holonomy. The Lorentzian EPRL simplicity,
+semiclassical, rigging-map, and positive spin-two conditions retain their
+native hypotheses. The ultraviolet fixed-point construction remains a
+conditional adapter, summarized in Appendix~\ref{app:uv}.
+
+\subsection*{Thermodynamics, biology, and recorded history}
+A thermodynamic description groups many microscopic arrangements under one macroscopic condition. A biological lineage carries inherited material through reproduction and variation. A written proof carries a checkable relation across readers and generations. These are distinct mechanisms, but all force the same elementary discipline: specify what is preserved, what changes, and what evidence permits recognition.
+
+
+For an equiprobable macrostate with multiplicity $\Omega_{\rm th}$, Boltzmann entropy is $S_B=k_B\log\Omega_{\rm th}$. Thermodynamics retains its statistical ensemble and energy-exchange conditions. Evolutionary common descent is diachronic lineage continuity; natural selection is a mechanism of differential reproduction; Mendelian and molecular genetics supply inherited transmission and replication mechanisms. Metabolism, homeostasis, sensory transduction, neural learning, reproduction, and written history are distinct native realizations of change, regulation, and retained record. Historical transmission extends remembered form through marks, techniques, institutions, and reproducible demonstrations. One Memory Return operation carries the source addresses without transferring proof authority between fields.
+
+\section{Minimum operational glossary}
+The glossary is an operator dictionary. The middle column gives the
+type or law; the last column translates that law into ordinary words.
+No entry is established by its name. Put $\mathbb B=\{0,1\}$; the
+separate symbol $\mathbf2$ remains the typed Refusal/Fold result.
+
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}p{0.16\textwidth}p{0.42\textwidth}p{0.365\textwidth}@{}}
+\toprule Term & Exact operator, type, or law & Literal reading \\ \midrule\endhead
+Zero & $0_V\in V$ such that $0_V+v=v$ for every $v\in V$. & Adding this element leaves every element unchanged.\\
+Identity / one & $I_X:X\to X$, $I_X(x)=x$; in an algebra, $1a=a1=a$. & Applying this map, or multiplying by this element, leaves the input unchanged.\\
+Position & $a:X\to A$, where $A$ is the declared address set. & Assign each occurrence a place that can be cited again.\\
+Reference & A value $r\in X$ held fixed during the current comparison. & Keep this occurrence fixed while another is tested against it.\\
+Reader / readout & $\rho:X\to Y$. & Carry a state to the feature the comparison will use.\\
+Scope & $\operatorname{dom}\rho\subseteq X$. & The states for which the chosen reading operation is defined.\\
+Jurisdiction & $J$ owns the context $\Gamma_J$, whose fields are $\mathsf{Condition}$, $\mathsf{Constraint}$, $\mathsf{SourceAuthority}$, and $\mathsf{Namespace}$. & Fix the conditions, governing boundary, source authority, and symbol rules before reuse.\\
+Typed & $x\in D_{\Gamma_J}\iff\exists\tau\;(\Gamma_J\vdash x:\tau)$. & The active rules assign the expression a kind.\\
+Can / Gate & $\mathsf{Gate}_{\Gamma_J}:D_{\Gamma_J}\to\{\mathsf{can},\mathbf2\}$. & After typing, return either permission to continue or the typed fold result.\\
+Minimum & For a required property $P$, $P(K)=1$ and $P(K')=0$ for every proper dependency-deletion $K'\subsetneq K$. & Every retained part is required for the stated job.\\
+Difference & On an affine carrier, $\Delta_r(x)=x-r$; for a representation, $D_\rho(g)=\rho(g)-I$. & Subtract the fixed occurrence, or subtract identity from the represented action.\\
+Mathematical measure & $\mu:\Sigma\to[0,\infty]$, $\mu(\emptyset_{\rm set})=0$, and $\mu(\bigsqcup_nE_n)=\sum_n\mu(E_n)$. & Assign nonnegative size to admissible sets and add the sizes of disjoint parts.\\
+Physical measurement & $m:X\to\R$ together with quantity $q$, unit $u$, calibration $c$, and uncertainty $\epsilon$. & Produce a number only after saying what was read, in which unit, against which standard, and within what error.\\
+Metric & $d:X^2\to[0,\infty)$ with $d(x,y)=0\Leftrightarrow x=y$, symmetry, and the triangle inequality. & Assign a nonnegative separation to two states consistently.\\
+Signed form & $g(u,v)=u^{\mathsf T}Gv$ with $G=G^{\mathsf T}$; here $G^2=5I$. & Compare two vectors bilinearly while allowing positive, zero, and negative squared intervals.\\
+Hodge star & $\alpha\wedge\star_g\beta=\langle\alpha,\beta\rangle_g\mathrm{vol}_{g,\mathfrak o}$; on Lorentzian four-dimensional two-forms, $\star_g^2=-I$. & Use metric and orientation to turn a physical two-form into its dual field read.\\
+Residual & $\varepsilon_\rho(x;r)=d_Y(\rho(x),\rho(r))$. & Return zero exactly when the two selected readouts agree.\\
+Form / invariant & $F:X\to Z$ with $F(Tx)=F(x)$ on the declared domain. & The selected output stays fixed while the carrier state changes.\\
+Orient & $\omega:V\times V\to\R$, $\omega(u,v)=u^{\mathsf T}\Omega v$, $\Omega^{\mathsf T}=-\Omega$. & Assign a sign to the ordered pair of directions.\\
+Transport & A flow $T_s:X\to X$ with $T_0=I$ and $T_{s+t}=T_sT_t$. & Carry a state continuously while keeping the composition of steps explicit.\\
+Motion & $\mathsf{Motion}=(\omega,T_s)$. & Fix signed direction, then carry the state.\\
+Bound & $C_J:D_{\Gamma_J}\to\mathbb B$ and $A_J=C_J^{-1}(1)$. & Test whether a typed state lies in the permitted region.\\
+Regulate & A partial map $\mathsf{Reg}_J:D_{\Gamma_J}\rightharpoonup A_J$. & When defined, carry a candidate into the permitted region.\\
+Gravity office & $\mathsf{Gravity}_J=(C_J,\mathsf{Reg}_J)$, $A_J=C_J^{-1}(1)$, $\operatorname{im}\mathsf{Reg}_J\subseteq A_J$. & Test the governing constraint and admit only an update whose result remains inside it.\\
+Einstein gravity & $\mathcal E_{\mu\nu}[g,T]=0$ and $\mathsf{Gravity}_{J_{\rm GR}}=(C_{\rm GR},\mathsf{Reg}_{\rm GR})$. & Let the Einstein residual occupy Bound and a specified Einstein constraint/evolution map occupy Regulate.\\
+Newtonian gravity & $g_{00}=-(1+2\phi/c^2)+O(c^{-4})$, $\nabla^2\phi=4\pi G_N\rho$, $\ddot{\mathbf x}=-\nabla\phi+O(c^{-2})$. & Read the weak-field, slow-motion limit of the Einstein metric and geodesic law.\\
+GPS metric read & $\tau_g[\gamma]=c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}d\lambda$, $g^{-1}(k,k)=0$. & Compare clock proper times by null electromagnetic signals in the same physical metric.\\
+Covariant gravity & $S_\gamma:\mathcal H_{\rm BF}\to\mathcal H_{\rm grav}$ with EPRL labels $(\rho,k)=(\gamma j,j)$, followed by the physical connection in $G_{\rm phys}$. & Select the constrained gravitational sector, then retain its physical transport.\\
+Cut & An idempotent selector $\Pi:X\to X$, $\Pi^2=\Pi$. & Keep the selected component and remove the rest from this read.\\
+Read & A map $\rho:\operatorname{im}\Pi\to Y$. & Convert the selected component into an addressable value.\\
+Light & $\mathsf{Light}_{\Pi,\rho}=\rho\circ\Pi$. & Select a channel, then expose its value to the reader.\\
+Physical condensation & $\sigma_x:W_8\to\Lambda^2T_x^*M$, $\rho_{g,x}(w)=(\sigma_xw,\star_g\sigma_xw)$. & Carry the complete seam record through a declared local field aperture and read the selected two-form with its metric dual.\\
+Optical reader & $E_{\rm ret}\to c_a\to d_a\to(r_a^+,r_a^-)$ under the displayed optical, cone, and center--surround maps. & Carry incident light to the retina, integrate its spectrum, and expose signed contrast.\\
+Attention & An idempotent selector $\Pi_{\rm att}^2=\Pi_{\rm att}$ maintained over the comparison interval. & Keep one selected component active while the comparison is performed.\\
+Couple & $c_r:X\to X\times X$, $c_r(x)=(r,x)$. & Place the fixed and current occurrences in one ordered pair.\\
+Return & $\mathsf{Ret}_{\rho,T}(x)=1\iff Tx\ne x\ \land\ \rho(Tx)=\rho(x)$. & The occurrence changes while the selected readout agrees.\\
+Memory & $\mathsf{Mem}(R,\mathfrak r)=R\frown\mathfrak r$. & Append one recoverable entry without altering earlier entries.\\
+Compatibility closure & $G_e=F_{t(e)}F_{s(e)}^{-1}$ and $\overrightarrow{\prod}_{\partial f_{\rm comp}}G_e=I_{\rm comp}$. & Return completed frame comparison to its common reference.\\
+Physical holonomy & $H_f^{\rm phys}=\overrightarrow{\prod}_{e\in\partial f^*}T_e^{\rm phys}$. & Carry the physical connection once around a face and retain the resulting curvature read.\\
+Refinement memory & $\iota T=T'\iota$ and $\rho'\iota=\bar\iota\rho$. & Reach the same operation and readout after changing resolution by either typed route.\\
+Physical identity & $\mathcal H_\Sigma^{\rm phys}=\overline{\mathcal D_\Sigma/\ker P_\Sigma}$. & Identify precisely the null directions of the cylinder rigging map and complete the resulting state space.\\
+Recognition & $\mathsf{Rec}_{\rho}(x,r)=1\iff\rho(x)=\rho(r)$. & Report whether the current and fixed readouts agree.\\
+Receipt & $\mathfrak r_n=(\operatorname{Ref}_n,\Delta_n,y_n,\Theta_n)$ with $\operatorname{last}(R\frown\mathfrak r_n)=\mathfrak r_n$. & Store the reference, carried change, result, and occurrence address as one recoverable entry.\\
+Time / Timing & $\Theta:\mathcal E\to(\mathcal T,\prec)$ with $e_i\prec e_j$ for successive admitted occurrences. & Assign an ordered address to each occurrence.\\
+Minimum clock & $(L_t,\lambda,W)$ with $\lambda(L_tz)=\lambda(z)+t\varpi$ and $W(\rho_{\rm ax}(L_tz))=e^{2\pi it}W(\rho_{\rm ax}(z))$. & Return the visible dial after one turn while advancing its lifted address.\\
+Real time & $\tau_g[\gamma]=c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,d\lambda$ on an admitted timelike worldline. & Accumulate the proper time carried by the physical metric.\\
+Story time & An ordered receipt lift $\Lambda_{\rm story}(R_{n+1})=\Lambda_{\rm story}(R_n)+T_n$ with $T_n>0$. & Advance the address of retained occurrences without identifying their physical durations.\\
+Fit & For required tests $E=\{e_i:D\to\mathbb B\}$, $\mathsf{Fit}_E(x)=\prod_i e_i(x)$. & Return one exactly when every required relation holds.\\
+Complete & $\mathsf{Complete}(P)=1$ iff every required field of $P$ is typed and every audit residual is zero. & Nothing required is missing, unsupported, or overstated.\\
+Enough & $\mathsf{Enough}_n\iff\mathsf{Complete}(\mathrm{Pkt}_{n,8})\land A_n=\{y_n\}$. & The packet is complete and exactly one candidate matches its receipt.\\
+Relaxation & For $\dot x=-M\nabla E(x)$ with $M\succeq0$, $\dot E=-\nabla E^{\mathsf T}M\nabla E\le0$. & The declared error energy never increases along this motion.\\
+Relaxation Silence & $\varepsilon_{\rm rel}=\|K(x-r)\|=0$ with $\Lambda_{\rm rel}=E(x(0))-E(x(t))$ retained. & Return zero remaining correction while keeping the energy spent along the traversal.\\
+Tuning & A parameter choice $p_*$ satisfying $p_*\in\arg\min_{p\in P}\varepsilon(p)$, or an exact target equation $\varepsilon(p_*)=0$. & Change an available parameter until the declared mismatch is least or vanishes.\\
+Silence & $\mathsf{Silence}(P)=1\iff\boldsymbol\varepsilon(P)=0$. & The active comparison emits no correction signal.\\
+Meaning & A declared partial use-reader $\operatorname{Meaning}_\mu:R\rightharpoonup V_\rho$ on retained receipts. & Recover the same use-read from the same typed record and rule.\\
+Survival / $\theta$ & $N_J(y)=\{z:y\leadsto_J z,\ z\in D_{\Gamma_J},\ C_J(z)=1\}$ and $\theta_J(y)=1\iff N_J(y)\ne\emptyset_{\rm set}$. & At least one typed next occurrence remains within the governing boundary.\\
+$\Lambda$ & The declared registry address paired with $\nu=3$ in the seven-band order. & The named final address of that finite meaning registry.\\
+$\infty$ & The distinguished ideal point of $\mathbb P^1$, or unbounded growth when a limit is explicitly stated. & Read the symbol according to its declared carrier.\\
+$\varnothing$ & $\varnothing=\mathsf{UNTYPEABLE}$ in the active namespace; $\emptyset_{\rm set}$ remains the empty set. & No type can be assigned here; this is different from a set with no members.\\
+\bottomrule
+\end{longtable}
+\normalsize
+The four paired office operators in this dictionary are the ones realized by
+the twenty-eight-seam carrier. Their physical instances are not licensed by
+shared words. They are licensed by substitution. For gravity,
+equation~\eqref{eq:gravityinstance} substitutes the Einstein residual and its
+specified evolution into the general operator signature; equations
+\eqref{eq:newtonlimit} and \eqref{eq:gpsread} then exhibit its Newtonian limit
+and operational clock/light receipt. For electromagnetism,
+equation~\eqref{eq:maxwellhodge} substitutes Maxwell's field and the
+metric-generated Hodge dual. Distinct carriers prevent category error; the
+displayed dependency chain prevents the distinction from being reduced to
+analogy.
+
+\section{Canonical thirty-nine-coordinate status register}
+This register retains all thirty-nine inherited addresses while making their
+status explicit. ``Derived'' means proved here; ``defined''
+means fixed by a displayed definition; ``adapter'' means conditional on its
+native physical law; and ``source interface'' means retained for composition
+without serving as a premise of the planar proof. A coordinate is never
+promoted merely by appearing in the list.
+\small
+\begin{longtable}{@{}r p{0.19\textwidth} p{0.38\textwidth} p{0.2\textwidth}@{}}\toprule No.&Coordinate&Native office or result&Where\\\midrule\endhead
+1&$\Q(\sqrt5)$&Exact golden arithmetic field&\S\ref{sec:gauss}\\
+2&$I$&Identity matrix&\S\ref{sec:root}\\
+3&$\Omega$&Antisymmetric quarter-turn&\S\ref{sec:root}\\
+4&$Q$&Fibonacci transport&\S\ref{sec:root}\\
+5&$G=[Q,\Omega]$&Signed metric commutator&\S\ref{sec:root}\\
+6&$\Phi,\Psi$&Golden spectral roots&\S\ref{sec:eigen}\\
+7&$v_\Phi,v_\Psi$&Null eigenvectors and oriented separation&\S\ref{sec:eigen}\\
+8&$H$&Orthogonal metric reflection&\S\ref{sec:root}\\
+9&$L_{\rm ax}$&Signed-form-preserving axial carriage&\S\ref{sec:axial}\\
+10&$\chi_{\rm ax}$&Circle readout $\exp(2\pi i\lambda/\varpi)$&defined, \S\ref{sec:axial}\\
+11&$\operatorname{Log}_{\rm ax}$&Collision-free additive lift coordinate&App.~\ref{app:linear}\\
+12&$(\delta,\lambda)$&Transverse Fermi coordinate and axial translation&$\lambda$ derived; $\delta$ source interface\\
+13&$\mathcal O_8$&Eight operational offices&\S\ref{sec:seam}\\
+14&$\Lambda^2V_8$&Twenty-eight signed seams&\S\ref{sec:seam}\\
+15&$P_\ell$&Seven orthogonal band projections&\S\ref{sec:recon}\\
+16&$R_{\rm rbw}$&Rainbow mirror involution&\S\ref{sec:seam}\\
+17&$\mathcal C(r,h)$&Conditional relational angular cup&source interface\\
+18&Scope / $i$&Reader domain / chosen origin on $\mathbb H$&source interface\\
+19&$\sigma_1,\sigma_3$&Real Pauli generators, $\sigma_a^2=I$ and $\sigma_1\sigma_3=-\sigma_3\sigma_1$&defined interface\\
+20&$H_\Box$&Hadamard mean--Difference transform&\S\ref{sec:recon}\\
+21&$j^\mu$&Noether current under variational symmetry&$J_S$: \S\ref{sec:lagr}\\
+22&$F$&Maxwell electromagnetic field tensor&App.~\ref{app:fields}\\
+23&$\Delta\phi_{\rm AB}$&Aharonov--Bohm phase holonomy&App.~\ref{app:fields}\\
+24&$\Gamma_{\rm NS}$&Fluid similarity-coordinate interface&source interface; no NS theorem asserted\\
+25&$S_\gamma$&Lorentzian EPRL simplicity interface&adapter, App.~\ref{app:fields}\\
+26&$\Xi$&Riemann completed-function analytic reader&source interface; no zero claim used\\
+27&$\mathcal R_T$&Theory-indexed G\"odel--Rosser boundary&source interface\\
+28&$\rho_{\rm ret}$&Retinal optical transduction&empirical adapter\\
+29&$\Omega_{\rm th}$&Thermodynamic macrostate multiplicity&App.~\ref{app:fields}\\
+30&$\theta_I$&Indicator $\mathbf1_{\{h(t)\in V\ \forall t\in I\}}$&defined from \S\ref{sec:work}\\
+31&$\mathsf{Complete}$&Packet completion predicate&\S\ref{sec:recog}\\
+32&$R$&Successor and occurrence receipt order&\S\ref{sec:recog}\\
+33&$(\kappa,\beta)$&Compatible-reader parameter and golden-axis rapidity&\S\ref{sec:tuned}\\
+34&$J_\beta$&Tuned complex structure&\S\ref{sec:tuned}\\
+35&$B_\beta$&Positive compatible metric&\S\ref{sec:tuned}\\
+36&$P_\beta$&Canonical positive symplectic comparison map&\S\ref{sec:tuned}\\
+37&$M_\beta$&Tuned metric mirror and orientation reverser&\S\ref{sec:tuned}\\
+38&$J_{57}$&Selected golden--seven complex structure&\S\ref{sec:tuned}\\
+39&$\{v_k^{(\beta)}\}_{k\in\Z_8}$&Eight-address tuned octagon realizing all twenty-eight seams&\S\ref{sec:seam}\\ \bottomrule
+\end{longtable}
+\normalsize
+
+\section{Dependency audit}\label{app:audit}
+The audit states each remaining carrier, equation, and proof status. It adds
+no hidden premise to the planar derivation.
+
+\subsection{Return and quotient receipt}\label{app:linear}
+Equations~\eqref{eq:return}, \eqref{eq:clockintertwiner},
+\eqref{eq:fourphasecarry}, and \eqref{eq:receipt} type Memory Return:
+readout may recur while the carrier retains its traversal. The axial and
+phase quotients are the global instance. For
+$\gamma=(m\varpi,2\pi n)$,
+\begin{equation}
+\boxed{q(x+\gamma)=q(x),\qquad (x+\gamma)-x=\gamma,\qquad
+\oint_{\gamma_m}\bar\alpha_{\rm ret}=m\varpi.}
+\end{equation}
+Thus the returned class and retained displacement occupy separate carriers.
+The record preserves the comparison under the operational dependency
+$\mathsf{Condition}\to\mathsf{Constraint}\to\mathsf{Fit}\to\mathsf{Function}$;
+function supplies conditions for the next occurrence. Center returns. Form
+closes.
+
+\subsection{The composed reader}
+Jurisdiction-first typing supplies the receipt kernel
+$K=(J,\Gamma,A,E,\rho,R,\theta,\Theta)$. The planar derivation supplies
+$(Q,\Omega,G,H,L_s,J_\beta,B_\beta,M_\beta)$. The axial period supplies the
+integral circle reader and exact four-phase carry. The one-factorization and
+band projections supply the exhaustive twenty-eight-seam carrier. Completed
+compatibility transport, refinement naturality, and the rigging-map quotient
+supply common-frame comparison and physical identity. The audit residuals
+remain separate: dropped relation, unsupported addition, and claim-strength
+inflation.
+
+\subsection{Ultraviolet fixed-point adapter}\label{app:uv}
+Han's covariant-LQG construction supplies a candidate ultraviolet fixed point
+at which the leading complete amplitude becomes topological and microscopic
+triangulation ambiguity reduces to finitely many boundary coefficients. This
+is a conditional fixed-point result. A nonzero positive transverse-traceless
+spin-two residue is a separate physical readout condition; it remains OPEN
+until evaluated for the selected continuum state. The continuum closure used
+here is therefore \eqref{eq:continuumclosure}, whose physical quotient
+is supplied by the distributional rigging-map construction.
+
+\section{Proof and verification register}
+The finite offices, operator root, quotient/lift, physical adapter, and reader are composed without changing their native jurisdictions. The golden group-action join is closed with its chosen basepoints; the $Q$-algebra identity and octave addition remain separately typed. Each entry retains its jurisdiction, exact result, proof status, and current use. The resulting architecture is compositionally closed at its declared structural resolution; a source-specific numerical evaluation is not promoted to a structural obstruction.
+
+\subsection{Recognition: minimum normal form and one receipt}
+The normal-form packet is
+\begin{equation}
+\mathsf{RNF}_n=(J_n,\Gamma_n;\operatorname{Ref}_n,\Delta_n,\rho_n,
+\mathcal E_n,\boldsymbol\varepsilon_n,R_n,\theta_n,\Theta_n).
+\end{equation}
+Recognition requires admission, complete fit, returned observable form, zero correction residuals, and a unique matching receipt. It appends one Memory Return record. The local packet closes while later scope remains available. The operational expression is
+\begin{center}\bfseries
+CENTER RETURNS. $\qquad$ FORM CLOSES. $\qquad$ MOTION CONTINUES.\\
+\normalfont Fix reference $\to$ return $\to$ read Difference $\to$ update if required $\to$ recognize $\to$ emit.
+\end{center}
+
+\subsection{Master closure and correction ledger}
+The axial return is fixed by the exact reader and its dependencies:
+$\lambda(z)=\log|a/b|$, $\rho_{\rm ax}(z)=[\lambda(z)]$,
+$\lambda(L_{\rm ax}^m z)-\lambda(z)=m\varpi$ on $ab\ne0$,
+$W\circ\rho_{\rm ax}\circ L_t=R_t\circ W\circ\rho_{\rm ax}$, and
+$F^4(r,z)=(r,L_{\rm ax}z)$. The matrix, quotient, clock, and carry
+statements are exact; the single-receipt
+and fresh-address rules are stipulated protocol consequences.
+Continuum closure supplies the single physical join: completed
+comparison transport, refinement naturality, the distributional rigging-map
+quotient, and independently readable physical holonomy. It retains the
+compatible-reader family, selected $(5,7)$ member, lossless tuned octagon,
+jurisdiction-first recognition kernel, earlier algebra, finite matching
+theorem, and declared assignments.
+
+\small
+\begin{longtable}{@{}p{0.25\linewidth}p{0.67\linewidth}@{}}\toprule
+Result / interface & Verification and boundary\\ \midrule\endhead
+Root algebra & $Q^2=Q+I$, $\Omega^2=-I$, $G=[Q,\Omega]$, $G^2=5I$: exact.\\
+Golden and axial & Null eigendirections, $L_{\rm ax}^{\mathsf T}GL_{\rm ax}=G$, quotient translation $\varpi=2\log\Phi$: exact on declared chart.\\
+Golden unit and boost & $[m_\Phi]=Q$, $L_s\in SO^+(G)$, $h_{\rm top}(\bar Q^2)=\log\Phi^2$: exact on their declared arithmetic, Lorentzian, and toral carriers.\\
+Compatible family & $J_\kappa^2=-I$, $B_\beta=P_\beta^{\mathsf T}P_\beta>0$, $M_\beta J_\beta M_\beta=-J_\beta$: exact for $\kappa>\sqrt5$.\\
+Selected $(5,7)$ member & $J_{57}=(G+\sqrt7C_1)/\sqrt2$ and $B_{57}=(\sqrt7I+GC_1)/\sqrt2$: exact once the $\Z_7$ Gauss reader is declared.\\
+Action and charge & $G\ddot z=0$, $\dot J_S=0$: exact for the specified indefinite quadratic action.\\
+Physical adapters & Minkowski coordinates read $G$ as a Lorentzian interval; oscillator coordinates read $B_{\rm pos}$ as positive energy: exact after scales are declared.\\
+Einstein--Newton--GPS junction & $\mathsf{Gravity}_{J_{\rm GR}}=(C_{\rm GR},\mathsf{Reg}_{\rm GR})$ is an exact instance of the office signature; $\iota_x^*g=\ell_x^2H$ is the exact two-plane normal form; Newton's equations are the displayed weak-field, slow-motion limit; GPS reads proper time and null propagation from the same $g$. No claim is made that the $2\times2$ root alone generates the Einstein field equation.\\
+Maxwell witness & $F=f'(u)du\wedge dy$ satisfies $dF=d\star F=0$; $\operatorname{Hol}=e^{-2\pi a\Omega}$ is independently tunable modulo $a\sim a+1$: exact on the displayed spacetime and connection.\\
+Tuning & $\kappa_P=531441/524288$, equal-tempered octave closure: exact arithmetic.\\
+Musical and atomic wheels & $D_{12}$ pitch-class and $D_7$ occupation-descriptor inversion identities, key-cup covariance: exact on separately declared carriers; atomic evolution and acoustics retain native physics.\\ 
+Relaxation & $\dot E=-\gamma\varepsilon_{\rm rel}^2\le0$, $\mathsf{Silence}_{\rm rel}\iff\varepsilon_{\rm rel}=0$, with $\Lambda_{\rm rel}$ retained: exact for the specified gradient flow; physiological use requires empirical conditions.\\
+Finite relations & Seven disjoint perfect matchings exhaust $\binom82=28$ labeled edges; the tuned-octagon cosine--sine ledger is invariant under compatible tuning: exact.\\
+Continuum closure & $\overrightarrow{\prod}_{\partial f_{\rm comp}}G_e=I_{\rm comp}$ is exact for completed compatibility transport; the two naturality squares and rigging-map quotient hold under their declared continuum hypotheses; $H_f^{\rm phys}$ retains its independent physical value.\\
+Recognition & Jurisdiction-first admission and State-8 one-receipt completion: stipulated protocol consequence after the displayed typing and residual tests.\\
+Notation & $\Lambda$ meaning office, $\lambda$ axial lift, $\Lambda^2$ exterior power, $\Lambda_{\rm cos}$ cosmological constant; $G$, $G_N$, $G_e$, $G_{\mu\nu}$ remain distinct; $T$ operation, $\varpi=2\log\Phi$ period; $r$ reference; $n$ packet index, $m$ step count.\\
+Spin-two readout & A positive nonzero TT residue is a separate conditional admission test and remains OPEN until evaluated for the chosen physical state.\\
+Physical condensation & $\star_g^2=-I$ and $h^*\star_gh^*=-\star_g$ for the stated Lorentzian two-form carrier and involutive mirror; the wheel-to-field adapter $\sigma_x$ is declared and retains its kernel.\\
+Physical fields & Retaining a native law means using it as the realizing operator on its own carrier. It does not reduce the displayed typed identity to structural analogy. Maxwell, GR, quantum mechanics, thermodynamics, biology and continuum gravity retain their native hypotheses and source-specific claims.\\
+\bottomrule\end{longtable}
+\normalsize
+\section{Historical and formal sources}
+\small
+The musical $D_{12}$ and atomic descriptor $D_7$ readers are defined directly in Section~\ref{sec:tuning}. The Pythagorean comma is the classical tuning discrepancy between twelve pure fifths and seven octaves; its derivation is included there. Gradient-flow relaxation is stated as a conditional classical control realization rather than attributed to a single historical source.
+
+\emph{Attribution rule.} The references below identify the native mathematical, scientific, and historical results used by the displayed derivations. They are grouped by mathematical dependency and ordered chronologically within each branch where practical. A citation fixes provenance; it does not transfer a theorem between carriers.
+
+\subsection*{A. Construction, number, and orientation}
+\begin{enumerate}[itemsep=1pt,topsep=3pt]
+\item Euclid, \emph{Elements}, ca. 300 BC: definitions, postulates, constructive proof, geometry.
+\item Brahmagupta, \emph{Br\={a}hmasphu\d{t}asiddh\={a}nta} (628): arithmetic of zero and signed quantities.
+\item Mu\d{h}ammad ibn M\={u}s\={a} al-Khw\={a}rizm\={\i}, \emph{al-Jabr wa'l-muq\={a}bala}, ca. 820: procedural algebra.
+\item Gerolamo Cardano, \emph{Ars Magna} (1545); Rafael Bombelli, \emph{L'Algebra} (1572): algebraic calculation with complex expressions.
+\item Isaac Newton, \emph{Philosophi\ae{} Naturalis Principia Mathematica} (1687): laws of motion and gravitation.
+\item Leonhard Euler, \emph{Introductio in analysin infinitorum} (1748): exponential and trigonometric phase; Euler's polyhedral relation, eighteenth-century papers.
+\item Adrien-Marie Legendre, \emph{Essai sur la th\'eorie des nombres} (1798): quadratic-residue notation and arithmetic.
+\item Carl Friedrich Gauss, \emph{Disquisitiones Arithmeticae} (1801); \emph{Summatio quarundam serierum singularium} (1811): congruences, quadratic Gauss sums, sign determination.
+\item Caspar Wessel (1799), Jean-Robert Argand (1806), Carl Friedrich Gauss (1831): geometric representation of complex numbers.
+\item Arthur Cayley, ``A Memoir on the Theory of Matrices'' (1858): matrix composition and algebra.
+\item J. J. Sylvester, ``Thoughts on Inverse Orthogonal Matrices, Simultaneous Signsuccessions, and Tessellated Pavements in Two or More Colours'' (1867): orthogonal sign matrices and the historical mean--Difference lineage.
+\item Leonardo of Pisa (Fibonacci), \emph{Liber abaci} (1202): Fibonacci recurrence and its arithmetic tradition.
+\item P. G. Lejeune Dirichlet, ``Zur Theorie der komplexen Einheiten'' (1846): unit theorem for algebraic number fields.
+\end{enumerate}
+\subsection*{B. Geometry, transformation, mechanics, and fields}
+\begin{enumerate}[itemsep=1pt,topsep=3pt]\setcounter{enumi}{13}
+\item Carl Friedrich Gauss, \emph{Disquisitiones generales circa superficies curvas} (1827/1828): intrinsic surface geometry.
+\item \'Evariste Galois (1830--1832; published 1846), Augustin-Louis Cauchy (permutation theory), Arthur Cayley (1854): groups and transformations.
+\item Bernhard Riemann, \emph{\"Uber die Hypothesen, welche der Geometrie zu Grunde liegen} (1854 lecture; 1868 publication): manifolds and metric geometry.
+\item Hermann Grassmann, \emph{Die lineale Ausdehnungslehre} (1844): exterior product and the algebraic lineage of $\Lambda^2(\R^8)$.
+\item Eugenio Beltrami (1868), Felix Klein (1871), Henri Poincar\'e (1895): non-Euclidean models, transformations, loops and homotopy.
+\item Joseph-Louis Lagrange, \emph{M\'ecanique analytique} (1788): variational mechanics.
+\item William Rowan Hamilton, ``On a General Method in Dynamics'' (1834), \emph{Philosophical Transactions of the Royal Society} \textbf{124}, 247--308: Hamiltonian dynamics.
+\item C.-L. Navier, ``M\'emoire sur les lois du mouvement des fluides'' (presented 1822); G. G. Stokes, ``On the Theories of the Internal Friction of Fluids in Motion'' (1845): viscous-fluid dynamics and continuum stress.
+\item Michael Faraday, \emph{Experimental Researches in Electricity} (1830s onward): induction and physical lines of force.
+\item James Clerk Maxwell, ``A Dynamical Theory of the Electromagnetic Field'' (1865): field dynamics; Oliver Heaviside (1880s): modern vector-equation form.
+\item Albert Einstein, ``Zur Elektrodynamik bewegter K\"orper'' (1905); ``Die Feldgleichungen der Gravitation'' (1915); \emph{Die Grundlage der allgemeinen Relativit\"atstheorie} (1916): special and general relativity.
+\item Hermann Minkowski, ``Raum und Zeit'' (1908/1909): spacetime interval and Lorentzian geometry.
+\item Tullio Levi-Civita (1917): parallel transport; Emmy Noether, ``Invariante Variationsprobleme'' (1918): symmetry and conservation.
+\item W. V. D. Hodge, \emph{The Theory and Applications of Harmonic Integrals} (1941): metric duality, harmonic forms, and periods.
+\item Neil Ashby, Relativity in the Global Positioning System, \emph{Living Reviews in Relativity} \textbf{6} (2003), article 1: proper time, signal propagation, and relativistic clock comparison in GPS.
+\item Rufus Bowen, ``Entropy for Group Endomorphisms and Homogeneous Spaces,'' \emph{Transactions of the American Mathematical Society} \textbf{153} (1971), 401--414: entropy of algebraic and hyperbolic toral systems.
+\end{enumerate}
+\subsection*{C. Quantum theory, information, and formal limits}
+\begin{enumerate}[itemsep=1pt,topsep=3pt]\setcounter{enumi}{29}
+\item Erwin Schr\"odinger (1926): wave mechanics and time-dependent quantum evolution.
+\item Wolfgang Pauli (1927), P. A. M. Dirac, ``The Quantum Theory of the Electron'' (1928): spin operators and relativistic quantum dynamics.
+\item Louis de Broglie (1927), David Bohm (1952): pilot-wave dynamics and deterministic nonlocal quantum interpretation.
+\item David Bohm, \emph{Wholeness and the Implicate Order} (1980): historical interpretive lineage of wholeness and process; no additional premise of the displayed proofs.
+\item Werner Ehrenberg and Raymond Siday, ``The Refractive Index in Electron Optics and the Principles of Dynamics'' (1949); Yakir Aharonov and David Bohm, ``Significance of Electromagnetic Potentials in the Quantum Theory'' (1959): electromagnetic-potential phase.
+\item S. Pancharatnam, ``Generalized Theory of Interference'' (1956); Barry Simon, ``Holonomy, the Quantum Adiabatic Theorem, and Berry's Phase'' (1983); Michael Berry, ``Quantal Phase Factors Accompanying Adiabatic Changes'' (1984): geometric phase and holonomy.
+\item Kurt G\"odel, ``\"Uber formal unentscheidbare S\"atze'' (1931); J. Barkley Rosser (1936): formal incompleteness under stated theory hypotheses.
+\item Alonzo Church (1936), Alan Turing, ``On Computable Numbers'' (1936--1937), Emil Post (1936): effective calculability and mechanical procedure.
+\item Alfred Tarski (1933): truth and definability; Ludwig Wittgenstein, \emph{Tractatus Logico-Philosophicus} (1921/1922), \emph{Philosophical Investigations} (1953): representation, meaning, and rule-following.
+\item Claude Shannon, ``A Mathematical Theory of Communication'' (1948): transmission, channel, and information; semantics remains a distinct question.
+\item Leonard Bernstein, \emph{The Unanswered Question: Six Talks at Harvard} (1973 Norton Lectures; televised 1976): musical grammar, harmonic series, interval, and audible return.
+\item John Bell, ``On the Einstein Podolsky Rosen Paradox'' (1964); Clauser, Horne, Shimony, Holt (1969); B. S. Cirel'son (1980): locality constraints, inequalities, and quantum bounds.
+\end{enumerate}
+\subsection*{D. Statistical mechanics, evolution, and biological transmission}
+\begin{enumerate}[itemsep=1pt,topsep=3pt]\setcounter{enumi}{41}
+\item Charles Darwin and Alfred Russel Wallace, joint Linnean Society papers (1858); Darwin, \emph{On the Origin of Species} (1859): common descent and natural selection as distinct claims.
+\item Gregor Mendel, ``Versuche \"uber Pflanzen-Hybriden'' (1866): particulate hereditary transmission.
+\item Ludwig Boltzmann, ``\"Uber die Beziehung zwischen dem zweiten Hauptsatze ... und der Wahrscheinlichkeitsrechnung'' (1877); J. Willard Gibbs, \emph{Elementary Principles in Statistical Mechanics} (1902): microstate multiplicity and ensembles.
+\item Oswald Avery, Colin MacLeod, Maclyn McCarty, ``Studies on the Chemical Nature of the Substance Inducing Transformation of Pneumococcal Types'' (1944): DNA-associated transformation.
+\item James Watson and Francis Crick, ``Molecular Structure of Nucleic Acids'' (1953); Rosalind Franklin and Raymond Gosling (1953), Maurice Wilkins and collaborators (1953): double-helical model and experimental X-ray evidence.
+\item Francis Crick, ``On Protein Synthesis'' (1958): sequence hypothesis and central dogma.
+\item Christian Anfinsen, Edgar Haber, Michael Sela, Fred White (1961); Anfinsen (1973): ribonuclease refolding and the thermodynamic hypothesis.
+\item Meselson and Stahl (1958): semiconservative DNA replication; Noji and collaborators (1997): rotary ATP synthase; Wolpert, Ghahramani, Jordan (1995): sensorimotor learning models.
+\end{enumerate}
+\subsection*{E. Quantum geometry and contemporary continuum interfaces}
+\begin{enumerate}[itemsep=1pt,topsep=3pt]\setcounter{enumi}{49}
+\item Abhay Ashtekar and Jerzy Lewandowski (2004): background-independent loop quantum gravity; Jonathan Engle, Etera Livine, Roberto Pereira, and Carlo Rovelli, arXiv:0711.0146, \emph{Nucl. Phys. B} \textbf{799} (2008): finite-Immirzi Lorentzian EPRL simplicity construction.
+\item Domenico Giulini and Donald Marolf, \emph{Class. Quantum Grav.} \textbf{16} (1999), 2489--2505: refined algebraic quantization and rigging-map quotient conditions.
+\item Bianca Dittrich and collaborators, including Kogios (2023): continuum and graviton-related spin-foam interfaces; retain the source-specific construction.
+\item Muxin Han, arXiv:2602.18665 (2026): covariant spin-foam fixed-point and Gaussian fluctuation source as cited in the UV reader; native hypotheses retained.
+\item Matteo Bruno, Eugenia Colafranceschi, Fabio M. Mele, and Carlo Rovelli, arXiv:2603.16999 (2026), \emph{The Structure of the Continuum Limit of Spin Foams}: distributional continuum limit, cylinder rigging map, and physical Hilbert quotient under the stated axioms.
+\end{enumerate}
+\subsection*{F. Optics and the physical reader}
+\begin{enumerate}[itemsep=1pt,topsep=3pt]\setcounter{enumi}{54}
+\item Eugene Hecht, \emph{Optics}, 5th ed. (Pearson, 2017): paraxial image formation and optical transport.
+\item Andrew Stockman and Lindsay T. Sharpe, ``The Spectral Sensitivities of the Middle- and Long-Wavelength-Sensitive Cones Derived from Measurements in Observers of Known Genotype,'' \emph{Vision Research} \textbf{40} (2000), 1711--1737: cone spectral sensitivities.
+\item Stephen W. Kuffler, ``Discharge Patterns and Functional Organization of Mammalian Retina,'' \emph{Journal of Neurophysiology} \textbf{16} (1953), 37--68: center--surround retinal organization.
+\end{enumerate}
+\vspace{0.1in}\hrule\vspace{0.1in}
+\textbf{Scope and verification.} Original mathematical and scientific results remain owned by their originating authors. The root algebra, compatible-reader family, selected $(5,7)$ member, tuned-octagon ledger, 28-seam combinatorial theorem, axial quotient, completed compatibility product, and declared recognition procedure are exact at their specified resolutions. The Einstein residual is an exact physical instance of the displayed Gravity signature once its gauge and data are fixed; the Lorentzian two-plane congruence is exact; the Newton equations have the explicitly stated asymptotic status; and GPS proper-time/null propagation is a native metric read. This establishes an operator identity and dependency chain, not a derivation of the Einstein field equation from the planar root. The Lorentzian Hodge identities are exact on the stated oriented four-dimensional carrier; $\sigma_x$ is the declared wheel-to-field adapter and retains its kernel. The optical reader is conditional on its paraxial, spectral-sensitivity, retinal, and attention models. Refinement naturality and the physical quotient are conditional on the displayed continuum hypotheses; physical holonomy retains its native connection. Other physical and biological realizations retain their native empirical and theoretical conditions. The completed dependency coordinates reference, Difference, motion, physical readout, continuum return, recognition, and one Memory Return receipt.
+\normalsize
+\end{document}

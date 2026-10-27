@@ -31,3 +31,9 @@ Total reported checks: **13,886,303**, all passing.
 The original per-artifact `.sha256` manifests are preserved byte-for-byte. Two contain historical absolute `/mnt/data/...` path entries. Those entries were not rewritten. The portable repository ledger at the root, `SHA256SUMS`, verifies the packaged tree using relative paths.
 
 `Canonical Root Series I: The Exact Planar Operator Kernel` is not included in this release; the five-paper set begins with *A Complete 2×2 Operator Algebra*.
+
+## Supplement — 27 October 2026
+
+*The Structure of Survival: The Minimum Geometry of Motion, Memory, and Recognition*, Review Edition v66, was added as a supplemental exposition with its compiled PDF, inspectable LaTeX source, and SHA-256 manifest.
+
+The supplement coordinates the planar root, axial quotient and lift, compatible reader family, twenty-eight-seam ledger, physical field interfaces, and covariant continuum closure in one ordered manuscript. It leaves the original five-paper executable release, its manifest, and its reported check count unchanged.

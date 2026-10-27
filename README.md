@@ -1,10 +1,10 @@
 # Clear_Onyx Exact Kernel
 
-## Five-paper set and computational exposition
+## Five-paper kernel and two expositions
 
-This repository presents a bounded, auditable mathematical release by **Anthony Vito Coppa**. It contains five papers that separate local operator algebra, admissibility discipline, central return, finite relational addressing, and conserved transport into distinct jurisdictions, followed by a separate Clear_Onyx exposition that states the computational implementation contract.
+This repository presents a bounded, auditable mathematical release by **Anthony Vito Coppa**. It contains five papers that separate local operator algebra, admissibility discipline, central return, finite relational addressing, and conserved transport into distinct jurisdictions. The Clear_Onyx exposition states the computational implementation contract. *The Structure of Survival* supplies the unified synthesis of motion, metric, memory, recognition, physical readout, and continuum return.
 
-Each paper directory contains the compiled PDF, the LaTeX source, its regression checker, and the original SHA-256 manifest. The exposition contains its PDF, LaTeX source, and original manifest.
+Each paper directory contains the compiled PDF, the LaTeX source, its regression checker, and the original SHA-256 manifest. Each exposition directory contains its compiled PDF, LaTeX source, and SHA-256 manifest.
 
 ## Reading order
 
@@ -16,6 +16,7 @@ Each paper directory contains the compiled PDF, the LaTeX source, its regression
 | 4 | [Four-Phase Addressing and Eight-State Relations](papers/04-four-phase-eight-state/Four_Phase_Addressing_and_Eight_State_Relations_Draft_0_1.pdf) | Phase/occurrence separation, eight states, 28 pair relations, exact scan | 13,823,639 checks |
 | 5 | [Conserved Transport and Return](papers/05-conserved-transport-return/Conserved_Transport_and_Return_Draft_0_1.pdf) | Dynamics, Noether currents, reversible flow, gauge transport, proper time | 61,380 checks |
 | — | [Clear_Onyx Computational Kernel Briefing](exposition/clear-onyx-computational-kernel/Clear_Onyx_Computational_Kernel_Briefing_AVC_2026-08-05.pdf) | Exact normal-form engine, typed state, phase/lift addressing, implementation boundary | Exposition |
+| — | [The Structure of Survival](exposition/the-structure-of-survival/The_Structure_of_Survival_v66.pdf) | Unified typed architecture of motion, metric, memory, recognition, physical readout, and continuum return | Internal proof register |
 
 ## Central computational statement
 
@@ -52,7 +53,7 @@ This repository publishes the exact mathematical and computational architecture 
 
 ## Release status
 
-Release date: **6 August 2026**. See [RELEASE_NOTES.md](RELEASE_NOTES.md) for the complete file-selection and verification record.
+Original five-paper release: **6 August 2026**. *The Structure of Survival*, Review Edition v66, was added as a supplemental exposition on **27 October 2026**. See [RELEASE_NOTES.md](RELEASE_NOTES.md) for the file-selection and verification record.
 
 ## License
 
